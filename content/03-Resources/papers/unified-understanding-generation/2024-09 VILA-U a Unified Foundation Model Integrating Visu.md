@@ -1,0 +1,51 @@
+---
+title: "VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation"
+arxiv_id: "2409.04429"
+arxiv_url: "https://arxiv.org/abs/2409.04429"
+authors:
+  - "Yecheng Wu"
+  - "Zhuoyang Zhang"
+  - "Junyu Chen"
+  - "Haotian Tang"
+  - "Dacheng Li"
+  - "Yunhao Fang"
+published: "2024-09-06"
+categories:
+  - "cs.CV"
+  - "cs.LG"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "Nvidia"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# VILA-U: a Unified Foundation Model Integrating Visual Understanding and Generation
+
+## 📌 核心贡献
+
+> VILA-U是一个统一的视觉语言基础模型，采用单一自回归下一词元预测框架，实现了视频、图像、语言的理解与生成。该模型摒弃了传统VLM中独立的理解与生成模块（如扩散模型），显著简化了架构。通过统一的视觉编码器在预训练阶段对齐离散视觉与文本，VILA-U在各项任务上均达到了接近最先进的性能。
+
+## 📖 摘要
+
+VILA-U is a Unified foundation model that integrates Video, Image, Language understanding and generation. Traditional visual language models (VLMs) use separate modules for understanding and generating visual content, which can lead to misalignment and increased complexity. In contrast, VILA-U employs a single autoregressive next-token prediction framework for both tasks, eliminating the need for additional components like diffusion models. This approach not only simplifies the model but also achieves near state-of-the-art performance in visual language understanding and generation. The success of VILA-U is attributed to two main factors: the unified vision tower that aligns discrete visual tokens with textual inputs during pretraining, which enhances visual perception, and autoregressive image generation can achieve similar quality as diffusion models with high-quality dataset. This allows VILA-U to perform comparably to more complex models using a fully token-based autoregressive framework.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Nvidia |
+| 发表 | 2024-09-06 |
+| 分类 | cs.CV, cs.LG |
+| 链接 | [arXiv](https://arxiv.org/abs/2409.04429) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

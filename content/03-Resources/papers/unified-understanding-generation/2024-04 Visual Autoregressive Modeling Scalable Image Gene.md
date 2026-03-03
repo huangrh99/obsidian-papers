@@ -1,0 +1,48 @@
+---
+title: "Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction"
+arxiv_id: "2404.02905"
+arxiv_url: "https://arxiv.org/abs/2404.02905"
+authors:
+  - "Keyu Tian"
+  - "Yi Jiang"
+  - "Zehuan Yuan"
+  - "Bingyue Peng"
+  - "Liwei Wang"
+published: "2024-04-03"
+categories:
+  - "cs.CV"
+  - "cs.AI"
+tags:
+  - paper
+institution: ""
+notion_topic: "理解生成统一"
+added: "2026-03-04"
+rating: ""
+---
+
+# Visual Autoregressive Modeling: Scalable Image Generation via Next-Scale Prediction
+
+## 📌 核心贡献
+
+> 这篇论文提出了一种名为视觉自回归建模（VAR）的新生成范式，通过将图像自回归学习重新定义为从粗到细的“下一尺度预测”，而非传统的逐像素“下一token预测”，实现了方法上的创新。这种简洁直观的方法使类GPT自回归模型首次在图像生成任务中超越了扩散Transformer，并在ImageNet 256x256基准测试上显著提升了性能。
+
+## 📖 摘要
+
+We present Visual AutoRegressive modeling (VAR), a new generation paradigm that redefines the autoregressive learning on images as coarse-to-fine "next-scale prediction" or "next-resolution prediction", diverging from the standard raster-scan "next-token prediction". This simple, intuitive methodology allows autoregressive (AR) transformers to learn visual distributions fast and generalize well: VAR, for the first time, makes GPT-like AR models surpass diffusion transformers in image generation. On ImageNet 256x256 benchmark, VAR significantly improve AR baseline by improving Frechet inception distance (FID) from 18.65 to 1.73, inception score (IS) from 80.4 to 350.2, with around 20x faster inference speed. It is also empirically verified that VAR outperforms the Diffusion Transformer (DiT) in multiple dimensions including image quality, inference speed, data efficiency, and scalability. Scaling up VAR models exhibits clear power-law scaling laws similar to those observed in LLMs, with linear correlation coefficients near -0.998 as solid evidence. VAR further showcases zero-shot generalization ability in downstream tasks including image in-painting, out-painting, and editing. These results suggest VAR has initially emulated the two important properties of LLMs: Scaling Laws and zero-shot task generalization. We have released all models and codes to promote the exploration of AR/VAR models for visual generation and unified learning.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 |  |
+| 发表 | 2024-04-03 |
+| 分类 | cs.CV, cs.AI |
+| 链接 | [arXiv](https://arxiv.org/abs/2404.02905) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

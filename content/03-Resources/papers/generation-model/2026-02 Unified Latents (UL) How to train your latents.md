@@ -1,0 +1,49 @@
+---
+title: "Unified Latents (UL): How to train your latents"
+arxiv_id: "2602.17270"
+arxiv_url: "https://arxiv.org/abs/2602.17270"
+authors:
+  - "Jonathan Heek"
+  - "Emiel Hoogeboom"
+  - "Thomas Mensink"
+  - "Tim Salimans"
+published: "2026-02-19"
+categories:
+  - "cs.LG"
+  - "cs.CV"
+tags:
+  - paper
+  - generative-model
+  - multimodal
+institution: "Google DeepMind"
+notion_topic: "生成模型"
+added: "2026-03-03"
+rating: ""
+---
+
+# Unified Latents (UL): How to train your latents
+
+## 📌 核心贡献
+
+> UL（统一隐空间）是一个创新的隐式表征学习框架，它通过扩散先验共同正则化隐空间，并由扩散模型解码。其方法创新在于将编码器输出噪声与先验的最小噪声水平关联，设计了简洁的训练目标，有效限制了隐式比特率。该方法在ImageNet-512上实现了出色的FID和重建质量，同时显著减少了训练计算量。
+
+## 📖 摘要
+
+用 diffusion prior + diffusion decoder 联合正则化 latent，encoder 噪声与 prior 最小噪声绑定，ImageNet FID 1.4 / Kinetics FVD 1.3 SOTA。
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Google DeepMind |
+| 发表 | 2026-02-19 |
+| 分类 | cs.LG, cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2602.17270) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

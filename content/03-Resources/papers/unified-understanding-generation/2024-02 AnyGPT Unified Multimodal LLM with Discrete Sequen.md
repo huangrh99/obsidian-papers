@@ -1,0 +1,52 @@
+---
+title: "AnyGPT: Unified Multimodal LLM with Discrete Sequence Modeling"
+arxiv_id: "2402.12226"
+arxiv_url: "https://arxiv.org/abs/2402.12226"
+authors:
+  - "Jun Zhan"
+  - "Junqi Dai"
+  - "Jiasheng Ye"
+  - "Yunhua Zhou"
+  - "Dong Zhang"
+  - "Zhigeng Liu"
+published: "2024-02-19"
+categories:
+  - "cs.CL"
+  - "cs.AI"
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "OpenMoss"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# AnyGPT
+
+## 📌 核心贡献
+
+> AnyGPT是一个统一的多模态大语言模型，通过离散序列建模实现语音、文本、图像和音乐等多种模态的任意到任意处理。其核心创新在于仅通过数据层预处理，无需修改LLM架构或训练范式，即可稳定训练，实现新模态的无缝集成。
+
+## 📖 摘要
+
+We introduce AnyGPT, an any-to-any multimodal language model that utilizes discrete representations for the unified processing of various modalities, including speech, text, images, and music. AnyGPT can be trained stably without any alterations to the current large language model (LLM) architecture or training paradigms. Instead, it relies exclusively on data-level preprocessing, facilitating the seamless integration of new modalities into LLMs, akin to the incorporation of new languages. We build a multimodal text-centric dataset for multimodal alignment pre-training. Utilizing generative models, we synthesize the first large-scale any-to-any multimodal instruction dataset. It consists of 108k samples of multi-turn conversations that intricately interweave various modalities, thus equipping the model to handle arbitrary combinations of multimodal inputs and outputs. Experimental results demonstrate that AnyGPT is capable of facilitating any-to-any multimodal conversation while achieving performance comparable to specialized models across all modalities, proving that discrete representations can effectively and conveniently unify multiple modalities within a language model. Demos are shown in https://junzhan2000.github.io/AnyGPT.github.io/
+
+ 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | OpenMoss |
+| 发表 | 2024-02-19 |
+| 分类 | cs.CL, cs.AI, cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2402.12226) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

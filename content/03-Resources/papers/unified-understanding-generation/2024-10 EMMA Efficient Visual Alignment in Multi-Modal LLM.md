@@ -1,0 +1,52 @@
+---
+title: "EMMA: Efficient Visual Alignment in Multi-Modal LLMs"
+arxiv_id: "2410.02080"
+arxiv_url: "https://arxiv.org/abs/2410.02080"
+authors:
+  - "Sara Ghazanfari"
+  - "Alexandre Araujo"
+  - "Prashanth Krishnamurthy"
+  - "Siddharth Garg"
+  - "Farshad Khorrami"
+published: "2024-10-02"
+categories:
+  - "cs.CV"
+  - "cs.CL"
+  - "cs.LG"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "Huawei"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# EMMA
+
+## 📌 核心贡献
+
+> EMMA论文提出了一种高效的视觉对齐方法，旨在解决多模态大语言模型（MLLMs）中视觉编码融合不佳的挑战。该方法优化了视觉信息在语言模型中的集成，显著提升了模型对特定任务的适应能力。
+
+## 📖 摘要
+
+Encoder: Und和Gen encoder都用32x下采样，Und-Siglip2, VAE-DCAE-32x, channel concat；Und encoder最后一个训练阶段用了MoE
+MLLM: 前面几层，Und和Gen分支用share QK Layer, 后面的分开；位置编码：和bagel一样，图像上先加2D pos embedding, MLLM中用1D ROPE；
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Huawei |
+| 发表 | 2024-10-02 |
+| 分类 | cs.CV, cs.CL, cs.LG |
+| 链接 | [arXiv](https://arxiv.org/abs/2410.02080) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

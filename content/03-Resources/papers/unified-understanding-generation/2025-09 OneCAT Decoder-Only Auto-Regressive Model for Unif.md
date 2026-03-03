@@ -1,0 +1,50 @@
+---
+title: "OneCAT: Decoder-Only Auto-Regressive Model for Unified Understanding and Generation"
+arxiv_id: "2509.03498"
+arxiv_url: "https://arxiv.org/abs/2509.03498"
+authors:
+  - "Han Li"
+  - "Xinyu Peng"
+  - "Yaoming Wang"
+  - "Zelin Peng"
+  - "Xin Chen"
+  - "Rongxiang Weng"
+published: "2025-09-03"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: ""
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# OneCAT: Decoder-Only Auto-Regressive Model for Unified Understanding and Generation
+
+## 📌 核心贡献
+
+> OneCAT是一种纯解码器、自回归式的多模态大模型，能统一处理理解、生成和编辑任务。它通过模态专家混合（MoE）结构，无需外部视觉组件即可高效处理高分辨率输入，并引入多尺度视觉自回归机制，显著减少解码步骤。
+
+## 📖 摘要
+
+We introduce OneCAT, a unified multimodal model that seamlessly integrates understanding, generation, and editing within a novel, pure decoder-only transformer architecture. Our framework uniquely eliminates the need for external components such as Vision Transformers (ViT) or vision tokenizer during inference, leading to significant efficiency gains, especially for high-resolution inputs. This is achieved through a modality-specific Mixture-of-Experts (MoE) structure trained with a single autoregressive (AR) objective, which also natively supports dynamic resolutions. Furthermore, we pioneer a multi-scale visual autoregressive mechanism within the Large Language Model (LLM) that drastically reduces decoding steps compared to diffusion-based methods while maintaining state-of-the-art performance. Our findings demonstrate the powerful potential of pure autoregressive modeling as a sufficient and elegant foundation for unified multimodal intelligence. As a result, OneCAT sets a new performance standard, outperforming existing open-source unified multimodal models across benchmarks for multimodal generation, editing, and understanding.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 |  |
+| 发表 | 2025-09-03 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2509.03498) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

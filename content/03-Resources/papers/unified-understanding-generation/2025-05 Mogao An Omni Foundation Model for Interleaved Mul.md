@@ -1,0 +1,50 @@
+---
+title: "Mogao: An Omni Foundation Model for Interleaved Multi-Modal Generation"
+arxiv_id: "2505.05472"
+arxiv_url: "https://arxiv.org/abs/2505.05472"
+authors:
+  - "Chao Liao"
+  - "Liyang Liu"
+  - "Xun Wang"
+  - "Zhengxiong Luo"
+  - "Xinyu Zhang"
+  - "Wenliang Zhao"
+published: "2025-05-08"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "Bytedance"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# Mogao: An Omni Foundation Model for Interleaved Multi-Modal Generation
+
+## 📌 核心贡献
+
+> Mogao提出了一个统一框架，通过因果方法实现交错的多模态生成。该模型在架构上创新性地采用了深度融合、双视觉编码器及交错旋转位置嵌入，结合了自回归和扩散模型的优点。这使其能高效处理混合序列，并生成高质量的文本和图像。
+
+## 📖 摘要
+
+Recent progress in unified models for image understanding and generation has been impressive, yet most approaches remain limited to single-modal generation conditioned on multiple modalities. In this paper, we present Mogao, a unified framework that advances this paradigm by enabling interleaved multi-modal generation through a causal approach. Mogao integrates a set of key technical improvements in architecture design, including a deep-fusion design, dual vision encoders, interleaved rotary position embeddings, and multi-modal classifier-free guidance, which allow it to harness the strengths of both autoregressive models for text generation and diffusion models for high-quality image synthesis. These practical improvements also make Mogao particularly effective to process interleaved sequences of text and images arbitrarily. To further unlock the potential of unified models, we introduce an efficient training strategy on a large-scale, in-house dataset specifically curated for joint text and image generation. Extensive experiments show that Mogao not only achieves state-of-the-art performance in multi-modal understanding and text-to-image generation, but also excels in producing high-quality, coherent interleaved outputs. Its emergent capabilities in zero-shot image editing and compositional generation highlight Mogao as a practical omni-modal foundation model, paving the way for future development and scaling the unified multi-modal systems.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Bytedance |
+| 发表 | 2025-05-08 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2505.05472) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

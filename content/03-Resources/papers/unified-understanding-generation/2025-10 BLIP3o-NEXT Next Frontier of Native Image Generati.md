@@ -1,0 +1,50 @@
+---
+title: "BLIP3o-NEXT: Next Frontier of Native Image Generation"
+arxiv_id: "2510.15857"
+arxiv_url: "https://arxiv.org/abs/2510.15857"
+authors:
+  - "Jiuhai Chen"
+  - "Le Xue"
+  - "Zhiyang Xu"
+  - "Xichen Pan"
+  - "Shusheng Yang"
+  - "Can Qin"
+published: "2025-10-17"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "Salesforces"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# BLIP3o-NEXT: Next Frontier of Native Image Generation
+
+## 📌 核心贡献
+
+> BLIP3o-NEXT是BLIP3系列中一个完全开源的基础模型，将文本到图像生成和图像编辑统一在一个架构中，展示了强大的生成和编辑能力。该研究发现，模型的性能主要取决于可扩展性和推理速度，并通过强化学习进一步提升了原生图像生成的效果。
+
+## 📖 摘要
+
+We present BLIP3o-NEXT, a fully open-source foundation model in the BLIP3 series that advances the next frontier of native image generation. BLIP3o-NEXT unifies text-to-image generation and image editing within a single architecture, demonstrating strong image generation and image editing capabilities. In developing the state-of-the-art native image generation model, we identify four key insights: (1) Most architectural choices yield comparable performance; an architecture can be deemed effective provided it scales efficiently and supports fast inference; (2) The successful application of reinforcement learning can further push the frontier of native image generation; (3) Image editing still remains a challenging task, yet instruction following and the consistency between generated and reference images can be significantly enhanced through post-training and data engine; (4) Data quality and scale continue to be decisive factors that determine the upper bound of model performance. Building upon these insights, BLIP3o-NEXT leverages an Autoregressive + Diffusion architecture in which an autoregressive model first generates discrete image tokens conditioned on multimodal inputs, whose hidden states are then used as conditioning signals for a diffusion model to generate high-fidelity images. This architecture integrates the reasoning strength and instruction following of autoregressive models with the fine-detail rendering ability of diffusion models, achieving a new level of coherence and realism. Extensive evaluations of various text-to-image and image-editing benchmarks show that BLIP3o-NEXT achieves superior performance over existing models.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Salesforces |
+| 发表 | 2025-10-17 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2510.15857) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

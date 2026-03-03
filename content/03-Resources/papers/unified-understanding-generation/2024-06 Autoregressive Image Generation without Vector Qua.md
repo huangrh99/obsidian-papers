@@ -1,0 +1,49 @@
+---
+title: "Autoregressive Image Generation without Vector Quantization"
+arxiv_id: "2406.11838"
+arxiv_url: "https://arxiv.org/abs/2406.11838"
+authors:
+  - "Tianhong Li"
+  - "Yonglong Tian"
+  - "He Li"
+  - "Mingyang Deng"
+  - "Kaiming He"
+published: "2024-06-17"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "MiT, Google Deepmind"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# MAR
+
+## 📌 核心贡献
+
+> 这篇论文的核心贡献是提出了一种无需向量量化的自回归图像生成方法，打破了传统观念。其创新之处在于，通过扩散过程对每个 token 的概率分布进行建模，使得自回归模型可以在连续值空间中运行，并引入了“Diffusion Loss”来替代传统的交叉熵损失函数。
+
+## 📖 摘要
+
+连续：VAE的特征；打乱顺序，预测下一个/多个token；推理：单token出-无序比有序好，质量高；多token出：速度快，但质量略差；bidirectional attention
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | MiT, Google Deepmind |
+| 发表 | 2024-06-17 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2406.11838) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

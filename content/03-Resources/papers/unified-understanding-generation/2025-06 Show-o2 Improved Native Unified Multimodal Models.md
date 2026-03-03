@@ -1,0 +1,47 @@
+---
+title: "Show-o2: Improved Native Unified Multimodal Models"
+arxiv_id: "2506.15564"
+arxiv_url: "https://arxiv.org/abs/2506.15564"
+authors:
+  - "Jinheng Xie"
+  - "Zhenheng Yang"
+  - "Mike Zheng Shou"
+published: "2025-06-18"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: "NUS, bytedance"
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# Show-o2: Improved Native Unified Multimodal Models
+
+## 📌 核心贡献
+
+> Show-o2是一种统一多模态模型，通过3D因果变分自编码器空间中的双路径空间融合，构建统一视觉表示，实现图像和视频的跨模态扩展。它创造性地将自回归建模用于文本预测，并将流匹配用于图像/视频生成。通过两阶段训练，该模型有效提升了多模态理解和生成能力。
+
+## 📖 摘要
+
+This paper presents improved native unified multimodal models, \emph{i.e.,} Show-o2, that leverage autoregressive modeling and flow matching. Built upon a 3D causal variational autoencoder space, unified visual representations are constructed through a dual-path of spatial (-temporal) fusion, enabling scalability across image and video modalities while ensuring effective multimodal understanding and generation. Based on a language model, autoregressive modeling and flow matching are natively applied to the language head and flow head, respectively, to facilitate text token prediction and image/video generation. A two-stage training recipe is designed to effectively learn and scale to larger models. The resulting Show-o2 models demonstrate versatility in handling a wide range of multimodal understanding and generation tasks across diverse modalities, including text, images, and videos. Code and models are released at https://github.com/showlab/Show-o.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | NUS, bytedance |
+| 发表 | 2025-06-18 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2506.15564) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

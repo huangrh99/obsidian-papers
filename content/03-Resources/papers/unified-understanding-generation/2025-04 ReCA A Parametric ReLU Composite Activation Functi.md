@@ -1,0 +1,48 @@
+---
+title: "ReCA: A Parametric ReLU Composite Activation Function"
+arxiv_id: "2504.08994"
+arxiv_url: "https://arxiv.org/abs/2504.08994"
+authors:
+  - "John Chidiac"
+  - "Danielle Azar"
+published: "2025-04-11"
+categories:
+  - "cs.LG"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: ""
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# ReCA
+
+## 📌 核心贡献
+
+> 本文提出了一种名为 ReCA 的新型参数化复合激活函数，其设计基于 ReLU。这种创新方法显著提升了深度神经网络在各种复杂架构和数据集上的性能，超越了现有基线。
+
+## 📖 摘要
+
+Most proteins involved in processing DNA accomplish their activities as a monomer or as a component of a multimer containing a relatively small number of other elements. They generally act locally, binding to one or a few small regions of the DNA substrate. Striking exceptions are the 	extit{E. coli} protein RecA and its homologues in other species, whose activities are associated with homologous DNA recombination. The active form of RecA in DNA recombination is a stiff nucleoprotein filament formed by RecA and DNA, within which the DNA is extended by 50%. Invoking physical and geometrical ideas, we show that the filamentary organization greatly enhances the rate of homologous recognition while preventing the formation of topological traps originating from multi-site recognition.
+
+
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 |  |
+| 发表 | 2025-04-11 |
+| 分类 | cs.LG |
+| 链接 | [arXiv](https://arxiv.org/abs/2504.08994) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

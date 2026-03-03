@@ -1,0 +1,48 @@
+---
+title: "Scaling the Codebook Size of VQGAN to 100,000 with a Utilization Rate of 99%"
+arxiv_id: "2406.11837"
+arxiv_url: "https://arxiv.org/abs/2406.11837"
+authors:
+  - "Lei Zhu"
+  - "Fangyun Wei"
+  - "Yanye Lu"
+  - "Dong Chen"
+published: "2024-06-17"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - vision-tokenizer
+  - multimodal
+institution: ""
+notion_topic: "视觉编码器/词表"
+added: "2026-03-03"
+rating: ""
+---
+
+# Scaling Codebook Size of VQGAN to 1000000
+
+## 📌 核心贡献
+
+> 本论文旨在解决VQGAN模型在扩展码本规模和提高码本利用率方面的挑战。通过引入一种新方法，该研究成功将VQGAN的码本大小扩展至100,000个，并实现了99%的高利用率，从而显著提升了模型性能。
+
+## 📖 摘要
+
+In the realm of image quantization exemplified by VQGAN, the process encodes images into discrete tokens drawn from a codebook with a predefined size. Recent advancements, particularly with LLAMA 3, reveal that enlarging the codebook significantly enhances model performance. However, VQGAN and its derivatives, such as VQGAN-FC (Factorized Codes) and VQGAN-EMA, continue to grapple with challenges related to expanding the codebook size and enhancing codebook utilization. For instance, VQGAN-FC is restricted to learning a codebook with a maximum size of 16,384, maintaining a typically low utilization rate of less than 12% on ImageNet. In this work, we propose a novel image quantization model named VQGAN-LC (Large Codebook), which extends the codebook size to 100,000, achieving an utilization rate exceeding 99%. Unlike previous methods that optimize each codebook entry, our approach begins with a codebook initialized with 100,000 features extracted by a pre-trained vision encoder. Optimization then focuses on training a projector that aligns the entire codebook with the feature distributions of the encoder in VQGAN-LC. We demonstrate the superior performance of our model over its counterparts across a variety of tasks, including image reconstruction, image classification, auto-regressive image generation using GPT, and image creation with diffusion- and flow-based generative models. Code and models are available at https://github.com/zh460045050/VQGAN-LC.
+
+ 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 |  |
+| 发表 | 2024-06-17 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2406.11837) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

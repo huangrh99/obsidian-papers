@@ -1,0 +1,48 @@
+---
+title: "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer"
+arxiv_id: "2511.22699"
+arxiv_url: "https://arxiv.org/abs/2511.22699"
+authors:
+  - "Z-Image Team"
+  - "Huanqia Cai"
+  - "Sihan Cao"
+  - "Ruoyi Du"
+  - "Peng Gao"
+  - "Steven Hoi"
+published: "2025-11-27"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+institution: "Alibaba"
+notion_topic: "理解生成统一"
+added: "2026-03-04"
+rating: ""
+---
+
+# Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer
+
+## 📌 核心贡献
+
+> Z-Image 提出了一种高效的 6B 参数图像生成基础模型，旨在解决现有开源模型参数量过大、难以在消费级硬件上推理和微调的问题。其核心创新在于采用了可扩展的单流扩散 Transformer (S3-DiT) 架构，打破了“不惜一切代价追求规模”的范式。
+
+## 📖 摘要
+
+The landscape of high-performance image generation models is currently dominated by proprietary systems, such as Nano Banana Pro and Seedream 4.0. Leading open-source alternatives, including Qwen-Image, Hunyuan-Image-3.0 and FLUX.2, are characterized by massive parameter counts (20B to 80B), making them impractical for inference, and fine-tuning on consumer-grade hardware. To address this gap, we propose Z-Image, an efficient 6B-parameter foundation generative model built upon a Scalable Single-Stream Diffusion Transformer (S3-DiT) architecture that challenges the "scale-at-all-costs" paradigm. By systematically optimizing the entire model lifecycle -- from a curated data infrastructure to a streamlined training curriculum -- we complete the full training workflow in just 314K H800 GPU hours (approx. $630K). Our few-step distillation scheme with reward post-training further yields Z-Image-Turbo, offering both sub-second inference latency on an enterprise-grade H800 GPU and compatibility with consumer-grade hardware (<16GB VRAM). Additionally, our omni-pre-training paradigm also enables efficient training of Z-Image-Edit, an editing model with impressive instruction-following capabilities. Both qualitative and quantitative experiments demonstrate that our model achieves performance comparable to or surpassing that of leading competitors across various dimensions. Most notably, Z-Image exhibits exceptional capabilities in photorealistic image generation and bilingual text rendering, delivering results that rival top-tier commercial models, thereby demonstrating that state-of-the-art results are achievable with significantly reduced computational overhead. We publicly release our code, weights, and online demo to foster the development of accessible, budget-friendly, yet state-of-the-art generative models.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Alibaba |
+| 发表 | 2025-11-27 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2511.22699) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

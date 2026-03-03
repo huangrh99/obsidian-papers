@@ -1,0 +1,52 @@
+---
+title: "TokLIP: Marry Visual Tokens to CLIP for Multimodal Comprehension and Generation"
+arxiv_id: "2505.05422"
+arxiv_url: "https://arxiv.org/abs/2505.05422"
+authors:
+  - "Haokun Lin"
+  - "Teng Wang"
+  - "Yixiao Ge"
+  - "Yuying Ge"
+  - "Zhichao Lu"
+  - "Ying Wei"
+published: "2025-05-08"
+categories:
+  - "cs.CV"
+  - "cs.AI"
+  - "cs.CL"
+tags:
+  - paper
+  - vision-tokenizer
+  - multimodal
+institution: "Tecent ARC Lab"
+notion_topic: "视觉编码器/词表"
+added: "2026-03-03"
+rating: ""
+---
+
+# TokLIP
+
+## 📌 核心贡献
+
+> TokLIP通过语义化VQ视觉token，并整合CLIP高级语义，解决了现有token化多模态模型训练成本高、理解力不足的问题。其方法创新在于将视觉token与CLIP结合，实现了端到端多模态自回归训练，显著提升了多模态的理解与生成能力。
+
+## 📖 摘要
+
+解决两个一起优化存在的冲突问题，串联方案（可以认为是离散版的Tuna）；方法：先离散再提取语义：加载预训练VQGAN进行离散化，通过MLP投影到CLIP初始化的token encoder层，使用蒸馏和对比学习优化MLP和token encoder（casual attn）；VQ: IBQ 260k
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 | Tecent ARC Lab |
+| 发表 | 2025-05-08 |
+| 分类 | cs.CV, cs.AI, cs.CL |
+| 链接 | [arXiv](https://arxiv.org/abs/2505.05422) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

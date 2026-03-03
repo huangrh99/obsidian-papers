@@ -1,0 +1,51 @@
+---
+title: "FILIP: Fine-grained Interactive Language-Image Pre-Training"
+arxiv_id: "2111.07783"
+arxiv_url: "https://arxiv.org/abs/2111.07783"
+authors:
+  - "Lewei Yao"
+  - "Runhui Huang"
+  - "Lu Hou"
+  - "Guansong Lu"
+  - "Minzhe Niu"
+  - "Hang Xu"
+published: "2021-11-09"
+categories:
+  - "cs.CV"
+  - "cs.LG"
+tags:
+  - paper
+  - multimodal
+  - computer-vision
+  - contrastive-learning
+  - fine-grained
+added: "2026-03-02"
+rating: ""
+---
+
+# FILIP: FILIP: Fine-grained Interactive Language-Image Pre-Training
+
+## 📌 核心贡献
+
+> FILIP提出一种高效的细粒度语言-图像预训练方法，通过创新的交叉模态延迟交互机制，克服了现有方法信息不足或效率低下的问题。该机制利用视觉和文本token之间的最大相似度来指导对比学习，实现了更精细的跨模态对齐。
+
+## 📖 摘要
+
+Unsupervised large-scale vision-language pre-training has shown promising advances on various downstream tasks. Existing methods often model the cross-modal interaction either via the similarity of the global feature of each modality which misses sufficient information, or finer-grained interactions using cross/self-attention upon visual and textual tokens. However, cross/self-attention suffers from inferior efficiency in both training and inference. In this paper, we introduce a large-scale Fine-grained Interactive Language-Image Pre-training (FILIP) to achieve finer-level alignment through a cross-modal late interaction mechanism, which uses a token-wise maximum similarity between visual and textual tokens to guide the contrastive objective. FILIP successfully leverages the finer-grained expressiveness between image patches and textual words by modifying only contrastive loss, while simultaneously gaining the ability to pre-compute image and text representations offline at inference, keeping both large-scale training and inference efficient.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 发表 | 2021-11-09 |
+| 分类 | cs.CV, cs.LG |
+| 链接 | [arXiv](https://arxiv.org/abs/2111.07783) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+- [[CLIP - Learning Transferable Visual Models From Natural Language Supervision]]
+- [[NLIP - Noise-robust Language-Image Pre-training]]
