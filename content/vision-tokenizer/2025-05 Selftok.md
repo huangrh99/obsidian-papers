@@ -1,5 +1,4 @@
 ---
-title: "Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning"
 arxiv_id: "2505.07538"
 arxiv_url: "https://arxiv.org/abs/2505.07538"
 authors:
@@ -29,7 +28,8 @@ related_topic:
   - "[[LlamaGen]]"
   - "[[UniTok]]"
   - "[[FQGAN]]"
----
+---title: "Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning"
+
 
 # Selftok
 

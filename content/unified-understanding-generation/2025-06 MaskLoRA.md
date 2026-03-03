@@ -1,5 +1,4 @@
 ---
-title: "Mask-Based LoRA Tuning for Flexible Video Editing with Spatiotemporal Guidance"
 arxiv_id: "2506.10082"
 arxiv_url: "https://arxiv.org/abs/2506.10082"
 authors:
@@ -15,7 +14,8 @@ institution: "Skywork"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "Mask-Based LoRA Tuning for Flexible Video Editing with Spatiotemporal Guidance"
+
 
 # UniPic-2
 

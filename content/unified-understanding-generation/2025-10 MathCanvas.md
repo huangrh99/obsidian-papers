@@ -1,5 +1,4 @@
 ---
-title: "MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning"
 arxiv_id: "2510.14958"
 arxiv_url: "https://arxiv.org/abs/2510.14958"
 authors:
@@ -21,7 +20,8 @@ institution: "MMlab"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning"
+
 
 # MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning
 

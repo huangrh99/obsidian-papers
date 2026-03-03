@@ -1,5 +1,4 @@
 ---
-title: "Infinity: Scaling Bitwise AutoRegressive Modeling for High-Resolution Image Synthesis"
 arxiv_id: "2412.04431"
 arxiv_url: "https://arxiv.org/abs/2412.04431"
 authors:
@@ -30,7 +29,8 @@ related_topic:
   - "[[ImageFolder]]"
   - "[[VQGAN-100k]]"
   - "[[VTP]]"
----
+---title: "Infinity: Scaling Bitwise AutoRegressive Modeling for High-Resolution Image Synthesis"
+
 
 # Infinity
 

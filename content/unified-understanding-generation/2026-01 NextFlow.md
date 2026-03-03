@@ -1,5 +1,4 @@
 ---
-title: "NextFlow: Unified Sequential Modeling Activates Multimodal Understanding and Generation"
 arxiv_id: "2601.02204"
 arxiv_url: "https://arxiv.org/abs/2601.02204"
 authors:
@@ -19,7 +18,8 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----
+---title: "NextFlow: Unified Sequential Modeling Activates Multimodal Understanding and Generation"
+
 
 # NextFlow: Unified Sequential Modeling Activates Multimodal Understanding and Generation
 

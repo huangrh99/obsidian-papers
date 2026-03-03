@@ -1,5 +1,4 @@
 ---
-title: "UniWorld-V1: High-Resolution Semantic Encoders for Unified Visual Understanding and Generation"
 arxiv_id: "2506.03147"
 arxiv_url: "https://arxiv.org/abs/2506.03147"
 authors:
@@ -30,7 +29,8 @@ related_topic:
   - "[[DINO-Foresight]]"
   - "[[InternVL]]"
   - "[[AIMv2]]"
----
+---title: "UniWorld-V1: High-Resolution Semantic Encoders for Unified Visual Understanding and Generation"
+
 
 # UniWorld
 

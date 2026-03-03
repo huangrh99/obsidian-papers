@@ -1,5 +1,4 @@
 ---
-title: "Does Understanding Inform Generation in Unified Multimodal Models? From Analysis to Path Forward"
 arxiv_id: "2511.20561"
 arxiv_url: "https://arxiv.org/abs/2511.20561"
 authors:
@@ -20,7 +19,8 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----
+---title: "Does Understanding Inform Generation in Unified Multimodal Models? From Analysis to Path Forward"
+
 
 # DoesUInformG
 

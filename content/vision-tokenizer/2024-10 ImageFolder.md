@@ -1,5 +1,4 @@
 ---
-title: "ImageFolder: Autoregressive Image Generation with Folded Tokens"
 arxiv_id: "2410.01756"
 arxiv_url: "https://arxiv.org/abs/2410.01756"
 authors:
@@ -29,7 +28,8 @@ related_topic:
   - "[[LlamaGen]]"
   - "[[Infinity]]"
   - "[[VQGAN-100k]]"
----
+---title: "ImageFolder: Autoregressive Image Generation with Folded Tokens"
+
 
 # ImageFolder
 

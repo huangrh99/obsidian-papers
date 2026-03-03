@@ -1,5 +1,4 @@
 ---
-title: "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling"
 arxiv_id: "2501.17811"
 arxiv_url: "https://arxiv.org/abs/2501.17811"
 authors:
@@ -22,7 +21,8 @@ institution: "Deepseek"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling"
+
 
 # Janus/Jauns-Pro
 

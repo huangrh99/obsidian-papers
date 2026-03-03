@@ -1,5 +1,4 @@
 ---
-title: "Chameleon: Mixed-Modal Early-Fusion Foundation Models"
 arxiv_id: "2405.09818"
 arxiv_url: "https://arxiv.org/abs/2405.09818"
 authors:
@@ -15,7 +14,8 @@ institution: "Meta Fair"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "Chameleon: Mixed-Modal Early-Fusion Foundation Models"
+
 
 # Chameleon
 

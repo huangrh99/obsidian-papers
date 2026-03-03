@@ -1,5 +1,4 @@
 ---
-title: "Making LLaMA SEE and Draw with SEED Tokenizer"
 arxiv_id: "2310.01218"
 arxiv_url: "https://arxiv.org/abs/2310.01218"
 authors:
@@ -20,7 +19,8 @@ institution: "ARC Lab"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "Making LLaMA SEE and Draw with SEED Tokenizer"
+
 
 # Seed-llama
 

@@ -1,5 +1,4 @@
 ---
-title: "UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation"
 arxiv_id: "2510.10575"
 arxiv_url: "https://arxiv.org/abs/2510.10575"
 authors:
@@ -30,7 +29,8 @@ related_topic:
   - "[[AToken]]"
   - "[[VidTok]]"
   - "[[TokenFlow]]"
----
+---title: "UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation"
+
 
 # UniFlow: A Unified Pixel Flow Tokenizer for Visual Understanding and Generation
 

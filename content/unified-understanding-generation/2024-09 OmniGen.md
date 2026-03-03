@@ -1,5 +1,4 @@
 ---
-title: "OmniGen: Unified Image Generation"
 arxiv_id: "2409.11340"
 arxiv_url: "https://arxiv.org/abs/2409.11340"
 authors:
@@ -19,7 +18,8 @@ institution: "BAAI"
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----
+---title: "OmniGen: Unified Image Generation"
+
 
 # OmniGen: Unified Image Generation
 

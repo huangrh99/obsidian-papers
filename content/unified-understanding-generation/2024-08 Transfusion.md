@@ -1,5 +1,4 @@
 ---
-title: "TRANSFUSION: PREDICT THE NEXT TOKEN AND DIFFUSE IMAGES WITH ONE MULTI-MODAL MODEL"
 arxiv_id: "2408.11039"
 arxiv_url: "https://arxiv.org/abs/2408.11039"
 authors:
@@ -15,7 +14,8 @@ institution: "Meta"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----
+---title: "TRANSFUSION: PREDICT THE NEXT TOKEN AND DIFFUSE IMAGES WITH ONE MULTI-MODAL MODEL"
+
 
 # Transfusion
 

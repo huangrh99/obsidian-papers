@@ -1,5 +1,4 @@
 ---
-title: "Vector-quantized Image Modeling with Improved VQGAN"
 arxiv_id: "2110.04627"
 arxiv_url: "https://arxiv.org/abs/2110.04627"
 authors:
@@ -34,7 +33,8 @@ related_topic:
   - "[[BEiT]]"
   - "[[FSQ]]"
   - "[[GigaTok]]"
----
+---title: "Vector-quantized Image Modeling with Improved VQGAN"
+
 
 # ViT-VQGAN
 
