@@ -1,0 +1,49 @@
+---
+title: "When Less is Enough: Adaptive Token Reduction for Efficient Image Representation"
+arxiv_id: "2503.16660"
+arxiv_url: "https://arxiv.org/abs/2503.16660"
+authors:
+  - "Eduard Allakhverdov"
+  - "Elizaveta Goncharova"
+  - "Andrey Kuznetsov"
+published: "2025-03-20"
+categories:
+  - "cs.CV"
+tags:
+  - paper
+  - understanding-generation
+  - multimodal
+institution: ""
+notion_topic: "理解生成统一"
+added: "2026-03-03"
+rating: ""
+---
+
+# UniCoT
+
+## 📌 核心贡献
+
+> 该AI/ML论文提出一种自适应Token缩减方法，旨在高效处理图像数据。其核心创新在于，通过自编码器与Gumbel-Softmax选择机制，智能识别并丢弃可由高价值特征重建的冗余视觉Token，大幅降低计算量而不影响质量。
+
+## 📖 摘要
+
+Vision encoders typically generate a large number of visual tokens, providing information-rich representations but significantly increasing computational demands. This raises the question of whether all generated tokens are equally valuable or if some of them can be discarded to reduce computational costs without compromising quality. In this paper, we introduce a new method for determining feature utility based on the idea that less valuable features can be reconstructed from more valuable ones. We implement this concept by integrating an autoencoder with a Gumbel-Softmax selection mechanism, that allows identifying and retaining only the most informative visual tokens. To validate our approach, we compared the performance of the LLaVA-NeXT model, using features selected by our method with randomly selected features. We found that on OCR-based tasks, more than 50% of the visual context can be removed with minimal performance loss, whereas randomly discarding the same proportion of features significantly affects the model capabilities. Furthermore, in general-domain tasks, even randomly retaining only 30% of tokens achieves performance comparable to using the full set of visual tokens. Our results highlight a promising direction towards adaptive and efficient multimodal pruning that facilitates scalable and low-overhead inference without compromising performance.
+
+
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 机构 |  |
+| 发表 | 2025-03-20 |
+| 分类 | cs.CV |
+| 链接 | [arXiv](https://arxiv.org/abs/2503.16660) |
+
+## 📝 我的笔记
+
+
+
+## 🔗 相关论文
+
+<!-- [[wiki-link]] -->

@@ -1,7 +1,7 @@
 ---
 title: "internViT"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2404.04738"
+arxiv_url: "https://arxiv.org/abs/2404.04738"
 authors:
   - ""
 published: "unknown"
@@ -34,7 +34,7 @@ rating: ""
 | 机构 |  |
 | 发表 | unknown |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2404.04738) |
 
 ## 📝 我的笔记
 

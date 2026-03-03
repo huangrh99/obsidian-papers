@@ -1,7 +1,7 @@
 ---
 title: "Hunyuan3.0"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2505.20337"
+arxiv_url: "https://arxiv.org/abs/2505.20337"
 authors:
   - ""
 published: "2025.9"
@@ -34,7 +34,7 @@ rating: ""
 | 机构 | Tencent |
 | 发表 | 2025.9 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2505.20337) |
 
 ## 📝 我的笔记
 

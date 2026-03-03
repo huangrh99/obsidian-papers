@@ -1,10 +1,10 @@
 ---
-title: "Ovis-U1"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "One-dimensional vs. Multi-dimensional Pricing in Blockchain Protocols"
+arxiv_id: "2506.13271"
+arxiv_url: "https://arxiv.org/abs/2506.13271"
 authors:
   - ""
-published: "2025.6"
+published: "2025-06"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ VLM出hidden state过refiner后介入dit；refiner：2 transformer block with mo
 | 字段 | 内容 |
 |------|------|
 | 机构 | Alibaba |
-| 发表 | 2025.6 |
+| 发表 | 2025-06 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2506.13271) |
 
 ## 📝 我的笔记
 

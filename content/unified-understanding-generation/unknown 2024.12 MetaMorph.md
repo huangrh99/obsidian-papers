@@ -1,7 +1,7 @@
 ---
 title: "MetaMorph"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2412.14164"
+arxiv_url: "https://arxiv.org/abs/2412.14164"
 authors:
   - ""
 published: "2024.12"
@@ -34,7 +34,7 @@ LLM预测visual token-cosine loss-GT via feature; 验证了理解和生成数据
 | 机构 | Meta |
 | 发表 | 2024.12 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2412.14164) |
 
 ## 📝 我的笔记
 

@@ -1,10 +1,10 @@
 ---
-title: "AIMv2"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "DimensionX: A framework designed to generate photorealistic 3D and 4D scenes from just a single image with video diffusion"
+arxiv_id: "2411.04928"
+arxiv_url: "https://arxiv.org/abs/2411.04928"
 authors:
   - ""
-published: "unknown"
+published: "2024-11"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ rating: ""
 | 字段 | 内容 |
 |------|------|
 | 机构 |  |
-| 发表 | unknown |
+| 发表 | 2024-11 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2411.04928) |
 
 ## 📝 我的笔记
 

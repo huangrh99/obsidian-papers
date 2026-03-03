@@ -1,10 +1,10 @@
 ---
-title: "NextStep-1"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "未知论文标题"
+arxiv_id: "2507.09026"
+arxiv_url: "https://arxiv.org/abs/2507.09026"
 authors:
   - ""
-published: "2025.8"
+published: "YYYY-MM (未知)"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ rating: ""
 | 字段 | 内容 |
 |------|------|
 | 机构 | StepFun |
-| 发表 | 2025.8 |
+| 发表 | YYYY-MM (未知) |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2507.09026) |
 
 ## 📝 我的笔记
 

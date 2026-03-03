@@ -1,10 +1,10 @@
 ---
-title: "Transfusion"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "TRANSFUSION: PREDICT THE NEXT TOKEN AND DIFFUSE IMAGES WITH ONE MULTI-MODAL MODEL"
+arxiv_id: "2408.11039"
+arxiv_url: "https://arxiv.org/abs/2408.11039"
 authors:
   - ""
-published: "2024.8"
+published: "2024-08"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ rating: ""
 | 字段 | 内容 |
 |------|------|
 | 机构 | Meta |
-| 发表 | 2024.8 |
+| 发表 | 2024-08 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2408.11039) |
 
 ## 📝 我的笔记
 

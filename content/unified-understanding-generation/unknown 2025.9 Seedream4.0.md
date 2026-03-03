@@ -1,40 +1,40 @@
 ---
-title: "Seed-llama"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "Seedream4.0"
+arxiv_id: "2506.09113"
+arxiv_url: "https://arxiv.org/abs/2506.09113"
 authors:
   - ""
-published: "2023.10"
+published: "2025.9"
 categories:
   - ""
 tags:
   - paper
   - understanding-generation
   - multimodal
-institution: "ARC Lab"
+institution: "Bytedance"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
 ---
 
-# Seed-llama
+# Seedream4.0
 
 ## 📌 核心贡献
 
-> （待补充）
+> 纯diffusion结构，VLM只用于PE作prompt改写
 
 ## 📖 摘要
 
-
+纯diffusion结构，VLM只用于PE作prompt改写
 
 ## 🔍 关键信息
 
 | 字段 | 内容 |
 |------|------|
-| 机构 | ARC Lab |
-| 发表 | 2023.10 |
+| 机构 | Bytedance |
+| 发表 | 2025.9 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2506.09113) |
 
 ## 📝 我的笔记
 

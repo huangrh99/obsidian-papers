@@ -1,10 +1,10 @@
 ---
-title: "Uniworld"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "Cross-View Multi-Modal Object Segmentation for Object Correspondence"
+arxiv_id: "2506.05856"
+arxiv_url: "https://arxiv.org/abs/2506.05856"
 authors:
   - ""
-published: "2025.6"
+published: "2025-06"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ VLM锁住不动，VLM和DiT都用语义编码器；训练策略：stage1-MLP onl
 | 字段 | 内容 |
 |------|------|
 | 机构 | PKU |
-| 发表 | 2025.6 |
+| 发表 | 2025-06 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2506.05856) |
 
 ## 📝 我的笔记
 

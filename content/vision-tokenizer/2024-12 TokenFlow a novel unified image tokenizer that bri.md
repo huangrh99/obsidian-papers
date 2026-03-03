@@ -1,10 +1,10 @@
 ---
-title: "TokenFlow"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "TokenFlow: a novel unified image tokenizer that bridges the long-standing gap between multimodal understanding and generation"
+arxiv_id: "2412.03069"
+arxiv_url: "https://arxiv.org/abs/2412.03069"
 authors:
   - ""
-published: "2024.12"
+published: "2024-12"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ semantic encoder+pixel encoder, semantic decoder+pixel decoder; 词表：两套c
 | 字段 | 内容 |
 |------|------|
 | 机构 | ByteDance |
-| 发表 | 2024.12 |
+| 发表 | 2024-12 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2412.03069) |
 
 ## 📝 我的笔记
 

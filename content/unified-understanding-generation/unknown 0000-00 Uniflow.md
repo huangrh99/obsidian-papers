@@ -1,7 +1,7 @@
 ---
 title: "Uniflow"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2501.08545"
+arxiv_url: "https://arxiv.org/abs/2501.08545"
 authors:
   - ""
 published: "unknown"
@@ -34,7 +34,7 @@ unified encoder+pixel flow decoder: 蒸馏+重建- patch-wise flow matching loss
 | 机构 | AI Lab |
 | 发表 | unknown |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2501.08545) |
 
 ## 📝 我的笔记
 

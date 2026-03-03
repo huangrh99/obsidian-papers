@@ -1,7 +1,7 @@
 ---
 title: "VTP"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2501.10781"
+arxiv_url: "https://arxiv.org/abs/2501.10781"
 authors:
   - ""
 published: "unknown"
@@ -42,7 +42,7 @@ rating: ""
 | 机构 | minimax |
 | 发表 | unknown |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2501.10781) |
 
 ## 📝 我的笔记
 

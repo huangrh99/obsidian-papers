@@ -1,10 +1,10 @@
 ---
-title: "LightBagel"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "A Survey on Practitioner Integration of Generative AI Tools in Software Development: Prompting Strategies, Conversation Patterns, and Reliability Assessments"
+arxiv_id: "2510.06000"
+arxiv_url: "https://arxiv.org/abs/2510.06000"
 authors:
   - ""
-published: "2025.10"
+published: "2025-10"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ VLM和DiT用预训练的，验证两者在早期深层交互比后接效果好�
 | 字段 | 内容 |
 |------|------|
 | 机构 | Bytedance |
-| 发表 | 2025.10 |
+| 发表 | 2025-10 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2510.06000) |
 
 ## 📝 我的笔记
 

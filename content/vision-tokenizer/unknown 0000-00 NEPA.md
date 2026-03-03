@@ -1,7 +1,7 @@
 ---
-title: "UniCoT"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "NEPA"
+arxiv_id: "2503.11764"
+arxiv_url: "https://arxiv.org/abs/2503.11764"
 authors:
   - ""
 published: "unknown"
@@ -9,15 +9,15 @@ categories:
   - ""
 tags:
   - paper
-  - understanding-generation
+  - vision-tokenizer
   - multimodal
 institution: ""
-notion_topic: "理解生成统一"
+notion_topic: "视觉编码器/词表"
 added: "2026-03-03"
 rating: ""
 ---
 
-# UniCoT
+# NEPA
 
 ## 📌 核心贡献
 
@@ -34,7 +34,7 @@ rating: ""
 | 机构 |  |
 | 发表 | unknown |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2503.11764) |
 
 ## 📝 我的笔记
 

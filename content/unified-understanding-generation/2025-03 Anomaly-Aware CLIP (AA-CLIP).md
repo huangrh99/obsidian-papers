@@ -1,10 +1,10 @@
 ---
-title: "Hbridge"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "Anomaly-Aware CLIP (AA-CLIP)"
+arxiv_id: "2503.06661"
+arxiv_url: "https://arxiv.org/abs/2503.06661"
 authors:
   - ""
-published: "2025.11"
+published: "2025-03"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ VLM和DiT用预训练的，验证两者在早期深层交互比后接效果好�
 | 字段 | 内容 |
 |------|------|
 | 机构 | Adobe |
-| 发表 | 2025.11 |
+| 发表 | 2025-03 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2503.06661) |
 
 ## 📝 我的笔记
 

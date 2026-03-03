@@ -1,10 +1,10 @@
 ---
-title: "OmniGen2"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "OmniGen2: A Versatile and Open-Source Generative Model for Diverse Generation Tasks"
+arxiv_id: "2506.18871"
+arxiv_url: "https://arxiv.org/abs/2506.18871"
 authors:
   - ""
-published: "2025.6"
+published: "2026-03"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ VLM出hidden state，丢弃image token，只用text token，DiT用VAE，直接�
 | 字段 | 内容 |
 |------|------|
 | 机构 | BAAI |
-| 发表 | 2025.6 |
+| 发表 | 2026-03 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2506.18871) |
 
 ## 📝 我的笔记
 

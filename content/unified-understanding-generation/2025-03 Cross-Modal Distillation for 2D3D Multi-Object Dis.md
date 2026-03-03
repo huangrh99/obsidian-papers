@@ -1,10 +1,10 @@
 ---
-title: "Unifluid"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+title: "Cross-Modal Distillation for 2D/3D Multi-Object Discovery from 2D motion"
+arxiv_id: "2503.15022"
+arxiv_url: "https://arxiv.org/abs/2503.15022"
 authors:
   - ""
-published: "2025.3"
+published: "2025-03"
 categories:
   - ""
 tags:
@@ -32,9 +32,9 @@ rating: ""
 | 字段 | 内容 |
 |------|------|
 | 机构 | Google Deepmind |
-| 发表 | 2025.3 |
+| 发表 | 2025-03 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2503.15022) |
 
 ## 📝 我的笔记
 

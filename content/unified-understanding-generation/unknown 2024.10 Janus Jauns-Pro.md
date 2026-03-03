@@ -1,7 +1,7 @@
 ---
 title: "Janus/Jauns-Pro"
-arxiv_id: "unknown"
-arxiv_url: "https://arxiv.org/abs/unknown"
+arxiv_id: "2501.17811"
+arxiv_url: "https://arxiv.org/abs/2501.17811"
 authors:
   - ""
 published: "2024.10"
@@ -34,7 +34,7 @@ rating: ""
 | 机构 | Deepseek |
 | 发表 | 2024.10 |
 | 分类 |  |
-| 链接 | [arXiv](https://arxiv.org/abs/unknown) |
+| 链接 | [arXiv](https://arxiv.org/abs/2501.17811) |
 
 ## 📝 我的笔记
 
