@@ -8,8 +8,8 @@ title: 论文知识库
 
 ## 分类
 
-- [[papers/generation-model/|生成模型]]
-- [[papers/unified-understanding-generation/|统一理解与生成]]
-- [[papers/vision-tokenizer/|视觉 Tokenizer]]
-- [[papers/vision/|视觉模型]]
-- [[papers/vlm/|视觉语言模型]]
+- [[generation-model/|生成模型]]
+- [[unified-understanding-generation/|统一理解与生成]]
+- [[vision-tokenizer/|视觉 Tokenizer]]
+- [[vision/|视觉模型]]
+- [[vlm/|视觉语言模型]]
