@@ -29,9 +29,9 @@ aliases:
   - "DanceGRPO"
 extends: []
 related_topic:
-  - "[[2023-05 DDPO]]"
-  - "[[2023-10 AlignProp]]"
-  - "[[2023-04 RAFT]]"
+  - "[[DDPO]]"
+  - "[[AlignProp]]"
+  - "[[RAFT]]"
 ---
 
 # DanceGRPO
@@ -62,4 +62,4 @@ GRPO 来自 DeepSeek-R1 中的 LLM 对齐算法，DanceGRPO 将其迁移至视�
 
 **基于/改进自：** —
 
-**同方向（GRPO用于视觉生成）：** [[2023-05 DDPO]], [[2023-10 AlignProp]], [[2023-04 RAFT]]
+**同方向（GRPO用于视觉生成）：** [[DDPO]], [[AlignProp]], [[RAFT]]

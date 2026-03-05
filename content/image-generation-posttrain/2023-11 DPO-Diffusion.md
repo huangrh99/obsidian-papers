@@ -31,8 +31,8 @@ aliases:
   - "DPO-Diffusion"
 extends: []
 related_topic:
-  - "[[2023-04 RAFT]]"
-  - "[[2023-05 DDPO]]"
+  - "[[RAFT]]"
+  - "[[DDPO]]"
 ---
 
 # DPO-Diffusion
@@ -62,4 +62,4 @@ Large language models (LLMs) are fine-tuned using human comparison data with Rei
 
 **基于/改进自：** —
 
-**同方向（DPO思路用于diffusion）：** [[2023-04 RAFT]], [[2023-05 DDPO]]
+**同方向（DPO思路用于diffusion）：** [[RAFT]], [[DDPO]]

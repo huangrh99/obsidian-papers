@@ -26,8 +26,8 @@ aliases:
   - "ImageReward"
 extends: []
 related_topic:
-  - "[[2023-05 PickScore]]"
-  - "[[2023-06 HPSv2]]"
+  - "[[PickScore]]"
+  - "[[HPSv2]]"
 ---
 
 # ImageReward
@@ -57,4 +57,4 @@ We present a comprehensive solution to learn and improve text-to-image models fr
 
 **基于/改进自：** —
 
-**同方向（reward model）：** [[2023-05 PickScore]], [[2023-06 HPSv2]]
+**同方向（reward model）：** [[PickScore]], [[HPSv2]]

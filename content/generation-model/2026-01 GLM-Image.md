@@ -57,5 +57,5 @@ GLM-Image is the first open-source, industrial-grade discrete auto-regressive im
 
 ## 🔗 相关论文
 
-- [[2026-03-04 Self-Supervised Flow Matching for Scalable Multi-M]] (BFL Self-Flow，同为 AR+扩散混合思路)
-- [[CogView4]] (Decoder backbone 来源)
+- [[Self-Flow]] (BFL Self-Flow，同为 AR+扩散混合思路)
+- CogView4（未入库） (Decoder backbone 来源)

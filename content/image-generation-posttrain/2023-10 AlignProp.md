@@ -23,10 +23,10 @@ rating: ""
 aliases:
   - "AlignProp"
 extends:
-  - "[[2023-09 ReFL]]"
+  - "[[ReFL]]"
 related_topic:
-  - "[[2023-05 DDPO]]"
-  - "[[2023-05 DPOK]]"
+  - "[[DDPO]]"
+  - "[[DPOK]]"
 ---
 
 # AlignProp
@@ -54,6 +54,6 @@ Text-to-image diffusion models have recently emerged at the forefront of image g
 
 ## 🔗 相关论文
 
-**基于/改进自：** [[2023-09 ReFL]]
+**基于/改进自：** [[ReFL]]
 
-**同方向：** [[2023-05 DDPO]], [[2023-05 DPOK]]
+**同方向：** [[DDPO]], [[DPOK]]

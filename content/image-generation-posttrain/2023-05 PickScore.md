@@ -24,8 +24,8 @@ aliases:
   - "PickScore"
 extends: []
 related_topic:
-  - "[[2023-04 ImageReward]]"
-  - "[[2023-06 HPSv2]]"
+  - "[[ImageReward]]"
+  - "[[HPSv2]]"
 ---
 
 # PickScore
@@ -55,4 +55,4 @@ Pick-a-Pic 数据集后来被 DPO-Diffusion (2311.12908) 用于训练，共 851k
 
 **基于/改进自：** —
 
-**同方向（reward model）：** [[2023-04 ImageReward]], [[2023-06 HPSv2]]
+**同方向（reward model）：** [[ImageReward]], [[HPSv2]]

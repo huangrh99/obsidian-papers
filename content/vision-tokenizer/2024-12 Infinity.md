@@ -47,4 +47,4 @@ We present \methodNAME, a Bitwise Visual AutoRegressive Modeling capable of gene
 
  🔗 相关论文
 
-<!-- [[wiki-link]] -->
+<!--  -->

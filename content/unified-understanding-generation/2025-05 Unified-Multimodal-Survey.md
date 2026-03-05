@@ -58,6 +58,6 @@ Recent years have seen remarkable progress in both multimodal understanding mode
 [[Janus]]
 [[Transfusion]]
 [[Show-o]]
-[[BAGEL]]
+[[Bagel]]
 [[Emu3]]
 [[TokenFlow]]
