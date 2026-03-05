@@ -14,7 +14,9 @@ tags:
   - paper
   - vision-tokenizer
   - multimodal
-institution: ""
+  - bytedance
+  - hku
+institution: "HKU, ByteDance"
 notion_topic: "视觉编码器/词表"
 added: "2026-03-03"
 rating: ""

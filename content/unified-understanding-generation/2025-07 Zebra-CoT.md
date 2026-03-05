@@ -17,7 +17,8 @@ tags:
   - paper
   - understanding-generation
   - multimodal
-institution: ""
+  - berkeley
+institution: "UC San Diego"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""

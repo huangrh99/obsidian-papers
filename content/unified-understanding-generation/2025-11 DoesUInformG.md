@@ -15,7 +15,8 @@ tags:
   - paper
   - understanding-generation
   - multimodal
-institution: ""
+  - tsinghua
+institution: "Tsinghua University (THUDM)"
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""

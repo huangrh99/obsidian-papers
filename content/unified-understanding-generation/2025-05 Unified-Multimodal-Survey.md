@@ -23,8 +23,10 @@ tags:
   - vlm
   - diffusion
   - survey
+  - alibaba
 added: "2026-03-05"
 rating: ""
+institution: "Alibaba"
 aliases:
   - "Unified-Multimodal-Survey"
 ---

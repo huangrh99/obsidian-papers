@@ -15,7 +15,8 @@ tags:
   - paper
   - vision-tokenizer
   - multimodal
-institution: ""
+  - tsinghua
+institution: "Tsinghua University (THUDM)"
 notion_topic: "视觉编码器/词表"
 added: "2026-03-03"
 rating: ""
