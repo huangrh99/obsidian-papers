@@ -53,4 +53,9 @@ Recent years have seen remarkable progress in both multimodal understanding mode
 
 ## 🔗 相关论文
 
-<!-- 可手动添加 [[wiki-link]] -->
+[[Janus]]
+[[Transfusion]]
+[[Show-o]]
+[[BAGEL]]
+[[Emu3]]
+[[TokenFlow]]

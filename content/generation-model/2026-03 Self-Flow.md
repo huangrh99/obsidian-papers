@@ -47,3 +47,8 @@ We introduce Self-Flow: a self-supervised flow matching paradigm that integrates
 
 ## 🔗 相关论文
 
+[[REPA]]
+[[DiT]]
+[[LDM]]
+[[SRA]]
+[[DINO]]

@@ -45,3 +45,8 @@ We provide empirical clarity through controlled, from-scratch pretraining experi
 
 ## 🔗 相关论文
 
+[[Transfusion]]
+[[LMFusion]]
+[[MonoFormer]]
+[[MMAR]]
+[[UniDisc]]
