@@ -19,6 +19,8 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
+aliases:
+  - "Seedream4.0"
 related_topic:
   - "[[Transfusion]]"
   - "[[OmniGen]]"

@@ -20,6 +20,8 @@ tags:
   - meta
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "Beyond Language Modeling"
 ---
 
 # Beyond Language Modeling: An Exploration of Multimodal Pretraining

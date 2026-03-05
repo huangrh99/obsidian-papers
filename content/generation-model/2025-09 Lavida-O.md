@@ -18,6 +18,8 @@ tags:
   - berkeley
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "Lavida-O"
 institution: "UC San Diego"
 ---
 

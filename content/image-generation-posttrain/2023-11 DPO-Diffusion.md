@@ -27,6 +27,8 @@ institution: "Salesforce Research / Stanford University"
 notion_topic: "图像生成后训练"
 added: "2026-03-04"
 rating: ""
+aliases:
+  - "DPO-Diffusion"
 extends: []
 related_topic:
   - "[[2023-04 RAFT]]"

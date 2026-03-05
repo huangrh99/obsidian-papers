@@ -25,6 +25,8 @@ tags:
   - survey
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "Unified-Multimodal-Survey"
 ---
 
 # Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities

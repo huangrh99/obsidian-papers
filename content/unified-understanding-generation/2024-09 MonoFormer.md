@@ -18,6 +18,8 @@ tags:
   - tsinghua
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "MonoFormer"
 institution: "Tsinghua University (THUDM)"
 ---
 

@@ -18,6 +18,8 @@ tags:
   - cuhk
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "UniModel"
 institution: "CUHK MMLab"
 ---
 

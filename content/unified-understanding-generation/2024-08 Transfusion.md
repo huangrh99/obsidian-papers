@@ -15,6 +15,8 @@ institution: "Meta"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
+aliases:
+  - "Transfusion"
 related_topic:
   - "[[MAR]]"
   - "[[Chameleon]]"

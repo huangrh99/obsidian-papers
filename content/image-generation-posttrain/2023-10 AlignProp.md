@@ -20,6 +20,8 @@ institution: "Carnegie Mellon University"
 notion_topic: "图像生成后训练"
 added: "2026-03-04"
 rating: ""
+aliases:
+  - "AlignProp"
 extends:
   - "[[2023-09 ReFL]]"
 related_topic:

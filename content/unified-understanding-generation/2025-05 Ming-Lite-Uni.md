@@ -17,6 +17,8 @@ tags:
   - multimodal
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "Ming-Lite-Uni"
 institution: "inclusionAI"
 ---
 

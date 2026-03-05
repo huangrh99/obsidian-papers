@@ -22,6 +22,8 @@ institution: "Deepseek"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
+aliases:
+  - "Janus-Pro"
 related_topic:
   - "[[Chameleon]]"
   - "[[ILLUME]]"

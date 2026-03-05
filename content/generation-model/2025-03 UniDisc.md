@@ -19,6 +19,8 @@ tags:
   - berkeley
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "UniDisc"
 institution: "UC San Diego"
 ---
 

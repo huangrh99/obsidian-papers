@@ -24,6 +24,8 @@ institution: "Google"
 notion_topic: "视觉编码器/词表"
 added: "2026-03-04"
 rating: ""
+aliases:
+  - "ViT-VQGAN"
 extends:
   - "[[VQGAN]]"
   - "[[VQ-VAE]]"

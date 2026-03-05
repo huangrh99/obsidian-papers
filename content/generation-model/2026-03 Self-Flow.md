@@ -22,6 +22,8 @@ tags:
   - bfl
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "Self-Flow"
 ---
 
 # Self-Supervised Flow Matching for Scalable Multi-Modal Synthesis

@@ -18,6 +18,8 @@ tags:
   - alibaba
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "SynerGen-VL"
 institution: "Alibaba"
 ---
 

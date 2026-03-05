@@ -18,6 +18,8 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
+aliases:
+  - "MaskGIT"
 related_topic:
   - "[[VQGAN]]"
   - "[[BEiT]]"

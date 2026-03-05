@@ -21,6 +21,8 @@ tags:
   - meta
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "LMFusion"
 institution: "Meta AI"
 ---
 

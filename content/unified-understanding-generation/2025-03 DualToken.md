@@ -20,6 +20,8 @@ tags:
   - huawei
 added: "2026-03-05"
 rating: ""
+aliases:
+  - "DualToken"
 institution: "Huawei Noah's Ark Lab"
 ---
 
