@@ -29,8 +29,7 @@ related_topic:
   - "[[ImageFolder]]"
   - "[[VQGAN-100k]]"
   - "[[VTP]]"
----title: "Infinity: Scaling Bitwise AutoRegressive Modeling for High-Resolution Image Synthesis"
-
+---
 
 # Infinity
 

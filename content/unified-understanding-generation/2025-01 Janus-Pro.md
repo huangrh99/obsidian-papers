@@ -21,8 +21,11 @@ institution: "Deepseek"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling"
-
+related_topic:
+  - "[[Chameleon]]"
+  - "[[ILLUME]]"
+  - "[[Transfusion]]"
+---
 
 # Janus/Jauns-Pro
 
@@ -49,4 +52,4 @@ rating: ""
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Chameleon]], [[ILLUME]], [[Transfusion]]

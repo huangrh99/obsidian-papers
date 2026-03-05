@@ -28,8 +28,7 @@ related_topic:
   - "[[LlamaGen]]"
   - "[[Infinity]]"
   - "[[VQGAN-100k]]"
----title: "ImageFolder: Autoregressive Image Generation with Folded Tokens"
-
+---
 
 # ImageFolder
 

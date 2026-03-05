@@ -1,0 +1,48 @@
+---
+arxiv_id: "2603.02667"
+arxiv_url: "https://arxiv.org/abs/2603.02667"
+authors:
+  - "Chao Li"
+  - "Tianhong Li"
+  - "Sai Vidyaranya Nuthalapati"
+  - "Hong-You Chen"
+  - "Satya Narayan Shukla"
+  - "Yonghuan Yang"
+published: "2026-03-03"
+categories:
+  - "cs.CV"
+  - "cs.LG"
+institution: "MIT"
+tags:
+  - multimodal
+  - diffusion
+  - computer-vision
+  - machine-learning
+  - paper
+added: "2026-03-05"
+rating: ""
+---
+
+# DREAM: Where Visual Understanding Meets Text-to-Image Generation
+
+## 📌 核心贡献
+
+> 提出 DREAM 统一框架，同时优化判别式和生成式目标。Masking Warmup 渐进式掩码策略先建立对比对齐再过渡到生成训练；Semantically Aligned Decoding 在推理时对齐候选图像与文本，提升文图保真度 +6.3%，无需外部 reranker。
+
+## 📖 摘要
+
+Unifying visual representation learning and text-to-image (T2I) generation within a single model remains a central challenge in multimodal learning. We introduce DREAM, a unified framework that jointly optimizes discriminative and generative objectives, while learning strong visual representations. DREAM is built on two key techniques: Masking Warmup and Semantically Aligned Decoding. Trained solely on CC12M, DREAM achieves 72.7% ImageNet linear-probing accuracy and an FID of 4.25.
+
+## 🔍 关键信息
+
+| 字段 | 内容 |
+|------|------|
+| 发表 | 2026-03-03 |
+| 机构 | MIT |
+| 分类 | cs.CV, cs.LG |
+| 链接 | [arXiv](https://arxiv.org/abs/2603.02667) |
+
+## 📝 我的笔记
+
+## 🔗 相关论文
+

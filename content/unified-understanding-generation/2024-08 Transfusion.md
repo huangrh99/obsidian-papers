@@ -14,8 +14,10 @@ institution: "Meta"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "TRANSFUSION: PREDICT THE NEXT TOKEN AND DIFFUSE IMAGES WITH ONE MULTI-MODAL MODEL"
-
+related_topic:
+  - "[[MAR]]"
+  - "[[Chameleon]]"
+---
 
 # Transfusion
 
@@ -42,4 +44,4 @@ rating: ""
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[MAR]], [[Chameleon]]

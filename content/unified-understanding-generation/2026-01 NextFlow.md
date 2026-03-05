@@ -18,8 +18,11 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "NextFlow: Unified Sequential Modeling Activates Multimodal Understanding and Generation"
-
+related_topic:
+  - "[[Transfusion]]"
+  - "[[UniFluid]]"
+  - "[[Show-o2]]"
+---
 
 # NextFlow: Unified Sequential Modeling Activates Multimodal Understanding and Generation
 
@@ -46,4 +49,4 @@ We present NextFlow, a unified decoder-only autoregressive transformer trained o
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Transfusion]], [[UniFluid]], [[Show-o2]]

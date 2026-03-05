@@ -28,8 +28,7 @@ related_topic:
   - "[[AIMv2]]"
   - "[[SigLIP2]]"
   - "[[DINOv2]]"
----title: "InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks"
-
+---
 
 # internViT
 

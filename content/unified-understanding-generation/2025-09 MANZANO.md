@@ -19,8 +19,11 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer"
-
+related_topic:
+  - "[[ILLUME]]"
+  - "[[Chameleon]]"
+  - "[[UniFluid]]"
+---
 
 # MANZANO
 
@@ -47,4 +50,4 @@ Unified multimodal Large Language Models (LLMs) that can both understand and gen
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[ILLUME]], [[Chameleon]], [[UniFluid]]

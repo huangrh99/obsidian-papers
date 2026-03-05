@@ -25,8 +25,7 @@ baseline:
 related_topic:
   - "[[UniWorld]]"
   - "[[REPA]]"
----title: "DINO-Foresight: Looking into the Future with DINO"
-
+---
 
 # DINO
 

@@ -21,8 +21,10 @@ institution: "Ant"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Ming-Omni: A Unified Multimodal Model for Perception and Generation"
-
+related_topic:
+  - "[[AnyGPT]]"
+  - "[[Mogao]]"
+---
 
 # Ming-Omni: A Unified Multimodal Model for Perception and Generation
 
@@ -49,4 +51,4 @@ We propose Ming-Omni, a unified multimodal model capable of processing images, t
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[AnyGPT]], [[Mogao]]

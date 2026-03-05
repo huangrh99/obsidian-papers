@@ -21,8 +21,10 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning"
-
+related_topic:
+  - "[[Chameleon]]"
+  - "[[MAR]]"
+---
 
 # Zebra-CoT
 
@@ -49,4 +51,4 @@ Humans often use visual aids, for example diagrams or sketches, when solving com
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Chameleon]], [[MAR]]

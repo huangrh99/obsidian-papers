@@ -29,8 +29,7 @@ related_topic:
   - "[[DINO-Foresight]]"
   - "[[InternVL]]"
   - "[[AIMv2]]"
----title: "UniWorld-V1: High-Resolution Semantic Encoders for Unified Visual Understanding and Generation"
-
+---
 
 # UniWorld
 

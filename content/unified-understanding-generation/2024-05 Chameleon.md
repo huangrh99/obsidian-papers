@@ -14,8 +14,10 @@ institution: "Meta Fair"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Chameleon: Mixed-Modal Early-Fusion Foundation Models"
-
+related_topic:
+  - "[[VQGAN]]"
+  - "[[CLIP]]"
+---
 
 # Chameleon
 
@@ -44,4 +46,4 @@ We present Chameleon, a family of early-fusion token-based mixed-modal models ca
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[VQGAN]], [[CLIP]]

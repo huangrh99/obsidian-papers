@@ -29,8 +29,7 @@ related_topic:
   - "[[FQGAN]]"
   - "[[UniTok]]"
   - "[[VQGAN-100k]]"
----title: "GigaTok: Scaling Visual Tokenizers to 3 Billion Parameters for Autoregressive Image Generation"
-
+---
 
 # Gigatok
 

@@ -28,8 +28,7 @@ related_topic:
   - "[[LlamaGen]]"
   - "[[UniTok]]"
   - "[[FQGAN]]"
----title: "Selftok: Discrete Visual Tokens of Autoregression, by Diffusion, and for Reasoning"
-
+---
 
 # Selftok
 

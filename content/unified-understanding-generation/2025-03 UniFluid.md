@@ -20,8 +20,12 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "Unified Autoregressive Visual Generation and Understanding with Continuous Tokens"
-
+extends:
+  - "[[MAR]]"
+related_topic:
+  - "[[Transfusion]]"
+  - "[[Chameleon]]"
+---
 
 # UniFluid
 
@@ -48,4 +52,5 @@ We present UniFluid, a unified autoregressive framework for joint visual generat
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**基于/改进自：** [[MAR]]
+**同方向：** [[Transfusion]], [[Chameleon]]

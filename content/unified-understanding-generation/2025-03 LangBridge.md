@@ -19,8 +19,10 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "LangBridge: Interpreting Image as a Combination of Language Embeddings"
-
+related_topic:
+  - "[[CLIP]]"
+  - "[[DINOv2]]"
+---
 
 # LangBridge
 
@@ -47,4 +49,4 @@ Recent years have witnessed remarkable advances in Large Vision-Language Models 
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[CLIP]], [[DINOv2]]

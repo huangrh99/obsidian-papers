@@ -18,8 +18,10 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "MaskGIT: Masked Generative Image Transformer"
-
+related_topic:
+  - "[[VQGAN]]"
+  - "[[BEiT]]"
+---
 
 # MaskGIT: Masked Generative Image Transformer
 
@@ -46,4 +48,4 @@ Generative transformers have experienced rapid popularity growth in the computer
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[VQGAN]], [[BEiT]]

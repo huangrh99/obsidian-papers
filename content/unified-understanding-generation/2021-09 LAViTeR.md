@@ -21,8 +21,9 @@ institution: "pku"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "LAViTeR: Learning Aligned Visual and Textual Representations Assisted by Image and Caption Generation"
-
+related_topic:
+  - "[[CLIP]]"
+---
 
 # LaViT
 
@@ -49,4 +50,4 @@ rating: ""
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[CLIP]]

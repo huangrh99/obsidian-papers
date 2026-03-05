@@ -19,8 +19,11 @@ institution: "Meta"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "MetaMorph: Multimodal Understanding and Generation via Instruction Tuning"
-
+related_topic:
+  - "[[Chameleon]]"
+  - "[[SEED-LLaMA]]"
+  - "[[ILLUME]]"
+---
 
 # MetaMorph
 
@@ -47,4 +50,4 @@ LLM预测visual token-cosine loss-GT via feature; 验证了理解和生成数据
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Chameleon]], [[SEED-LLaMA]], [[ILLUME]]

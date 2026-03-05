@@ -26,8 +26,7 @@ related_topic:
   - "[[Infinity]]"
   - "[[ImageFolder]]"
   - "[[VQGAN-100k]]"
----title: "Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation"
-
+---
 
 # llamagen
 

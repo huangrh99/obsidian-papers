@@ -20,8 +20,9 @@ institution: "MMlab"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning"
-
+related_topic:
+  - "[[Chameleon]]"
+---
 
 # MathCanvas: Intrinsic Visual Chain-of-Thought for Multimodal Mathematical Reasoning
 
@@ -48,4 +49,4 @@ While Large Language Models (LLMs) have excelled in textual reasoning, they stru
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Chameleon]]

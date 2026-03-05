@@ -26,8 +26,7 @@ related_topic:
   - "[[TokLIP]]"
   - "[[MUSE-VL]]"
   - "[[QLIP]]"
----title: "TokenFlow: a novel unified image tokenizer that bridges the long-standing gap between multimodal understanding and generation"
-
+---
 
 # TokenFlow
 

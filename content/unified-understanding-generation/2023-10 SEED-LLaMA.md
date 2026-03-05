@@ -19,8 +19,11 @@ institution: "ARC Lab"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Making LLaMA SEE and Draw with SEED Tokenizer"
-
+extends:
+  - "[[VQGAN]]"
+related_topic:
+  - "[[Chameleon]]"
+---
 
 # Seed-llama
 
@@ -49,4 +52,5 @@ In the past several years, Howe curves have been studied actively in the field o
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**基于/改进自：** [[VQGAN]]
+**同方向：** [[Chameleon]]

@@ -14,8 +14,9 @@ institution: "Skywork"
 notion_topic: "理解生成统一"
 added: "2026-03-03"
 rating: ""
----title: "Mask-Based LoRA Tuning for Flexible Video Editing with Spatiotemporal Guidance"
-
+related_topic:
+  - "[[VQGAN]]"
+---
 
 # UniPic-2
 
@@ -44,4 +45,4 @@ This dual-capability LoRA grants users control over the edit's entire temporal e
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[VQGAN]]

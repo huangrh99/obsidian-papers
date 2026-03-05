@@ -19,8 +19,10 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "Seedream 4.0: Toward Next-generation Multimodal Image Generation"
-
+related_topic:
+  - "[[Transfusion]]"
+  - "[[OmniGen]]"
+---
 
 # Seedream 4.0: Toward Next-generation Multimodal Image Generation
 
@@ -47,4 +49,4 @@ We introduce Seedream 4.0, an efficient and high-performance multimodal image ge
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Transfusion]], [[OmniGen]]

@@ -19,8 +19,10 @@ institution: ""
 notion_topic: "理解生成统一"
 added: "2026-03-04"
 rating: ""
----title: "HunyuanImage 3.0 Technical Report"
-
+related_topic:
+  - "[[Transfusion]]"
+  - "[[UniFluid]]"
+---
 
 # HunyuanImage 3.0 Technical Report
 
@@ -47,4 +49,4 @@ We present HunyuanImage 3.0, a native multimodal model that unifies multimodal u
 
 ## 🔗 相关论文
 
-<!-- [[wiki-link]] -->
+**同方向：** [[Transfusion]], [[UniFluid]]

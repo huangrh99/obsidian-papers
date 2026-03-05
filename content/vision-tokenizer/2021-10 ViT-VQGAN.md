@@ -33,8 +33,7 @@ related_topic:
   - "[[BEiT]]"
   - "[[FSQ]]"
   - "[[GigaTok]]"
----title: "Vector-quantized Image Modeling with Improved VQGAN"
-
+---
 
 # ViT-VQGAN
 
