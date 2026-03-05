@@ -18,8 +18,10 @@ tags:
   - computer-vision
   - machine-learning
   - multimodal
+  - meta
 added: "2026-03-05"
 rating: ""
+institution: "Meta AI"
 ---
 
 # LMFusion: Adapting Pretrained Language Models for Multimodal Generation

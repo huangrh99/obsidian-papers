@@ -17,6 +17,7 @@ tags:
   - multimodal
 added: "2026-03-05"
 rating: ""
+institution: "inclusionAI"
 ---
 
 # Ming-Lite-Uni: Advancements in Unified Architecture for Natural Multimodal Interaction

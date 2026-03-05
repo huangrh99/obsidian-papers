@@ -17,8 +17,10 @@ tags:
   - computer-vision
   - machine-learning
   - multimodal
+  - zju
 added: "2026-03-05"
 rating: ""
+institution: "Zhejiang University"
 ---
 
 # Dual Diffusion for Unified Image Generation and Understanding

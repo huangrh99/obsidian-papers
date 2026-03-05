@@ -15,8 +15,10 @@ tags:
   - paper
   - computer-vision
   - multimodal
+  - berkeley
 added: "2026-03-05"
 rating: ""
+institution: "UC San Diego"
 ---
 
 # Lavida-O: Elastic Large Masked Diffusion Models for Unified Multimodal Understanding and Generation

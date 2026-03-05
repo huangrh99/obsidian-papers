@@ -17,8 +17,10 @@ tags:
   - computer-vision
   - nlp
   - multimodal
+  - deepseek
 added: "2026-03-05"
 rating: ""
+institution: "DeepSeek"
 ---
 
 # JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation

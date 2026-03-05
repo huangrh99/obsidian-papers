@@ -18,8 +18,10 @@ tags:
   - nlp
   - machine-learning
   - multimodal
+  - microsoft
 added: "2026-03-05"
 rating: ""
+institution: "Microsoft Research Asia"
 ---
 
 # DreamLLM: Synergistic Multimodal Comprehension and Creation

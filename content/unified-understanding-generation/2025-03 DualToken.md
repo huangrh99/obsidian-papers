@@ -17,8 +17,10 @@ tags:
   - computer-vision
   - nlp
   - multimodal
+  - huawei
 added: "2026-03-05"
 rating: ""
+institution: "Huawei Noah's Ark Lab"
 ---
 
 # DualToken: Towards Unifying Visual Understanding and Generation with Dual Visual Vocabularies

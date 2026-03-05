@@ -15,8 +15,10 @@ tags:
   - paper
   - computer-vision
   - multimodal
+  - alibaba
 added: "2026-03-05"
 rating: ""
+institution: "Alibaba"
 ---
 
 # SynerGen-VL: Towards Synergistic Image Understanding and Generation with Vision Experts and Token Folding

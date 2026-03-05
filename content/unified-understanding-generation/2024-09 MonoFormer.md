@@ -15,8 +15,10 @@ tags:
   - paper
   - computer-vision
   - multimodal
+  - tsinghua
 added: "2026-03-05"
 rating: ""
+institution: "Tsinghua University (THUDM)"
 ---
 
 # MonoFormer: One Transformer for Both Diffusion and Autoregression

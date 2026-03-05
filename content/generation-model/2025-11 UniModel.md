@@ -15,8 +15,10 @@ tags:
   - paper
   - computer-vision
   - multimodal
+  - cuhk
 added: "2026-03-05"
 rating: ""
+institution: "CUHK MMLab"
 ---
 
 # UniModel: A Visual-Only Framework for Unified Multimodal Understanding and Generation

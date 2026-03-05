@@ -16,8 +16,10 @@ tags:
   - computer-vision
   - machine-learning
   - multimodal
+  - berkeley
 added: "2026-03-05"
 rating: ""
+institution: "UC San Diego"
 ---
 
 # Unified Multimodal Discrete Diffusion
