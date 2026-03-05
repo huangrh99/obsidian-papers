@@ -27,7 +27,7 @@ institution: "Zhejiang University"
 
 ## 📌 核心贡献
 
->
+> 该论文提出了一种大规模、端到端、用于多模态理解与生成的新型扩散模型，显著超越了现有基于扩散的多模态模型。它首次实现了全面的视觉-语言建模能力，通过结合多模态扩散Transformer (MM-DiT) 和离散扩散语言建模的最新进展，旨在统一图像生成和视觉理解任务。
 
 ## 📖 摘要
 
@@ -45,3 +45,7 @@ Diffusion models have gained tremendous success in text-to-image generation, yet
 
 ## 🔗 相关论文
 
+[[Dual-Diffusion]]
+[[DiT]]
+[[LDM]]
+[[CLIP]]

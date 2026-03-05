@@ -24,7 +24,7 @@ institution: "inclusionAI"
 
 ## 📌 核心贡献
 
->
+> Ming-Lite-Uni引入了一个开源多模态框架，包含新设计的统一视觉生成器和原生多模态自回归模型，专为统一视觉和语言而定制。该项目提供了集成MetaQueries和M2-omni框架的开源实现，并引入了新型多尺度可学习令牌和多尺度表示对齐策略，使得原生多模态自回归模型能够执行文本到图像生成和基于指令的理解。
 
 ## 📖 摘要
 
@@ -42,3 +42,8 @@ We introduce Ming-Lite-Uni, an open-source multimodal framework featuring a newl
 
 ## 🔗 相关论文
 
+[[Ming-Lite-Uni]]
+[[MetaMorph]]
+[[Ming-Omni]]
+[[LDM]]
+[[DiT]]

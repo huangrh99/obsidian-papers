@@ -25,7 +25,7 @@ institution: "Alibaba"
 
 ## 📌 核心贡献
 
->
+> SynerGen-VL提出了一个简单而强大的无编码器多模态大语言模型（MLLM），能够同时进行图像理解和生成。该方法通过整合视觉专家和令牌折叠技术，旨在解决现有统一MLLM在模型架构或训练流程中涉及复杂设计的问题，从而简化模型训练和扩展的难度。
 
 ## 📖 摘要
 
@@ -43,3 +43,8 @@ The remarkable success of Large Language Models (LLMs) has extended to the multi
 
 ## 🔗 相关论文
 
+[[SynerGen-VL]]
+[[CLIP]]
+[[LDM]]
+[[DiT]]
+[[Emu]]

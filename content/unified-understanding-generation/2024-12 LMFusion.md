@@ -28,7 +28,7 @@ institution: "Meta AI"
 
 ## 📌 核心贡献
 
->
+> LMFusion是一个旨在赋予预训练纯文本大语言模型（LLM）多模态生成能力的框架，使其能够理解和生成任意序列的文本和图像。该方法利用现有Llama-3的权重进行自回归文本处理，并引入额外的并行Transformer模块通过扩散处理图像，实现模态特定模块处理各自数据。
 
 ## 📖 摘要
 
@@ -46,3 +46,8 @@ We present LMFusion, a framework for empowering pretrained text-only large langu
 
 ## 🔗 相关论文
 
+[[LMFusion]]
+[[LDM]]
+[[DiT]]
+[[DDPM]]
+[[Emu]]

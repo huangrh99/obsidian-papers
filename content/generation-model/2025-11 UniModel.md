@@ -25,7 +25,7 @@ institution: "CUHK MMLab"
 
 ## 📌 核心贡献
 
->
+> UniModel提出了一个纯视觉框架，通过将文本提示渲染为画布上的图像，并将所有输入输出视为RGB像素，从而将文本和图像映射到共享的视觉空间。该模型在一个像素到像素的扩散框架中，实现了模型、任务和表示的统一，支持视觉理解和视觉生成。
 
 ## 📖 摘要
 
@@ -43,3 +43,8 @@ We present UniModel, a unified generative model that jointly supports visual und
 
 ## 🔗 相关论文
 
+[[UniModel]]
+[[DiT]]
+[[LDM]]
+[[VQGAN]]
+[[CLIP]]

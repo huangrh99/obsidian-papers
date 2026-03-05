@@ -25,7 +25,7 @@ institution: "UC San Diego"
 
 ## 📌 核心贡献
 
->
+> Lavida-O提出了一种统一的掩码扩散模型（MDM），旨在解决现有MDM在图像理解任务和高分辨率图像生成方面的局限性。它引入了新型弹性Mixture-of-Transformers（Elastic-MoT）架构，将轻量级生成分支与大型理解分支耦合，支持图像级理解、对象定位、图像编辑和高分辨率文本到图像合成。
 
 ## 📖 摘要
 
@@ -43,3 +43,8 @@ We propose Lavida-O, a unified Masked Diffusion Model (MDM) for multimodal under
 
 ## 🔗 相关论文
 
+[[Lavida-O]]
+[[MMaDA]]
+[[Muddit]]
+[[DiT]]
+[[LDM]]

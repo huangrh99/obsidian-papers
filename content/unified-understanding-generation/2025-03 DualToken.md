@@ -27,7 +27,7 @@ institution: "Huawei Noah's Ark Lab"
 
 ## 📌 核心贡献
 
->
+> DualToken提出了一种方法，通过使用双视觉词汇表来统一视觉理解和生成。该方法旨在弥合视觉理解和生成所需的表示空间差异，通过为生成任务训练擅长捕捉低级细节的视觉分词器，并为理解任务训练与语言对齐的视觉编码器，从而在统一自回归LLM框架中实现视觉理解和生成的融合。
 
 ## 📖 摘要
 
@@ -45,3 +45,8 @@ The differing representation spaces required for visual understanding and genera
 
 ## 🔗 相关论文
 
+[[DualToken]]
+[[VQGAN]]
+[[VQ-VAE]]
+[[CLIP]]
+[[LDM]]

@@ -27,7 +27,7 @@ institution: "DeepSeek"
 
 ## 📌 核心贡献
 
->
+> JanusFlow提出了一个强大的框架，通过将自回归语言模型与修正流（Rectified Flow）集成，在一个模型中统一了图像理解和生成。该研究发现修正流可以简单地在大型语言模型框架内进行训练，无需复杂的架构修改，并通过解耦理解和生成编码器进一步提升了统一模型的性能。
 
 ## 📖 摘要
 
@@ -45,3 +45,8 @@ We present JanusFlow, a powerful framework that unifies image understanding and 
 
 ## 🔗 相关论文
 
+[[JanusFlow]]
+[[Janus]]
+[[Janus-Pro]]
+[[DiT]]
+[[LDM]]

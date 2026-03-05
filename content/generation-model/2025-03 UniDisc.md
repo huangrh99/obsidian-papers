@@ -26,7 +26,7 @@ institution: "UC San Diego"
 
 ## 📌 核心贡献
 
->
+> 该研究探索了离散扩散模型作为联合文本和图像领域统一生成框架的潜力，以克服自回归模型在处理多模态数据时推理速度慢的缺点。它利用了离散扩散模型在文本生成方面的成功，旨在为多模态理解和生成提供一种统一且高效的解决方案。
 
 ## 📖 摘要
 
@@ -44,3 +44,8 @@ Multimodal generative models that can understand and generate across multiple mo
 
 ## 🔗 相关论文
 
+[[UniDisc]]
+[[DiT]]
+[[LDM]]
+[[DDPM]]
+[[Emu]]

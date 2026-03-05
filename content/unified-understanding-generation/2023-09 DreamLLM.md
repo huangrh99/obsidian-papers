@@ -28,7 +28,7 @@ institution: "Microsoft Research Asia"
 
 ## 📌 核心贡献
 
->
+> DreamLLM提出了一种学习框架，通过语言和图像后验的生成建模，直接在原始多模态空间中采样，从而实现多模态大语言模型 (MLLM) 在多模态理解和创作之间的协同作用。它旨在克服外部特征提取器的局限性，从而获得更彻底的多模态理解。
 
 ## 📖 摘要
 
@@ -46,3 +46,8 @@ This paper presents DreamLLM, a learning framework that first achieves versatile
 
 ## 🔗 相关论文
 
+[[DreamLLM]]
+[[SEED-LLaMA]]
+[[SEED-X]]
+[[CLIP]]
+[[LDM]]

@@ -25,7 +25,7 @@ institution: "Tsinghua University (THUDM)"
 
 ## 📌 核心贡献
 
->
+> MonoFormer提出了一种新颖的思路：共享一个Transformer模型，同时支持自回归和扩散。该方法利用Transformer在视觉生成扩散模型中的成功应用，以及Transformer在自回归和扩散训练之间的相似性，旨在克服现有多模态方法为不同生成范式使用独立骨干网络的限制。
 
 ## 📖 摘要
 
@@ -43,3 +43,8 @@ Most existing multimodality methods use separate backbones for autoregression-ba
 
 ## 🔗 相关论文
 
+[[MonoFormer]]
+[[DiT]]
+[[LDM]]
+[[DDPM]]
+[[Emu]]
