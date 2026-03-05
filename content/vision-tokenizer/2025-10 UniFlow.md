@@ -37,7 +37,7 @@ related_topic:
 
 ## 📌 核心贡献
 
-> unified encoder+pixel flow decoder: 蒸馏+重建- patch-wise flow matching
+> 提出 UniFlow 统一 tokenizer，通过 layer-wise adaptive self-distillation 在预训练视觉编码器上同时保留语义特征（用于理解）和细粒度细节（用于生成），有效缓解理解与生成之间的表征冲突。轻量级 patch-wise pixel flow decoder 以语义特征为条件，通过条件流匹配从噪声状态高效重建像素，ICLR 2026 收录，7B 版本在理解和生成双端均达到 SOTA。
 
 ## 📖 摘要
 

@@ -37,7 +37,7 @@ related_topic:
 
 ## 📌 核心贡献
 
-> （待补充）
+> 首个将视觉 tokenizer 扩展到 30亿参数的工作，同时提升重建质量、生成质量和表征学习能力。发现 tokenizer 扩大后 latent space 复杂度上升导致下游 AR 生成质量下降（reconstruction vs. generation dilemma），提出 semantic regularization 对齐预训练视觉编码器特征以约束 latent space 复杂度，配合 1D tokenizer、decoder 优先扩展和 entropy loss 实现稳定的亿级参数扩展。
 
 ## 📖 摘要
 
