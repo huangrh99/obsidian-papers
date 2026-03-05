@@ -15,6 +15,7 @@ categories:
 tags:
   - paper
   - image-generation-posttrain
+  - meta
 institution: "Meta AI / Tel Aviv University"
 notion_topic: "图像生成后训练"
 added: "2026-03-04"

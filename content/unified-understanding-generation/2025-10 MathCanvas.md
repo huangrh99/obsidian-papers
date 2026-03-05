@@ -16,6 +16,7 @@ tags:
   - paper
   - understanding-generation
   - multimodal
+  - cuhk
 institution: "MMlab"
 notion_topic: "理解生成统一"
 added: "2026-03-03"

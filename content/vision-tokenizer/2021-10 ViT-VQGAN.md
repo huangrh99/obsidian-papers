@@ -19,6 +19,7 @@ categories:
 tags:
   - paper
   - vision-tokenizer
+  - google
 institution: "Google"
 notion_topic: "视觉编码器/词表"
 added: "2026-03-04"

@@ -18,6 +18,8 @@ tags:
   - computer-vision
   - machine-learning
   - paper
+  - mit
+  - bfl
 added: "2026-03-05"
 rating: ""
 ---

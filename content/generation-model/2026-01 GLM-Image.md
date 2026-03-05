@@ -12,6 +12,7 @@ tags:
   - paper
   - autoregressive
   - diffusion
+  - tsinghua
 added: "2026-03-05"
 rating: ""
 ---
