@@ -1,20 +1,16 @@
-# Phys4D: Fine-Grained Physics-Consistent 4D Modeling from Video Diffusion
+---
+arxiv_id: "2603.03485"
+authors: ["Haoran Lu", "Shang Wu", "Jianshu Zhang", "Maojiang Su", "Guo Ye", "Chenwei Xu", "Lie Lu", "Pranav Maneriker", "Fan Du", "Manling Li", "Zhaoran Wang", "Han Liu"]
+date: "2026-03"
+subcategory: "generation-model"
+tags: ["4D generation", "video diffusion", "physics consistency", "world model"]
+xhs_published: true
+---
 
-**arxiv:** 2603.03485  
-**Authors:** Haoran Lu, Shang Wu, Jianshu Zhang, Maojiang Su  
-**Published on xhs:** 2026-03-06  
-**xhs 标题:** 西北大×Dolby🦞 三阶段RL修正物理4D  
+## 核心贡献
 
-## Abstract
+用视频扩散模型实现细粒度物理一致的 4D 建模。现有视频扩散模型作为世界模型时存在物理不一致问题（随时间出现不合物理的动态），本文针对这一问题提出改进方案。
 
-Recent video diffusion models have achieved impressive capabilities as large-scale generative world models. However, these models often struggle with fine-grained physical consistency, exhibiting physically implausible dynamics over time. Phys4D is a pipeline for learning physics-consistent 4D world representations from video diffusion models, using reinforcement learning with three-stage training to correct physically implausible dynamics.
+## 关联论文
 
-## Key Contributions
-
-- Fine-grained physics-consistent 4D modeling from video diffusion
-- Three-stage RL-based training pipeline
-- Collaboration: Northwestern University × Dolby
-
-## Tags
-
-#video-generation #physics #4D #diffusion #reinforcement-learning
+- 视频扩散/生成模型方向
