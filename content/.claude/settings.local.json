@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/RewardDance\" && mv x1.png fig1-performance-overview.png && mv x3.png fig3-method-overview.png && mv x4.png fig5-reward-curves.png && ls *.png)",
+      "Bash(cd \"/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/SoliReward\" && mv x1.png fig1-pipeline.png && mv x2.png fig2-score-clustering.png && mv x3.png fig3-bt-wt-distribution.png && ls *.png)",
+      "Bash(mkdir -p \"/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/RaR\" && cd \"/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/RaR\" && curl -sO \"https://arxiv.org/html/2507.17746v2/x1.png\" && curl -sO \"https://arxiv.org/html/2507.17746v2/x2.png\" && curl -sO \"https://arxiv.org/html/2507.17746v2/figs/llm_judge_line_comparison.png\" && ls -la *.png)",
+      "Bash(cd \"/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/RaR\" && mv x1.png fig1-framework-overview.png && mv x2.png fig2-performance-comparison.png && mv llm_judge_line_comparison.png fig3-judge-alignment.png && ls *.png)"
+    ]
+  }
+}
