@@ -1,6 +1,21 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+const Comments = Component.Comments({
+  provider: "giscus",
+  options: {
+    repo: "huangrh99/obsidian-papers",
+    repoId: "R_kgDORdkaSg",
+    category: "General",
+    categoryId: "DIC_kwDORdkaSs4C4T_8",
+    mapping: "pathname",
+    strict: false,
+    reactionsEnabled: true,
+    inputPosition: "bottom",
+    lang: "zh-CN",
+  },
+})
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -44,6 +59,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
+  afterBody: [Comments],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
