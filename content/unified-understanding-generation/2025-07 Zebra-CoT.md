@@ -1,5 +1,4 @@
 ---
-title: "Zebra-CoT: A Dataset for Interleaved Vision Language Reasoning"
 arxiv_id: "2507.16746"
 arxiv_url: "https://arxiv.org/abs/2507.16746"
 authors:

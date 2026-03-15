@@ -1,5 +1,4 @@
 ---
-title: "Enhancing Reward Models for High-quality Image Generation: Beyond Text-Image Alignment"
 arxiv_id: "2507.19002"
 arxiv_url: "https://arxiv.org/abs/2507.19002"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "Unified Autoregressive Visual Generation and Understanding with Continuous Tokens"
 arxiv_id: "2503.13436"
 arxiv_url: "https://arxiv.org/abs/2503.13436"
 authors:

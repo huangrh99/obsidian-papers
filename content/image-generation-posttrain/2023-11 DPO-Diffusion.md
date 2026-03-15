@@ -1,5 +1,4 @@
 ---
-title: "Diffusion Model Alignment Using Direct Preference Optimization"
 arxiv_id: "2311.12908"
 arxiv_url: "https://arxiv.org/abs/2311.12908"
 authors:

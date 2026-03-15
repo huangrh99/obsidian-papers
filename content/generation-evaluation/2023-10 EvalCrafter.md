@@ -1,5 +1,4 @@
 ---
-title: "EvalCrafter: Benchmarking and Evaluating Large Video Generation Models"
 arxiv_id: "2310.11440"
 arxiv_url: "https://arxiv.org/abs/2310.11440"
 authors:

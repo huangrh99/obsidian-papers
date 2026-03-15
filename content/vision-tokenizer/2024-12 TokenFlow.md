@@ -1,5 +1,4 @@
 ---
-title: "TokenFlow: a novel unified image tokenizer that bridges the long-standing gap between multimodal understanding and generation"
 arxiv_id: "2412.03069"
 arxiv_url: "https://arxiv.org/abs/2412.03069"
 authors:

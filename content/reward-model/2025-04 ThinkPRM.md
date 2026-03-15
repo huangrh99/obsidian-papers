@@ -1,5 +1,4 @@
 ---
-title: "Process Reward Models That Think"
 arxiv_id: "2504.16828"
 arxiv_url: "https://arxiv.org/abs/2504.16828"
 authors:

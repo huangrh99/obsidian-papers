@@ -1,5 +1,4 @@
 ---
-title: "Aligning Text-to-Image Diffusion Models with Reward Backpropagation"
 arxiv_id: "2310.03739"
 arxiv_url: "https://arxiv.org/abs/2310.03739"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation"
 arxiv_id: "2406.06525"
 arxiv_url: "https://arxiv.org/abs/2406.06525"
 authors:

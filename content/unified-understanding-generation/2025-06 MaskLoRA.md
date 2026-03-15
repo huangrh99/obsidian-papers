@@ -1,5 +1,4 @@
 ---
-title: "Mask-Based LoRA Tuning for Flexible Video Editing with Spatiotemporal Guidance"
 arxiv_id: "2506.10082"
 arxiv_url: "https://arxiv.org/abs/2506.10082"
 authors:

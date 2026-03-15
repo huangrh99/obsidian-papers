@@ -1,5 +1,4 @@
 ---
-title: "Aligning Large Multimodal Models with Factually Augmented RLHF"
 arxiv_id: "2309.14525"
 arxiv_url: "https://arxiv.org/abs/2309.14525"
 authors:

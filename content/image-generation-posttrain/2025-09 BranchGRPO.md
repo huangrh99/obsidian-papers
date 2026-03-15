@@ -1,5 +1,4 @@
 ---
-title: "BranchGRPO: Stable and Efficient GRPO with Structured Branching in Diffusion Models"
 arxiv_id: "2509.06040"
 arxiv_url: "https://arxiv.org/abs/2509.06040"
 authors:

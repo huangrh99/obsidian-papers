@@ -1,5 +1,4 @@
 ---
-title: "DINO-Foresight: Looking into the Future with DINO"
 arxiv_id: "2412.11673"
 arxiv_url: "https://arxiv.org/abs/2412.11673"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "AdvancedIF: Rubric-Based Benchmarking and Reinforcement Learning for Advancing LLM Instruction Following"
 arxiv_id: "2511.10507"
 arxiv_url: "https://arxiv.org/abs/2511.10507"
 authors:

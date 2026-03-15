@@ -1,5 +1,4 @@
 ---
-title: "Pick-a-Pic: An Open Dataset of User Preferences for Text-to-Image Generation"
 arxiv_id: "2305.01569"
 arxiv_url: "https://arxiv.org/abs/2305.01569"
 authors:

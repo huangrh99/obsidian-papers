@@ -1,5 +1,4 @@
 ---
-title: "RewardBench 2: Advancing Reward Model Evaluation"
 arxiv_id: "2506.01937"
 arxiv_url: "https://arxiv.org/abs/2506.01937"
 authors:

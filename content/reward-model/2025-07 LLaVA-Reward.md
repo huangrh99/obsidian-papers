@@ -1,5 +1,4 @@
 ---
-title: "Multimodal LLMs as Customized Reward Models for Text-to-Image Generation"
 arxiv_id: "2507.21391"
 arxiv_url: "https://arxiv.org/abs/2507.21391"
 authors:

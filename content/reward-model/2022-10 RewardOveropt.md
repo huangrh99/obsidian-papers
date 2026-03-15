@@ -1,5 +1,4 @@
 ---
-title: "Scaling Laws for Reward Model Overoptimization"
 arxiv_id: "2210.10760"
 arxiv_url: "https://arxiv.org/abs/2210.10760"
 authors:

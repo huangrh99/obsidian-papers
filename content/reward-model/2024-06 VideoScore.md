@@ -1,5 +1,4 @@
 ---
-title: "VideoScore: Building Automatic Metrics to Simulate Fine-grained Human Feedback for Video Generation"
 arxiv_id: "2406.15252"
 arxiv_url: "https://arxiv.org/abs/2406.15252"
 authors:

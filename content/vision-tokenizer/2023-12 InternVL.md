@@ -1,5 +1,4 @@
 ---
-title: "InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks"
 arxiv_id: "2312.14238"
 arxiv_url: "https://arxiv.org/abs/2312.14238"
 authors:

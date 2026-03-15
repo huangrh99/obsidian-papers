@@ -1,5 +1,4 @@
 ---
-title: "OnlineVPO: Align Video Diffusion Model with Online Video-Centric Preference Optimization"
 arxiv_id: "2412.15159"
 arxiv_url: "https://arxiv.org/abs/2412.15159"
 authors:

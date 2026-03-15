@@ -1,5 +1,4 @@
 ---
-title: "SoliReward: Mitigating Susceptibility to Reward Hacking and Annotation Noise in Video Generation Reward Models"
 arxiv_id: "2512.22170"
 arxiv_url: "https://arxiv.org/abs/2512.22170"
 authors:

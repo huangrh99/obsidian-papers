@@ -1,5 +1,4 @@
 ---
-title: "UltraFeedback: Boosting Language Models with Scaled AI Feedback"
 arxiv_id: "2310.01377"
 arxiv_url: "https://arxiv.org/abs/2310.01377"
 authors:

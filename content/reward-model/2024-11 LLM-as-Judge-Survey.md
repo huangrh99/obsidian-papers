@@ -1,5 +1,4 @@
 ---
-title: "A Survey on LLM-as-a-Judge"
 arxiv_id: "2411.15594"
 arxiv_url: "https://arxiv.org/abs/2411.15594"
 authors:

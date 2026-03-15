@@ -1,5 +1,4 @@
 ---
-title: "Scaling Reward Modeling without Human Supervision"
 arxiv_id: "2603.02225"
 arxiv_url: "https://arxiv.org/abs/2603.02225"
 authors:

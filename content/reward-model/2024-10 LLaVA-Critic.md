@@ -1,5 +1,4 @@
 ---
-title: "LLaVA-Critic: Learning to Evaluate Multimodal Models"
 arxiv_id: "2410.02712"
 arxiv_url: "https://arxiv.org/abs/2410.02712"
 authors:

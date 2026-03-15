@@ -1,5 +1,4 @@
 ---
-title: "Alignment of Diffusion Models: Fundamentals, Challenges, and Future"
 arxiv_id: "2409.07253"
 arxiv_url: "https://arxiv.org/abs/2409.07253"
 authors:

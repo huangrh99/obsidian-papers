@@ -1,5 +1,4 @@
 ---
-title: "Inference-Time Scaling for Diffusion Models beyond Scaling Denoising Steps"
 arxiv_id: "2501.09732"
 arxiv_url: "https://arxiv.org/abs/2501.09732"
 authors:

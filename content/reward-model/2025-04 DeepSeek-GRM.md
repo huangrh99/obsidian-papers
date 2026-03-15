@@ -1,5 +1,4 @@
 ---
-title: "Inference-Time Scaling for Generalist Reward Modeling"
 arxiv_id: "2504.02495"
 arxiv_url: "https://arxiv.org/abs/2504.02495"
 authors:

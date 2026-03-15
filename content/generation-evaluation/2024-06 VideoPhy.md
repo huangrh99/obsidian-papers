@@ -1,5 +1,4 @@
 ---
-title: "VideoPhy: Evaluating Physical Commonsense for Video Generation"
 arxiv_id: "2406.03520"
 arxiv_url: "https://arxiv.org/abs/2406.03520"
 authors:

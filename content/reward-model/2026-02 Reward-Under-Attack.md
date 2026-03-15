@@ -1,5 +1,4 @@
 ---
-title: "Reward Under Attack: Analyzing the Robustness and Hackability of Process Reward Models"
 arxiv_id: "2603.06621"
 arxiv_url: "https://arxiv.org/abs/2603.06621"
 authors:

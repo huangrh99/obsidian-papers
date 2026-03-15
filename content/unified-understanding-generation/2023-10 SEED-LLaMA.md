@@ -1,5 +1,4 @@
 ---
-title: "Making LLaMA SEE and Draw with SEED Tokenizer"
 arxiv_id: "2310.01218"
 arxiv_url: "https://arxiv.org/abs/2310.01218"
 authors:

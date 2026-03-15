@@ -1,5 +1,4 @@
 ---
-title: "Unified Multimodal Understanding and Generation Models: Advances, Challenges, and Opportunities"
 arxiv_id: "2505.02567"
 arxiv_url: "https://arxiv.org/abs/2505.02567v6"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "A Survey of Process Reward Models: From Outcome Signals to Process Supervisions for Large Language Models"
 arxiv_id: "2510.08049"
 arxiv_url: "https://arxiv.org/abs/2510.08049"
 authors:

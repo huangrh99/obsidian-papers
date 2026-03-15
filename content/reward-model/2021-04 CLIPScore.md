@@ -1,5 +1,4 @@
 ---
-title: "CLIPScore: A Reference-free Evaluation Metric for Image Captioning"
 arxiv_id: "2104.08718"
 arxiv_url: "https://arxiv.org/abs/2104.08718"
 authors:

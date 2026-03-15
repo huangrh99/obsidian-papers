@@ -1,6 +1,5 @@
 ---
 arxiv_id: "2603.03485"
-title: "Fine-Grained Physics-Consistent 4D Modeling from Video Diffusion"
 authors: ["Haoran Lu", "Shang Wu", "Jianshu Zhang", "Maojiang Su", "Guo Ye", "Chenwei Xu", "Lie Lu", "Pranav Maneriker", "Fan Du", "Manling Li", "Zhaoran Wang", "Han Liu"]
 date: "2026-03"
 subcategory: "generation-model"

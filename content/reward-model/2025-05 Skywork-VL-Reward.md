@@ -1,5 +1,4 @@
 ---
-title: "Skywork-VL Reward: An Effective Reward Model for Multimodal Understanding and Reasoning"
 arxiv_id: "2505.07263"
 arxiv_url: "https://arxiv.org/abs/2505.07263"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "MetaMorph: Multimodal Understanding and Generation via Instruction Tuning"
 arxiv_id: "2412.14164"
 arxiv_url: "https://arxiv.org/abs/2412.14164"
 authors:

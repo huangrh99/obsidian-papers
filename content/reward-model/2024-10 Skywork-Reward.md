@@ -1,5 +1,4 @@
 ---
-title: "Skywork-Reward: Bag of Tricks for Reward Modeling in LLMs"
 arxiv_id: "2410.18451"
 arxiv_url: "https://arxiv.org/abs/2410.18451"
 authors:

@@ -1,5 +1,4 @@
 ---
-title: "Improving Video Generation with Human Feedback"
 arxiv_id: "2501.13918"
 arxiv_url: "https://arxiv.org/abs/2501.13918"
 authors:

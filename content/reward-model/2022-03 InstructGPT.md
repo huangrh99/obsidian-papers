@@ -1,5 +1,4 @@
 ---
-title: "Training language models to follow instructions with human feedback"
 arxiv_id: "2203.02155"
 arxiv_url: "https://arxiv.org/abs/2203.02155"
 authors:

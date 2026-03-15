@@ -1,5 +1,4 @@
 ---
-title: "LangBridge: Interpreting Image as a Combination of Language Embeddings"
 arxiv_id: "2503.19404"
 arxiv_url: "https://arxiv.org/abs/2503.19404"
 authors:
