@@ -1,4 +1,5 @@
 ---
+title: "Rich Human Feedback for Text-to-Image Generation"
 arxiv_id: "2312.10240"
 arxiv_url: "https://arxiv.org/abs/2312.10240"
 authors:

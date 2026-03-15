@@ -1,4 +1,5 @@
 ---
+title: "Dual-IPO: Dual-Iterative Preference Optimization for Text-to-Video Generation"
 arxiv_id: "2502.02088"
 arxiv_url: "https://arxiv.org/abs/2502.02088"
 authors:

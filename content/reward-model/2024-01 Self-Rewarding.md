@@ -1,4 +1,5 @@
 ---
+title: "Self-Rewarding Language Models"
 arxiv_id: "2401.10020"
 arxiv_url: "https://arxiv.org/abs/2401.10020"
 authors:

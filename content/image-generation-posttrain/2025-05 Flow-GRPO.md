@@ -1,4 +1,5 @@
 ---
+title: "Flow-GRPO: Training Flow Matching Models via Online RL"
 arxiv_id: "2505.05470"
 arxiv_url: "https://arxiv.org/abs/2505.05470"
 authors:

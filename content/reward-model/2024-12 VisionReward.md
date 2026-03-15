@@ -1,4 +1,5 @@
 ---
+title: "VisionReward: Fine-Grained Multi-Dimensional Human Preference Learning for Image and Video Generation"
 arxiv_id: "2412.21059"
 arxiv_url: "https://arxiv.org/abs/2412.21059"
 authors:

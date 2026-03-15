@@ -1,4 +1,5 @@
 ---
+title: "The Accuracy Paradox in RLHF: When Better Reward Models Don't Yield Better Language Models"
 arxiv_id: "2410.06554"
 arxiv_url: "https://arxiv.org/abs/2410.06554"
 authors:

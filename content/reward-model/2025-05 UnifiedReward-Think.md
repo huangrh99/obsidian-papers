@@ -1,4 +1,5 @@
 ---
+title: "Unified Multimodal Chain-of-Thought Reward Model through Reinforcement Fine-Tuning"
 arxiv_id: "2505.03318"
 arxiv_url: "https://arxiv.org/abs/2505.03318"
 authors:

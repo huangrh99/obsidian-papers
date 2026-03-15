@@ -1,4 +1,5 @@
 ---
+title: "GigaTok: Scaling Visual Tokenizers to 3 Billion Parameters for Autoregressive Image Generation"
 arxiv_id: "2504.08736"
 arxiv_url: "https://arxiv.org/abs/2504.08736"
 authors:

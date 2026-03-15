@@ -1,4 +1,5 @@
 ---
+title: "T2I-CompBench++: An Enhanced and Comprehensive Benchmark for Compositional Text-to-image Generation"
 arxiv_id: "2307.06350"
 arxiv_url: "https://arxiv.org/abs/2307.06350"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "Vector-quantized Image Modeling with Improved VQGAN"
 arxiv_id: "2110.04627"
 arxiv_url: "https://arxiv.org/abs/2110.04627"
 authors:

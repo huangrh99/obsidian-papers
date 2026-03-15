@@ -1,4 +1,5 @@
 ---
+title: "DanceGRPO: Unleashing GRPO on Visual Generation"
 arxiv_id: "2505.07818"
 arxiv_url: "https://arxiv.org/abs/2505.07818"
 authors:

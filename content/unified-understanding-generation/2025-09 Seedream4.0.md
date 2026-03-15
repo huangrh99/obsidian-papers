@@ -1,4 +1,5 @@
 ---
+title: "Seedream 4.0: Toward Next-generation Multimodal Image Generation"
 arxiv_id: "2509.20427"
 arxiv_url: "https://arxiv.org/abs/2509.20427"
 authors:

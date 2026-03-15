@@ -1,4 +1,5 @@
 ---
+title: "RewardDance: Reward Scaling in Visual Generation"
 arxiv_id: "2509.08826"
 arxiv_url: "https://arxiv.org/abs/2509.08826"
 authors:

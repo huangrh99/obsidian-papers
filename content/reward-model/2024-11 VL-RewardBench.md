@@ -1,4 +1,5 @@
 ---
+title: "VL-RewardBench: A Challenging Benchmark for Vision-Language Generative Reward Models"
 arxiv_id: "2411.17451"
 arxiv_url: "https://arxiv.org/abs/2411.17451"
 authors:

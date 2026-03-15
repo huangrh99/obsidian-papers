@@ -38,6 +38,7 @@ YYYY-MM PaperName.md
 
 ```markdown
 ---
+title: "完整论文标题"
 arxiv_id: "YYMM.NNNNN"
 arxiv_url: "https://arxiv.org/abs/YYMM.NNNNN"
 authors:

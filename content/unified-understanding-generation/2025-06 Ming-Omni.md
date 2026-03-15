@@ -1,4 +1,5 @@
 ---
+title: "Ming-Omni: A Unified Multimodal Model for Perception and Generation"
 arxiv_id: "2506.09344"
 arxiv_url: "https://arxiv.org/abs/2506.09344"
 authors:

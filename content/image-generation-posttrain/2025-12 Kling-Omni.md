@@ -1,4 +1,5 @@
 ---
+title: "Kling-Omni Technical Report"
 arxiv_id: "2512.16776"
 arxiv_url: "https://arxiv.org/abs/2512.16776"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "HelpSteer2: Open-source dataset for training top-performing reward models"
 arxiv_id: "2406.08673"
 arxiv_url: "https://arxiv.org/abs/2406.08673"
 authors:

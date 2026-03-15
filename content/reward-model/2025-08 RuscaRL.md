@@ -1,4 +1,5 @@
 ---
+title: "Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for General LLM Reasoning"
 arxiv_id: "2508.16949"
 arxiv_url: "https://arxiv.org/abs/2508.16949"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "ImageReward: Learning and Evaluating Human Preferences for Text-to-Image Generation"
 arxiv_id: "2304.05977"
 arxiv_url: "https://arxiv.org/abs/2304.05977"
 authors:

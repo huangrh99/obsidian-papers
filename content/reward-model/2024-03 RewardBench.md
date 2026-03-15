@@ -1,4 +1,5 @@
 ---
+title: "RewardBench: Evaluating Reward Models for Language Modeling"
 arxiv_id: "2403.13787"
 arxiv_url: "https://arxiv.org/abs/2403.13787"
 authors:

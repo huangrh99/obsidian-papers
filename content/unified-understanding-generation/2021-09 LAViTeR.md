@@ -1,4 +1,5 @@
 ---
+title: "LAViTeR: Learning Aligned Visual and Textual Representations Assisted by Image and Caption Generation"
 arxiv_id: "2109.04993"
 arxiv_url: "https://arxiv.org/abs/2109.04993"
 authors:

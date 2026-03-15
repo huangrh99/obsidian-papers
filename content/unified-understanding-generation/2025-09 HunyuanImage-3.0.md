@@ -1,4 +1,5 @@
 ---
+title: "HunyuanImage 3.0 Technical Report"
 arxiv_id: "2509.23951"
 arxiv_url: "https://arxiv.org/abs/2509.23951"
 authors:

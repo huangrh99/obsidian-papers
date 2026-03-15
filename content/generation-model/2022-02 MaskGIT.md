@@ -1,4 +1,5 @@
 ---
+title: "MaskGIT: Masked Generative Image Transformer"
 arxiv_id: "2202.04200"
 arxiv_url: "https://arxiv.org/abs/2202.04200"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "A Comprehensive Survey of Reward Models: Taxonomy, Applications, Challenges, and Future"
 arxiv_id: "2504.12328"
 arxiv_url: "https://arxiv.org/abs/2504.12328"
 authors:
