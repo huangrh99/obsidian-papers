@@ -66,7 +66,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
-  afterBody: [Comments],
+  afterBody: [Component.DiscussButton(), Comments],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
