@@ -1,4 +1,5 @@
 ---
+title: "Seedance 1.0: Exploring the Boundaries of Video Generation Models"
 arxiv_id: "2506.09113"
 arxiv_url: "https://arxiv.org/abs/2506.09113"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "GenAI-Bench: Evaluating and Improving Compositional Text-to-Visual Generation"
 arxiv_id: "2406.13743"
 arxiv_url: "https://arxiv.org/abs/2406.13743"
 authors:

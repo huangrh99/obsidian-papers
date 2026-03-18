@@ -375,6 +375,7 @@ $$\mathcal{L}_{\text{DPO}}(\theta) = -\mathbb{E}_{(x, y^+, y^-) \sim P}\left[\lo
 ## 五、UnifiedReward-Flex 笔记元数据（用于新建知识库条目）
 
 ```yaml
+title: "Unified Personalized Reward Model for Vision Generation"
 arxiv_id: "2602.02380"
 arxiv_url: "https://arxiv.org/abs/2602.02380"
 authors:

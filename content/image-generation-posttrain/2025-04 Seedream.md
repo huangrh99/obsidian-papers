@@ -1,4 +1,5 @@
 ---
+title: "Seedream 3.0 Technical Report"
 arxiv_id: "2504.11346"
 arxiv_url: "https://arxiv.org/abs/2504.11346"
 authors:

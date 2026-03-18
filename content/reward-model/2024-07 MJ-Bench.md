@@ -1,4 +1,5 @@
 ---
+title: "MJ-Bench: Is Your Multimodal Reward Model Really a Good Judge for Text-to-Image Generation?"
 arxiv_id: "2407.04842"
 arxiv_url: "https://arxiv.org/abs/2407.04842"
 authors:

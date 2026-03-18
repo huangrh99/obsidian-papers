@@ -1,4 +1,5 @@
 ---
+title: "DanceGRPO: Unleashing GRPO on Visual Generation"
 arxiv_id: "2505.07818"
 arxiv_url: "https://arxiv.org/abs/2505.07818"
 authors:
@@ -19,26 +20,32 @@ categories:
 tags:
   - paper
   - image-generation-posttrain
-  - tencent
+  - bytedance
   - hku
-institution: "HKU / Tencent"
-notion_topic: "图像生成后训练"
-added: "2026-03-04"
+  - modality/image
+  - modality/video
+  - modality/text
+institution: "ByteDance Seed / The University of Hong Kong"
+notion_topic: "视觉生成GRPO"
+added: "2026-03-15"
 rating: ""
 aliases:
   - "DanceGRPO"
 extends: []
-related_topic:
+baseline:
   - "[[DDPO]]"
-  - "[[AlignProp]]"
-  - "[[RAFT]]"
+  - "[[DPOK]]"
+  - "[[ReFL]]"
+related_topic:
+  - "[[Diffusion-DPO]]"
+  - "[[RewardDance]]"
 ---
 
 # DanceGRPO
 
 ## 📌 核心贡献
 
-> 首次将组相对策略优化（GRPO）引入视觉生成领域，通过组内相对奖励评估消除了对价值模型（Critic）的需求。该框架同时兼容扩散模型与整流流（Rectified Flow），在大规模多样化提示词下表现出极强的优化稳定性，大幅刷新了图像与视频生成的对齐基准。
+> 首次将组相对策略优化（GRPO）引入视觉生成领域，统一支持扩散模型和整流流两种范式，在图像生成（T2I）、文本生成视频（T2V）和图像生成视频（I2V）三大任务上实现了最高 181% 的性能提升，是第一个将 GRPO 应用于视觉生成的工作。
 
 ## 📖 摘要
 
@@ -48,18 +55,71 @@ Recent advances in generative AI have revolutionized visual content creation, ye
 
 | 字段 | 内容 |
 |------|------|
-| 机构 | HKU / Tencent |
+| 机构 | ByteDance Seed / The University of Hong Kong |
 | 发表 | 2025-05-12 |
 | 分类 | cs.CV |
 | 链接 | [arXiv](https://arxiv.org/abs/2505.07818) |
 
 ## 📝 我的笔记
 
-Project Page: https://dancegrpo.github.io/  
-GRPO 来自 DeepSeek-R1 中的 LLM 对齐算法，DanceGRPO 将其迁移至视觉生成。同时支持图像和视频生成任务。
+### 动机与问题
+
+现有 RL 方法（DDPO、DPOK）在大规模多样化提示词上优化不稳定，实际应用受限。DanceGRPO 将 LLM 领域中 DeepSeek-R1 使用的 GRPO 算法迁移到视觉生成，利用组内相对优势估计消除对 Critic 模型的依赖。
+
+### 核心方法
+
+**1. 统一 SDE 框架**
+
+将扩散模型和整流流的采样过程统一建模为马尔可夫决策过程。对于扩散模型，反向 SDE 为：
+
+$$d\mathbf{z}_t = \left(f_t\mathbf{z}_t - \frac{1+\varepsilon_t^2}{2}g_t^2\nabla\log p_t(\mathbf{z}_t)\right)dt + \varepsilon_t g_t d\mathbf{w}$$
+
+对于整流流，引入随机性的类比 SDE：
+
+$$d\mathbf{z}_t = \left(\mathbf{u}_t - \frac{\varepsilon_t^2}{2}\nabla\log p_t(\mathbf{z}_t)\right)dt + \varepsilon_t d\mathbf{w}$$
+
+**2. GRPO 目标函数**
+
+$$J(\theta) = \mathbb{E}\left[\frac{1}{G}\sum_i \frac{1}{T}\sum_t \min\left(\rho_{t,i}A_i, \text{clip}(\rho_{t,i}, 1-\varepsilon, 1+\varepsilon)A_i\right)\right]$$
+
+其中优势函数通过组内归一化计算：$A_i = (r_i - \text{mean}(r)) / \text{std}(r)$
+
+**3. 关键设计选择**
+
+- **共享初始化噪声**：同一提示词组内的样本共享初始噪声，防止 reward hacking
+- **选择性时间步丢弃**：40% 的时间步被随机跳过，提升计算效率
+- **多奖励优势聚合**：聚合多个奖励函数的优势值而非直接组合奖励分数
+- **噪声水平**：$\varepsilon_t = 0.3$ 以保持训练稳定性
+
+### 关键实验结果
+
+**Text-to-Image（Stable Diffusion）：**
+
+| 指标 | Baseline | DanceGRPO | 提升 |
+|------|----------|-----------|------|
+| HPS-v2.1 | 0.239 | 0.365 | +53% |
+| CLIP Score | 0.363 | 0.395 | +9% |
+| GenEval | 0.421 | 0.522 | +24% |
+
+**Text-to-Video（HunyuanVideo）：**
+
+| 指标 | Baseline | DanceGRPO | 提升 |
+|------|----------|-----------|------|
+| Visual Quality | — | — | +56% |
+| Motion Quality | 1.37 | 3.85 | +181% |
+
+**Image-to-Video（SkyReels-I2V）：**
+
+| 指标 | 提升 |
+|------|------|
+| Motion Quality | +118% |
+
+### 总结
+
+DanceGRPO 是首个将 GRPO 引入视觉生成的工作，核心优势在于 GRPO 的组内相对评估机制天然适合视觉生成的高方差奖励环境。框架同时支持扩散模型和整流流，覆盖 T2I/T2V/I2V 三类任务，展示了极强的通用性。共享噪声初始化和多奖励优势聚合是避免 reward hacking 的关键设计。
 
 ## 🔗 相关论文
 
-**基于/改进自：** —
+**基于/改进自：** --
 
-**同方向（GRPO用于视觉生成）：** [[DDPO]], [[AlignProp]], [[RAFT]]
+**同方向：** [[DDPO]], [[Diffusion-DPO]], [[RewardDance]]

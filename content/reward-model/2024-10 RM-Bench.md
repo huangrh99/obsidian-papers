@@ -1,4 +1,5 @@
 ---
+title: "RM-Bench: Benchmarking Reward Models of Language Models with Subtlety and Style"
 arxiv_id: "2410.16184"
 arxiv_url: "https://arxiv.org/abs/2410.16184"
 authors:

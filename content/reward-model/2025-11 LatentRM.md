@@ -1,4 +1,5 @@
 ---
+title: "Video Generation Models Are Good Latent Reward Models"
 arxiv_id: "2511.21541"
 arxiv_url: "https://arxiv.org/abs/2511.21541"
 authors:

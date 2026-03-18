@@ -1,7 +1,7 @@
 # Reward Model 全景调研
 
-> 基于知识库中 94 篇论文（reward-model）+ 6 篇生成评估基准（generation-evaluation/，交叉引用）+ 3 篇公司技术报告（image-generation-posttrain/）的系统性调研，按三大研究方向梳理。
-> 最后更新：2026-03-15 | GPU 资源：8×H100
+> 基于知识库中 100 篇论文笔记（reward-model/）+ 6 篇生成评估基准（generation-evaluation/，交叉引用）+ 12 篇下游应用/公司技术报告（image-generation-posttrain/）的系统性调研，按三大研究方向梳理。
+> 最后更新：2026-03-16 
 
 ## 目录
 
@@ -10,8 +10,9 @@
 - [3. Text RM 方向](#3-text-rm-方向)
 - [4. 多模态理解 RM 方向](#4-多模态理解-rm-方向)
 - [5. 图像/视频生成 RM 方向](#5-图像视频生成-rm-方向)
-- [6. 三方向交汇：统一 RM 设计](#6-三方向交汇统一-rm-设计)
-- [7. 推荐执行路线](#7-推荐执行路线)
+- [6. 三方向交汇与统一 RM 方向](#6-三方向交汇与统一-rm-方向)
+- [6.5 前沿趋势：4 个新兴范式](#65-前沿趋势4-个新兴范式2025q4-2026)
+- [7. 执行路线](#7-执行路线)
 - [8. 参考文献索引](#8-参考文献索引)
 
 ---
@@ -24,10 +25,10 @@
 
 | 方向 | 定义 | 论文数 | 成熟度 |
 |------|------|--------|--------|
-| **Text RM** | 纯文本奖励模型，服务于 LLM 对齐 | 43 方法 + 5 基准 + 3 综述 | 最高——范式多样，基准完善 |
-| **多模态理解 RM** | 评估 VLM 在理解任务上的输出质量（幻觉、推理、偏好） | 10 方法 + 3 基准 | 中——幻觉消减与推理增强，快速演进 |
-| **图像/视频生成 RM** | 评估生成模型产出的图像/视频质量（对齐度、美学、物理一致性） | 25 方法 + 1 RM 基准 + 6 生成基准（→generation-evaluation/） | 中高——Image 成熟，VLM-based 生成评估兴起 |
-| **公司实践** | 工业级技术报告中的 RM 实践（跨目录引用） | 3 技术报告 | 高——完整 CT→SFT→RLHF 流程验证 |
+| **Text RM** | 纯文本奖励模型，服务于 LLM 对齐 | 48 方法 + 5 基准 + 3 综述 | 最高——范式多样，基准完善 |
+| **多模态理解 RM** | 评估 VLM 在理解任务上的输出质量（幻觉、推理、偏好） | 13 方法 + 4 基准 | 中——幻觉消减与推理增强，快速演进 |
+| **图像/视频生成 RM** | 评估生成模型产出的图像/视频质量（对齐度、美学、物理一致性） | 28 方法 + 1 RM 基准 + 6 生成基准（→generation-evaluation/） | 中高——Image 成熟，VLM-based 生成评估兴起 |
+| **公司实践/下游应用** | 工业级技术报告 + RM 驱动的生成模型后训练（跨目录引用） | 5 技术报告 + 7 下游应用 | 高——完整 CT→SFT→RLHF 流程验证 |
 
 ### 方向间的关系
 
@@ -40,7 +41,7 @@ Text RM（方法论源头）
   │
   │ VLM 评估能力支撑生成质量判断
   ▼
-图像/视频生成 RM（最终目标）──► 下游应用：DDPO / Diffusion-DPO / T2V-Turbo
+图像/视频生成 RM（最终目标）──► 下游应用：DDPO / Diffusion-DPO / DanceGRPO / Flow-GRPO / AlignProp / ReFL
 ```
 
 - **Text RM** 方法最成熟，提供了 CoT 推理、Rubric 结构化、RLAIF、生成式验证等核心方法论，是其他两个方向的理论源泉
@@ -51,16 +52,19 @@ Text RM（方法论源头）
 
 | 范式 | Text RM | 多模态理解 RM | 图像/视频生成 RM | 合计 |
 |------|---------|-------------|---------------|------|
-| Scorer | 9 | 3 | 13 | 25 |
-| Judge | 3 | 1 | 0 | 4 |
-| CoT-Reasoning | 3 | 2 | 3 | 8 |
+| Scorer | 10 | 3 | 15 | 28 |
+| Judge | 4 | 2 | 0 | 6 |
+| CoT-Reasoning | 3 | 3 | 4 | 10 |
 | Rubric | 7 | 0 | 0 | 7 |
-| Generative RM | 3 | 0 | 2 | 5 |
-| Implicit RM | 5 | 0 | 0 | 5 |
+| Generative RM | 3 | 0 | 3 | 6 |
+| Implicit RM | 6 | 0 | 0 | 6 |
 | PRM (Process RM) | 4 | 2 | 0 | 6 |
-| RLAIF/Self-Reward | 3 | 2 | 0 | 5 |
+| RLAIF/Self-Reward | 5 | 2 | 0 | 7 |
+| Agentic RM | 0 | 1 | 0 | 1 |
 | Latent RM | 0 | 0 | 1 | 1 |
-| Benchmark（RM 评估） | 5 | 3 | 1 | 9 |
+| Omni-Modal RM | 0 | 0 | 1 | 1 |
+| RLHF/Critique | 0 | 1 | 0 | 1 |
+| Benchmark（RM 评估） | 5 | 4 | 1 | 10 |
 | Benchmark（生成评估，→generation-evaluation/） | 0 | 0 | 6 | 6 |
 | Analysis | 3 | 0 | 0 | 3 |
 | 其他 | 3 Survey + 2 Dataset | 0 | 1 Dataset + 2 Metric/Feedback | 8 |
@@ -69,7 +73,7 @@ Text RM（方法论源头）
 
 ## 2. 方法分类总表
 
-涵盖全部 94 篇论文 + 6 篇生成评估基准（generation-evaluation/ 交叉引用），按研究方向分表展示。
+涵盖全部 100 篇论文笔记 + 6 篇生成评估基准（generation-evaluation/ 交叉引用），按研究方向分表展示。
 
 ### 2.1 Text RM
 
@@ -83,18 +87,23 @@ Text RM（方法论源头）
 | PRM800K | 2023-05 | GPT-4 base | Scorer (Process) | 800K 步骤级标注 | MATH 78.2% (BoN-1860) | 过程监督 >> 结果监督，首个大规模步骤级 RM 数据集 |
 | RLAIF | 2023-09 | PaLM 2 | RLAIF | AI 偏好标签 | RLAIF ≈ RLHF | 系统验证 AI 反馈可替代人类反馈，提出 d-RLAIF |
 | Auto-J | 2023-10 | LLaMA-2-13B-chat | Judge | 3.4K pairwise + 960 single | Pairwise ACC 55.0%, 系统级 Spearman 0.97 | 首个开源 13B 生成式 judge，58 场景 + 332 标准，多协议统一 |
+| Safe-RLHF | 2023-10 | Alpaca-7B | Scorer (Disentangled) | 解耦有用性/无害性偏好标注 | 有害回复 53.08% → 2.45% | 解耦有用性/安全性 RM + 拉格朗日动态平衡，BeaverTails 数据集 |
 | UltraFeedback | 2023-10 | — | Dataset | 1M+ GPT-4 反馈 | — | 最广泛用的偏好数据集 |
 | Math-Shepherd | 2023-12 | Mistral/LLaMA 7-70B | PRM (Process) | 445K 解答, 自动步骤标注 | GSM8K 89.1%, MATH 43.5% (BoN) | 蒙特卡洛估计自动过程标注，无需人工步骤级标注即可训练 PRM |
 | Self-Rewarding | 2024-01 | Llama 2 70B | Self-Reward | 3.2K IFT + 迭代 DPO | AlpacaEval 20.44% (>GPT-4) | LLM-as-Judge 自奖励 + 迭代 DPO |
 | KTO | 2024-02 | Mistral-7B / 各规模 LLM | Implicit RM | 二元反馈（好/坏） | GSM8K +13.5 vs DPO, 1B-30B 匹配 DPO | 基于前景理论的 HALO 损失，仅需二元反馈信号，无需成对偏好 |
 | ODIN | 2024-02 | Llama-2 7B | Disentangled | 标准偏好对 | BoN +解耦长度偏差 | 解耦长度/质量防 reward hacking |
 | ORPO | 2024-03 | Phi-2/Llama-2/Mistral 7B | Implicit RM | 标准偏好对 | AlpacaEval 2.0 12.20% | 单阶段 SFT+偏好对齐，odds ratio 惩罚项，免参考模型，计算量减半 |
+| Prometheus-2 | 2024-05 | LLaMA-2-8x7B | Judge | 100K 评分 + 200K 排序 | Pairwise ACC 85.52%, Pearson 0.685 | 权重合并统一直接评分和成对排序，开源评估器最高人类一致性 |
 | SimPO | 2024-05 | Policy model | Implicit RM | 标准偏好对 | AE2 +6.4 vs DPO | 序列平均 log-prob 隐式奖励，免参考模型 |
 | ArmoRM | 2024-06 | Llama-3 8B | Scorer | ~60 万评分 + 97.5 万偏好对 | RB 89.0% (8B ≈ 340B) | 多目标回归 + MoE 门控 |
 | Nemotron-4 | 2024-06 | Nemotron-4 340B | Scorer | 10K HelpSteer2 | RB 92.0% | 多属性回归 RM + 98% 合成数据闭环 |
+| Step-DPO | 2024-06 | Qwen2 7-72B | Implicit RM (Step) | 10K 步骤级偏好对 | MATH 70.8%, GSM8K 94.0% | 步骤级偏好优化，仅 10K 数据超越 GPT-4-1106 |
 | HelpSteer2 | 2024-06 | — | Dataset | 10K 5属性标注 | RB 92.0% (Nemotron) | 多属性偏好数据集 |
 | OmegaPRM | 2024-06 | Gemini Pro | PRM (Data) | MCTS 15M 标注 | MATH-500 69.4% | MCTS 收集 PRM 数据，75x 效率 |
+| Meta-Rewarding | 2024-07 | Llama-3-8B-Instruct | Self-Reward/Meta-Judge | 自生成偏好 + DPO | AE2 39.4%, Arena-Hard 29.1% | LLM-as-Meta-Judge：模型评判自身评判，解决自奖励饱和问题 |
 | FLAMe | 2024-07 | PaLM-2-24B | Judge | 100+ 任务, 5M+ 判断 | RB 87.8%, 8/12 超 GPT-4 | 首个基于大规模人类判断的基础评估模型 |
+| Self-Taught-Evaluators | 2024-08 | Llama3-70B-Instruct | Self-Reward/Judge | 无标注合成数据 | RB 88.3% (匹配最优有标注 RM) | 无需人类标注的迭代自我改进评估器，5 轮迭代超越 GPT-4 |
 | GenRM | 2024-08 | Gemini 1.0 Pro | Generative | 合成验证 rationale | BoN GSM8K 93.4% | 生成式验证器，next-token prediction + CoT |
 | QRM | 2024-09 | Llama-3.1 系列 | Distributional | 标准偏好对 | RB 91.6% (8B) | 分位数回归分布式奖励 |
 | Con-J | 2024-10 | Qwen2-7B-Instruct | Generative | 自举对比判断对 | Infinity-Pref 81.0%, RB 91.3% | 自举对比判断 + DPO 训练生成式 judge，rationale 增强鲁棒性 |
@@ -129,11 +138,15 @@ Text RM（方法论源头）
 | RLAIF-V | 2024-05 | LLaVA-1.5/OV | RLAIF | 开源 AI 反馈 | 幻觉 -82.9% | 开源多模态 AI 反馈 |
 | LLaVA-Critic | 2024-10 | LLaVA-OneVision 7/72B | Judge | 113K critic 数据 | Pairwise ACC 0.736 (>GPT-4V) | 首个开源多模态 LMM-as-Judge |
 | IXC-2.5-Reward | 2025-01 | IXC-2.5 7B | Scorer | 多模态偏好语料 | VLRBench 70.0% | ACL 2025，通用多模态 RM |
+| MM-RLHF | 2025-02 | Qwen2-VL-7B | RLHF/Critique | 120K 人类标注偏好对 | 对话 +19.5%, 安全 +60% | Critique-Based RM + MM-DPO 动态奖励缩放，最大规模多模态对齐数据集 |
 | VisualPRM | 2025-03 | LLaVA-OneVision 7B | PRM | 400K 步骤级 | F1 ≈ GPT-4o | 首个多模态 PRM |
 | R1-Reward | 2025-05 | Qwen2.5-VL-7B | CoT-Reasoning | 200K 偏好数据 | VLRBench 71.92%, MMRB 82.2% | StableReinforce 解决 RL 训练不稳定 |
 | Skywork-VL Reward | 2025-05 | Qwen2.5-VL-7B | Scorer | ~190K 偏好对 | VLRBench 73.1% | SOTA 开源多模态 RM |
 | Vision-SR1 | 2025-08 | Qwen2.5-VL-7B | Self-Reward | 9K SFT + 47K RL | MMMU 49.1, 平均 58.8 | 推理分解自奖励：视觉感知自包含性作为奖励信号，无需外部 RM |
 | VL-PRM | 2025-09 | Qwen-2.5-VL 3/7B | PRM | VL-PRM300K (290K, 1.32M 步骤) | F1 61.9 (3B ≈ GPT-4o) | 首个 VL-PRM，混合 MCTS+VLM 判断标注，感知级监督显著提升 |
+| MLLM-as-a-Judge | 2024-02 | GPT-4V / Gemini / LLaVA | Benchmark | 6189 评分 + 8203 成对 + 4635 排序 | Pair ACC 0.804 (GPT-4V) | 首个系统性 MLLM-as-Judge 基准，Scoring/Pair/Ranking 三范式 + 偏差分析（ICML 2024 Oral） |
+| MR. Judge | 2025-05 | Qwen2.5VL 3/7B | CoT-Reasoning | 31.7K SFT + 52K RL | VLRBench 75.5% (超 GPT-4o 9.9%) | 推理驱动多选评判 + 逆向负样本合成 + 文本推理蒸馏（EMNLP 2025） |
+| MT-RL-Judge | 2026-03 | MLLM (未指定) | Judge | 6 任务统一 RL | Macro-F1 83.67 (SeeTrue), OOD Safety 82.23% | 首个多任务 RL 统一 MLLM Judge，SFT OOD 灾难退化而 RL 保持鲁棒 |
 
 ### 2.3 图像/视频生成 RM
 
@@ -157,7 +170,10 @@ Text RM（方法论源头）
 | HP-Score            | 2025-07 | CLIP-H 微调           | Scorer            | Pick-High 360K 三元组             | 准确率 88.84%, 人工 71.4% win rate         | Image-only HP 分数揭示 CLIP 偏差，细节丰富图像被不当惩罚                 |
 | LLaVA-Reward        | 2025-07 | Phi-3.5-vision 4.2B | Scorer            | 多维偏好数据                         | MJ-Bench 对齐 66.2%, 安全 92.1%           | MLLM 隐状态 + SkipCA 模块，高效 T2I RM (0.35s/eval, ICCV 2025) |
 | HPSv3               | 2025-08 | Qwen2VL-7B          | Scorer            | HPDv3 1.5M                     | Spearman 0.94, CoHP 87%               | VLM-based scorer + 不确定性感知损失                            |
+| EditScore           | 2025-09 | Qwen2.5-VL 7-72B    | Scorer            | EditReward-Bench 标注            | Overall 0.755 (72B, 匹配 GPT-5)       | 图像编辑专用 RM，CoT 推理 + 推理时集成，首次证明高保真 RM 是解锁编辑 RL 的关键 |
+| VideoScore2         | 2025-09 | Qwen2.5-VL-7B       | CoT/Scorer        | VideoFeedback2 27.2K 视频        | 域内 44.35%, 域外 50.37%              | 多维度视频评估 + CoT 推理 + GRPO 强化学习，前代 VideoScore 升级     |
 | RewardDance         | 2025-09 | InternVL 1-26B      | Generative        | Pairwise BT                    | FLUX align +6.6                       | 生成式 RM：reward=P("yes")                                 |
+| Omni-Reward         | 2025-10 | MiniCPM-o / Qwen2.5-VL-7B | Unified/Generative | 317K 偏好对 (5 模态)            | VLRBench 76.3%, OmniRB 73.68%        | 首个全模态（文本/图像/视频/音频/3D）RM，自由格式偏好描述              |
 | VR-Thinker          | 2025-10 | Qwen2.5-VL-7B       | CoT-Reasoning     | GRPO 训练                        | GenAI-Bench 82.3%, VideoGen-RB 80.5%  | thinking-with-image 推理框架                               |
 | PIGReward           | 2025-11 | Qwen2-VL-7B         | CoT/Personalized  | 4K CoT 蒸馏                      | PIGBench 84.91% (超 GPT-4o 68.29%)     | 个性化 T2I RM：动态评估维度 + 自引导策略，无需用户特定训练                     |
 | LatentRM            | 2025-11 | DiT (VGM 前 8 层)     | Latent RM         | 偏好数据 + PRFL                    | Dynamic Degree +46                    | 潜空间奖励模型，复用 VGM 做 RM                                    |
@@ -171,6 +187,7 @@ Text RM（方法论源头）
 
 | 模型 | 日期 | 模态 | 方法范式 | 规模 | 核心指标 | 核心创新 |
 |------|------|------|----------|------|---------|---------|
+| MLLM-as-a-Judge | 2024-02 | Image+Text | Benchmark | 6189 评分 + 8203 成对 + 4635 排序 | Pair ACC 0.804 (GPT-4V) | 首个系统性 MLLM Judge 基准，三范式 + 偏差分析（ICML 2024 Oral） |
 | RewardBench | 2024-03 | Text | Benchmark | 2985 三元组 | Top 89.0% (ArmoRM) | 首个标准化文本 RM 基准 |
 | MJ-Bench | 2024-07 | Image | Benchmark | 4 维度偏好三元组 | GPT-4o 整体最优 | 四维评估 T2I judge |
 | JudgeBench | 2024-10 | Text | Benchmark | 350 挑战性对 | Top 80.86% (o3-mini) | 评估 LLM judge 事实/逻辑正确性 |
@@ -218,8 +235,13 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
   ├── PRM800K (2023, 过程监督 >> 结果监督，步骤级 RM)
   │     └── Math-Shepherd (2023, 蒙特卡洛自动 PRM，无需人工标注)
   ├── DPO / SimPO / KTO / ORPO (隐式 RM，消除显式 RM 训练)
+  │     └── Step-DPO (2024, 步骤级偏好优化，10K 数据超越 GPT-4-1106)
+  ├── Safe-RLHF (2023, 解耦有用性/安全性 RM + 拉格朗日动态平衡)
   ├── ConstitutionalAI / RLAIF (AI 反馈替代人类反馈)
-  │     └── Self-Rewarding (自奖励迭代 DPO)
+  │     ├── Self-Rewarding (自奖励迭代 DPO)
+  │     │     └── Meta-Rewarding (2024, 元评判解决自奖励饱和)
+  │     └── Self-Taught-Evaluators (2024, 无标注迭代自训练评估器)
+  ├── Prometheus-2 (2024, 权重合并统一评分/排序格式)
   ├── ArmoRM / Nemotron-4 (多目标 Scorer)
   │     └── Skywork-Reward (数据中心方法论)
   ├── GenRM (生成式验证器，统一到 NTP 框架)
@@ -234,7 +256,7 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
 **五个关键转折点：**
 
 1. **RLHF → InstructGPT → PRM800K → DPO (2017-2023)**：RLHF（2017）首次在深度 RL 中用人类偏好比较训练奖励模型，InstructGPT 将此范式推广到 LLM 对齐（SFT→RM→PPO），RewardOveropt（2022）首次量化了过优化的 Scaling Law，PRM800K 证明过程监督（步骤级反馈）显著优于结果监督，Math-Shepherd 进一步证明 PRM 可完全自动化训练，GRPO-PRM（2025）从理论上证明 GRPO+ORM 隐式等价于蒙特卡洛 PRM，PRM-Survey（2025）提供了首个 PRM 系统综述。DPO 消除显式 RM 训练。SimPO 去掉了参考模型，KTO 将数据需求降为二元反馈，ORPO 将 SFT 和对齐合并为单阶段。
-2. **人类反馈 → AI 反馈 (2022-2023)**：ConstitutionalAI 开创 RLAIF，RLAIF 系统验证 AI ≈ 人类，Self-Rewarding 让模型自评自训，突破了冻结 RM 的瓶颈。
+2. **人类反馈 → AI 反馈 (2022-2024)**：ConstitutionalAI 开创 RLAIF，RLAIF 系统验证 AI ≈ 人类，Self-Rewarding 让模型自评自训突破冻结 RM 瓶颈，Meta-Rewarding（2024）引入元评判解决自奖励饱和问题，Self-Taught-Evaluators（2024）证明仅用合成数据即可训练出匹配最优有标注 RM 的评估器（RB 88.3%）。
 3. **标量分数 → CoT 推理 (2024-2025)**：GenRM 将 RM 统一到 next-token prediction，GRAM-R2（AAAI 2026）进一步将其发展为自训练生成式奖励基础模型，利用无标注数据激发奖励推理能力；RM-R1 的 Chain-of-Rubrics 和 RRM 的自演化推理让 RM 给出可追溯的评判过程。ScalingRM（2026）证明仅用 11M token 无标注网络数据即可训练出竞争力的 RM。
 4. **自由推理 → Rubric 结构化 (2025-2026)**：R3、RaR、Checklists 等工作将评估标准显式化，RRD 用递归分解处理复杂指令，Rubric-ARM 用交替 RL 同时优化 rubric 生成和评判。
 5. **学术方法 → 工业验证 (2025-2026)**：HunyuanVideo、Seedance、Seedream 三份工业技术报告验证了 VLM-based RM + CT→SFT→RLHF 流水线在大规模商用系统中的有效性，RM scaling（1B→>20B）展现涌现性能。
@@ -246,8 +268,9 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
 | **Scorer** | ArmoRM, Nemotron-4, Skywork-Reward | 标量/多维分数 | 高效，可用于在线 RL | 不可解释，易受风格偏差 | RB 93.8% (Skywork) |
 | **Implicit RM** | DPO, SimPO, KTO, ORPO | 策略本身编码奖励 | 免 RM 训练，工程简洁 | 无法显式评估 | AE2 12.20% (ORPO) |
 | **PRM** | PRM800K, Math-Shepherd | 步骤级分数 | 细粒度监督，数据效率高 | 标注成本高（可自动化） | MATH 78.2% (PRM800K) |
-| **RLAIF** | ConstitutionalAI, RLAIF, Self-Rewarding | AI 生成偏好标签 | 可扩展，无需人类标注 | 依赖基座模型能力 | AlpacaEval 20.44% |
-| **Judge** | Auto-J, J1, FLAMe | 自然语言判断 | 可解释 | 推理慢 | RB 93.6% (J1) |
+| **RLAIF** | ConstitutionalAI, RLAIF, Self-Rewarding, Meta-Rewarding, Self-Taught-Evaluators | AI 生成偏好标签 | 可扩展，无需人类标注 | 依赖基座模型能力 | AE2 39.4% (Meta-Rewarding), RB 88.3% (STE) |
+| **Judge** | Auto-J, J1, FLAMe, Prometheus-2 | 自然语言判断 | 可解释 | 推理慢 | RB 93.6% (J1) |
+| **Safety-Disentangled** | Safe-RLHF | 解耦有用性/安全性 | 拉格朗日动态平衡 | 需双维度标注 | 有害 53%→2.45% |
 | **CoT-Reasoning** | RM-R1, RRM | 推理链 + 评分 | 可追溯，准确 | 推理成本高 | RM-Bench 84.0% |
 | **Rubric** | R3, RaR, Checklists, RRD, Rubric-ARM, RuscaRL, AdvancedIF | 结构化标准 + 评分 | 一致性高，可定制 | Rubric 质量依赖 | JudgeBench +17.7 (RRD) |
 | **Generative** | GenRM, GRAM-R2 | P(Yes) / 验证链 / 推理理由 | OOD 泛化强，效率高，可作基础模型 | 精度不如专用 Scorer | BoN GSM8K 93.4% |
@@ -270,6 +293,7 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
 **PRM 与后续工作的连接：**
 - PRM 的"步骤级评估"理念直接启发了 CoT 推理增强 RM（如 RM-R1、RRM）——两者都在推理链的中间步骤提供评判信号
 - GenRM 的生成式验证同样可以在步骤级运作，与 PRM 的过程监督形成互补
+- [[Step-DPO]] 将 DPO 的偏好优化从整体回复细化到单个推理步骤，仅 10K 步骤级偏好对即可将 Qwen2-72B 在 MATH 上推至 70.8%（超越 GPT-4-1106），验证了步骤级对齐的数据效率优势
 - Math-Shepherd 的自动标注方法为后续 RLAIF / 合成数据策略提供了具体范例
 - [[GRPO-PRM]] 从理论上证明 GRPO+ORM 隐式等价于蒙特卡洛 PRM——当 group 内轨迹共享前缀时，token 级 credit assignment 自动涌现。lambda-GRPO 修正不平衡步骤频率，训练步数减少 50% 且准确率提升 >10%
 - [[PRM-Survey]] 提供了首个 PRM 系统综述，覆盖过程数据生成→PRM 构建→测试时扩展→RL 的完整闭环
@@ -289,7 +313,10 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
 | GenRM OOD 泛化 | [[GenRM]] BoN 93.4%，BoF-5 匹配判别式 BoF-32 | reward = P("yes") 范式（已被 RewardDance 验证） |
 | RL 比 SFT 更有效 | [[J1]], [[RRM]] | RM 训练第二阶段用 GRPO（已被 R1-Reward 验证） |
 | 多目标分解 + MoE | [[ArmoRM]] 8B ≈ 340B | 图像/视频多维度 + 门控聚合 |
-| 合成数据闭环 | [[Nemotron-4]] 98% 合成数据 | 用初版 RM 扩增训练数据 |
+| 合成数据闭环 | [[Nemotron-4]] 98% 合成数据，[[Self-Taught-Evaluators]] 纯合成训练 RB 88.3% | 用初版 RM 扩增训练数据，无标注自我改进 |
+| 安全性解耦 | [[Safe-RLHF]] 有害 53%→2.45%，拉格朗日动态平衡 | 生成 RM 中质量/安全维度独立建模 |
+| 元评判自我改进 | [[Meta-Rewarding]] AE2 22.9%→39.4%，judge 一致率 +12.34% | 递归改进评判能力，打破迭代饱和 |
+| 评估格式统一 | [[Prometheus-2]] 权重合并统一评分/排序，格式一致性 95.93% | 单模型双模式切换设计 |
 | 无监督 RM 扩展 | [[ScalingRM]] 11M token 无标注数据 RBv2 +7.7 | 网络文本前缀-后缀偏好对可替代人工标注 |
 | 隐式奖励演进 | [[SimPO]] / [[KTO]] / [[ORPO]]：更少数据+更简流程+更低计算 | 生成模型内在奖励信号，单阶段训练 |
 
@@ -368,13 +395,17 @@ InstructGPT (2022, RLHF 推广至 LLM 对齐)
 LLaVA-RLHF (2023, 首个多模态 RLHF)
   ├── RLHF-V (2023, 段级纠错 + Dense DPO)
   │     └── RLAIF-V (2024, 开源 AI 反馈，幻觉 -82.9%)
+  ├── MLLM-as-a-Judge (2024, 首个系统性 MLLM Judge 基准，ICML 2024 Oral)
   ├── LLaVA-Critic (2024, 首个开源多模态 Judge)
   ├── IXC-2.5-Reward (2025, ACL 2025, 通用多模态 RM)
+  ├── MM-RLHF (2025, 最大规模多模态对齐数据集 + Critique-Based RM)
   ├── Skywork-VL Reward (2025, VLRBench SOTA 73.1%)
   ├── R1-Reward (2025, RL 训练多模态推理 RM)
+  ├── MR. Judge (2025, 推理驱动多选评判，VLRBench 75.5%，EMNLP 2025)
   ├── Vision-SR1 (2025, 推理分解自奖励 VLM，无需外部 RM)
   ├── VisualPRM (2025, 首个多模态过程奖励模型)
-  └── VL-PRM (2025, 首个 VL-PRM 系统研究，MCTS+VLM 混合标注)
+  ├── VL-PRM (2025, 首个 VL-PRM 系统研究，MCTS+VLM 混合标注)
+  └── MT-RL-Judge (2026, 多任务 RL 统一 MLLM Judge，OOD 鲁棒泛化)
 ```
 
 **演进逻辑：** 多模态理解 RM 从解决 VLM 幻觉问题起步，逐步扩展到通用评估与推理增强。LLaVA-RLHF 首次将 RLHF 引入多模态领域，RLHF-V 引入段级纠错反馈精细化评判粒度，RLAIF-V 用开源 AI 反馈替代人类标注实现规模化。随后 LLaVA-Critic 建立了开源多模态 Judge 范式，IXC-2.5-Reward 和 Skywork-VL Reward 将通用多模态 RM 推向实用水平。R1-Reward 通过 RL 训练增强推理能力，Vision-SR1 将自奖励范式引入多模态（通过视觉感知自包含性作为奖励信号，无需外部 RM），VisualPRM 将过程奖励模型扩展到多模态领域，VL-PRM 进一步系统研究了 VL-PRM 的构建方法和设计策略。
@@ -388,11 +419,15 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 | [[RLAIF-V]] | RLAIF | LLaVA-1.5/OV | 开源 AI 反馈替代人类 | 幻觉 -82.9% | 规模化无需人工标注 |
 | [[LLaVA-Critic]] | Judge | LLaVA-OV 7/72B | 直接 judge，无 CoT | ACC 0.736 | 首个开源多模态 Judge |
 | [[IXC-2.5-Reward]] | Scorer | IXC-2.5 7B | 多模态偏好训练 | VLRBench 70.0% | ACL 2025，通用多模态 RM |
+| [[MM-RLHF]] | RLHF/Critique | Qwen2-VL-7B | 120K 人类标注偏好 + Critique | 对话 +19.5%, 安全 +60% | Critique-Based RM + MM-DPO 动态奖励缩放 |
 | [[Skywork-VL Reward]] | Scorer | Qwen2.5-VL-7B | ~190K 偏好对训练 | VLRBench 73.1% | SOTA 开源多模态 RM |
 | [[R1-Reward]] | CoT-Reasoning | Qwen2.5-VL-7B | StableReinforce | VLRBench 71.92% | RL 训练解决崩溃问题 |
 | [[Vision-SR1]] | Self-Reward | Qwen2.5-VL-7B | 推理分解 + 双 rollout 自奖励 | MMMU 49.1, 平均 58.8 | 自奖励多模态 RM，无需外部奖励模型 |
 | [[VisualPRM]] | PRM | LLaVA-OV 7B | 400K 步骤级标注 | F1 ≈ GPT-4o | 首个多模态过程奖励模型 |
 | [[VL-PRM]] | PRM | Qwen-2.5-VL 3/7B | MCTS + VLM 判断混合标注 | F1 61.9 (3B ≈ GPT-4o) | 首个 VL-PRM 系统研究，感知级监督显著提升 |
+| [[MLLM-as-a-Judge]] | Benchmark | GPT-4V / Gemini / LLaVA | Scoring/Pair/Ranking 三范式评估 | Pair ACC 0.804 (GPT-4V) | 首个系统性 MLLM Judge 基准 + 偏差分析（ICML 2024 Oral） |
+| [[MR. Judge]] | CoT-Reasoning | Qwen2.5VL 3/7B | 推理驱动多选评判 + 逆向负样本 + 文本推理蒸馏 | VLRBench 75.5% | 7B 超越 GPT-4o 9.9%，支持 majority voting（EMNLP 2025） |
+| [[MT-RL-Judge]] | Judge | MLLM | 多任务 GRPO 统一训练 + 复合奖励 | Macro-F1 83.67, OOD Safety 82.23% | 首个多任务 RL 统一 Judge，SFT OOD 灾难退化而 RL 保持鲁棒 |
 
 ### 4.3 经验总结
 
@@ -408,6 +443,10 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 
 [[LLaVA-Critic]] 建立了首个开源多模态 LMM-as-Judge 范式，在 Pairwise ACC 上超越 GPT-4V（0.736 vs 0.735），证明开源 VLM 具备评估能力。[[IXC-2.5-Reward]] 在 ACL 2025 提出通用多模态 RM，VLRBench 达 70.0%。[[Skywork-VL Reward]] 进一步将 VLRBench 推至 73.1%，成为当前 SOTA 开源多模态理解 RM。
 
+**多模态 Critique-Based RM：**
+
+[[MM-RLHF]] 构建了当前最大规模的多模态人类偏好对齐数据集（120K 细粒度标注），并提出 Critique-Based Reward Model——模型先生成评语（critique），再基于评语输出标量奖励。这种设计提供了可解释的奖励信号。MM-DPO 通过动态 $\beta$ 缩放（$\beta(\delta) = \beta_{\text{ori}}(1 + w(1 - e^{-k\delta}))$）对高置信度偏好对赋予更大更新权重。实验验证了人类偏好对齐可以全面提升 MLLM 能力（对话 +19.5%、安全 +60%），而非仅改善特定维度。
+
 **多模态推理 RM：**
 
 [[R1-Reward]] 通过 StableReinforce（Pre-CLIP 过滤、优势过滤、一致性奖励）解决 VLM RM 的 RL 训练崩溃问题，在 VL-RewardBench 上超越 GPT-4o 约 10%（71.92% vs 65.8%），majority voting@15 可达 76.46%。
@@ -418,18 +457,29 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 
 [[Vision-SR1]] 将 Text RM 的 Self-Rewarding 范式引入多模态领域。核心思路是将 VLM 推理分解为视觉感知（See）和语言推理（Think）两阶段，通过双 rollout 检验视觉感知描述的"自包含性"——如果仅靠模型生成的视觉描述（不给图像）就能正确回答问题，则说明感知质量高。总奖励 $r = r_{visual} + r_{ans} + \alpha \cdot r_{fmt}$。在多个 VL 基准上超越 Vision-R1（平均 58.8 vs 57.4），且语言捷径率从 7.9% 降至 6.7%。
 
+**MLLM-as-a-Judge 基准与方法演进（MLLM-as-a-Judge → MR. Judge → MT-RL-Judge）：**
+
+[[MLLM-as-a-Judge]]（ICML 2024 Oral）首次系统性评估 MLLM 作为评判者的能力，定义了 Scoring/Pair Comparison/Batch Ranking 三种评判范式，并揭示了位置偏差（88.2% 顺序复制）、长度偏差、高分偏差和自我中心偏差四类问题。核心发现：MLLM 在成对比较上接近人类（GPT-4V ~79.3%），但在评分和排序上差距显著。
+
+[[MR. Judge]]（EMNLP 2025）将评判重新定义为推理驱动的多选题问题，通过逆向合成负样本（注入幻觉/不完整/推理错误/知识错误）和从文本推理模型（DeepSeek-R1）蒸馏推理能力，使 7B 模型在 VL-RewardBench 上超越 GPT-4o 9.9%（75.5% vs 65.8%）。截断奖励分配（长度>1024 则奖励归零）解决了 RL 训练中的长度退化问题。支持 majority voting@10 进一步提升至 79.5%。
+
+[[MT-RL-Judge]] 提出首个多任务 RL 统一 MLLM Judge 框架，在 6 种评估任务上联合训练。关键发现：SFT-Unified 在 OOD 任务（MJ-Bench Safety）上灾难性退化（73.07%→49.40%），而 MT-RL-Judge 保持鲁棒并大幅提升（82.23%），证明 RL 训练帮助模型内化评判逻辑而非记忆表面模式。
+
 **关键经验：**
 - **幻觉消减是多模态理解 RM 的核心驱动力**：从 LLaVA-RLHF 到 RLAIF-V，幻觉率从基线降低 82.9%，反馈粒度从序列级→段级→AI 自动化逐步演进
 - **开源 AI 反馈可替代人类反馈**：RLAIF-V 验证了 Text RM 领域 RLAIF 范式的多模态迁移
 - **自奖励是可行的多模态替代方案**：Vision-SR1 证明通过推理分解实现自奖励，无需外部 RM
 - **步骤级验证在视觉推理中同样有效**：VisualPRM 和 VL-PRM 将 PRM 范式成功迁移到多模态，且小模型（3B）在错误检测上已与 GPT-4o 竞争
 - **RL 训练需要专门的稳定化技术**：R1-Reward 的 StableReinforce 是当前最佳实践
+- **RL 比 SFT 更适合 Judge 训练**：MT-RL-Judge 证明 SFT 在 OOD 任务上灾难退化，RL 训练的泛化能力显著更强
+- **推理驱动评判是有效范式**：MR. Judge 证明将评判转化为多选推理问题可大幅提升准确性和可解释性
 
 ### 4.4 评估基准
 
 | 基准 | 日期 | 覆盖范围 | 最优性能 | 关键发现 |
 |------|------|---------|---------|---------|
-| [[VL-RewardBench]] | 2024-11 | 3 领域 VL 偏好（理解为主） | 76.46% (R1-Reward voting) | 感知而非推理是核心瓶颈 |
+| [[MLLM-as-a-Judge]] | 2024-02 | Scoring/Pair/Ranking 三范式 | Pair ACC 0.804 (GPT-4V) | MLLM 在成对比较上接近人类，评分和排序差距大；4 类偏差 |
+| [[VL-RewardBench]] | 2024-11 | 3 领域 VL 偏好（理解为主） | 79.5% (MR. Judge voting) | 感知而非推理是核心瓶颈 |
 | [[VideoRewardBench]] | 2025-08 | 5 维度视频评估 | 63.6% (Gemini 2.5 Pro) | RL 训练不一定跨模态泛化 |
 | [[MMRB2]] | 2025-12 | 全模态 4 任务类型（跨类别） | 76.3% (Gemini) | 首个全模态 RM 基准，覆盖理解+生成 |
 
@@ -441,7 +491,9 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 
 | Model | Size | Overall |
 |-------|------|---------|
-| **R1-Reward Voting@15** | 7B | **76.46** |
+| **MR. Judge Voting@10** | 7B | **79.5** |
+| R1-Reward Voting@15 | 7B | 76.46 |
+| MR. Judge-7B-SFT-RL | 7B | 75.5 |
 | Skywork-VL Reward | 7B | 73.1 |
 | R1-Reward | 7B | 71.92 |
 | IXC-2.5-Reward | 7B | 70.0 |
@@ -512,6 +564,8 @@ VideoScore (2024-06, 首个多维视频 RM)
   │
   ├── LiFT (2024-12, 评分 + 推理双反馈)
   │
+  ├── VideoScore2 (2025-09, +CoT 推理 + GRPO 强化学习)
+  │
   ├── SoliReward (2025-12, 物理评估 + BT-WT 损失)
   │
   └── LatentRM (2025-11, 潜空间 RM — 新范式)
@@ -530,6 +584,7 @@ VideoScore (2024-06, 首个多维视频 RM)
 | [[VideoScore]] | 首个多维视频 RM + VideoFeedback 数据集 | Spearman 77.1 |
 | [[VideoAlign]] | BTT 损失处理 tie 样本（大部分工作直接丢弃 tie） | VideoGen-RB 61.26% |
 | [[LiFT]] | 评分 + 推理双反馈，VILA 40B 基座 | CogVideoX-2B > 5B on VBench |
+| [[VideoScore2]] | +CoT 推理 + SFT→GRPO 两阶段训练 | 域内 44.35%, 域外 50.37% |
 | [[SoliReward]] | BT-WT 损失 + HPQA 多层渐进聚合 | OOD ACC 80.08% |
 | [[LatentRM]] | 复用 VGM 前 8 层做潜空间 RM，无需 VAE 解码 | Dynamic Degree +46 |
 
@@ -550,6 +605,10 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
   │
   ├── VR-Thinker (2025-10, thinking-with-image 视频评估)
   │
+  ├── EditScore (2025-09, 图像编辑专用 RM + 推理时集成)
+  │
+  ├── Omni-Reward (2025-10, 首个全模态 RM：文本/图像/视频/音频/3D)
+  │
   ├── PIGReward (2025-11, 个性化 T2I RM，动态评估维度)
   │
   └── FIRM (2026-03, 编辑/生成鲁棒 RM，Base-and-Bonus 防 reward hacking)
@@ -567,6 +626,8 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
 | [[VR-Thinker]] | CoT-Reasoning | Qwen2.5-VL-7B | thinking-with-image | VideoGen-RB 80.5% | 视频推理主动回溯 |
 | [[LLaVA-Reward]] | Scorer | Phi-3.5-vision 4.2B | MLLM 隐状态 + SkipCA | MJ-Bench 对齐 66.2% | ICCV 2025，高效 T2I RM (0.35s/eval) |
 | [[HP-Score]] | Scorer | CLIP-H 微调 | Image-only 偏好 + ICT 分数 | 准确率 88.84% | 揭示 CLIP 偏差，细节丰富图像被不当惩罚 |
+| [[EditScore]] | Scorer | Qwen2.5-VL 7-72B | CoT 推理 + 推理时集成 (Avg@K) | Overall 0.755 (72B ≈ GPT-5) | 图像编辑专用 RM，解锁编辑在线 RL |
+| [[Omni-Reward]] | Unified/Generative | MiniCPM-o / Qwen2.5-VL-7B | BT 判别式 + R1 生成式双架构 | VLRBench 76.3% | 首个全模态（5 模态）RM，自由格式偏好描述 |
 | [[PIGReward]] | CoT/Personalized | Qwen2-VL-7B | 动态维度 + 自引导 CoT | PIGBench 84.91% | 个性化 T2I RM，无需用户特定训练 |
 | [[FIRM]] | Scorer/Generative | Qwen3-VL-8B | Difference-First + Plan-Then-Score | Edit MAE 0.53 (超 GPT-5) | 编辑/生成专用 RM + Base-and-Bonus 防 reward hacking |
 
@@ -590,7 +651,7 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
 
 | 维度 | CLIP-based Scorer | VLM-based 生成评估 | 潜空间 RM |
 |------|------------------|--------------------|----------|
-| 代表 | HPS, ImageReward, PickScore, HPSv2, HPSv3, HP-Score, LLaVA-Reward | UnifiedReward 系列, RewardDance, VR-Thinker, PIGReward, FIRM | LatentRM |
+| 代表 | HPS, ImageReward, PickScore, HPSv2, HPSv3, HP-Score, LLaVA-Reward | UnifiedReward 系列, RewardDance, VR-Thinker, PIGReward, FIRM, EditScore, Omni-Reward | LatentRM |
 | 精度 | 中-高（HPSv3: 0.94） | 高（可解释） | 中高 |
 | 推理速度 | 最快 | 中（scorer）/ 慢（CoT judge） | 最快 |
 | 可解释性 | 低 | 高（CoT 推理链 + 维度分解） | 低 |
@@ -625,6 +686,12 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
 **个性化评估新方向：** [[PIGReward]] 开辟了个性化 T2I 奖励建模方向，通过动态生成用户条件化的评估维度和 CoT 推理实现个性化评估，无需用户特定训练。在 PIGBench 上大幅超越 GPT-4o（84.91% vs 68.29%）。
 
 **编辑/生成鲁棒 RM：** [[FIRM]] 针对图像编辑和生成分别设计专用 RM（Difference-First 和 Plan-Then-Score 数据构建策略），核心创新是 Base-and-Bonus 乘法奖励公式（如 $R_{CME} = \text{Execution} \times (0.6 + 0.4 \times \text{Consistency})$），有效防止 reward hacking。8B 模型在编辑任务上超越 GPT-5（MAE 0.53 vs 0.62）。
+
+**图像编辑专用 RM：** [[EditScore]] 首次证明高保真奖励模型是解锁图像编辑在线 RL 的关键。通用 VLM（如 GPT-4o）在编辑评估上存在系统性失败，而 EditScore 通过 CoT 推理 + 推理时集成（Avg@4）在 EditReward-Bench 上达到 0.755，匹配 GPT-5 水平（0.777）。72B 模型在 RL 训练中成功指导 OmniGen2 提升编辑质量（SC +0.48, PQ +0.26）。
+
+**VideoScore 升级版：** [[VideoScore2]] 在前代基础上实现三大改进：多维度评估（视觉质量/文本对齐/物理一致性）替代单一分数，CoT 推理提供可解释性（准确率 +7.6%），GRPO 强化学习进一步提升对齐度。SFT cold-start 对 RL 的重要性（44.53% vs 36.70%）验证了两阶段训练的必要性。
+
+**全模态统一 RM：** [[Omni-Reward]] 是首个覆盖文本/图像/视频/音频/3D 五种模态的统一奖励建模框架。其判别式（BT 损失）和生成式（R1-GRPO）双架构设计各有优势：前者更高效，后者可解释性更强。自由格式偏好描述的引入使 RM 可适应个性化评估需求。跨模态训练数据的正向迁移效应（混合训练显著优于单模态训练）为统一 RM 设计提供了重要证据。
 
 **Tie 样本处理：** 大部分工作直接丢弃 tie 样本，[[VideoAlign]] 的 BTT 损失和 [[SoliReward]] 的 BT-WT 损失是少有的处理方案。
 
@@ -667,11 +734,11 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
 
 *T2I 评估：*
 
-| 基准 | 日期 | 评估维度 | 最优指标 | 关键发现 |
-|------|------|---------|---------|---------|
-| [[T2I-CompBench]] | 2023-07 | 组合性（6 维） | B-VQA tau=0.63 | 首个组合性 T2I 基准 |
-| [[GenEval]] | 2023-10 | 组合性（检测） | 人类一致 83% | 位置和属性绑定是最难任务 |
-| [[GenAI-Bench]] | 2024-06 | 组合性 | VQAScore 最高相关 | VQAScore 超越所有先前指标 |
+| 基准                | 日期      | 评估维度     | 最优指标           | 关键发现              |
+| ----------------- | ------- | -------- | -------------- | ----------------- |
+| [[T2I-CompBench]] | 2023-07 | 组合性（6 维） | B-VQA tau=0.63 | 首个组合性 T2I 基准      |
+| [[GenEval]]       | 2023-10 | 组合性（检测）  | 人类一致 83%       | 位置和属性绑定是最难任务      |
+| [[GenAI-Bench]]   | 2024-06 | 组合性      | VQAScore 最高相关  | VQAScore 超越所有先前指标 |
 
 *Video 评估：*
 
@@ -683,24 +750,43 @@ UnifiedReward (2025-03, 统一 T2I/T2V 生成评估)
 
 ### 5.7 下游应用：RM 驱动的生成模型后训练
 
-Image/Video RM 的核心价值在于驱动生成模型的后训练对齐。知识库中三项代表性工作：
+Image/Video RM 的核心价值在于驱动生成模型的后训练对齐。知识库中的代表性下游工作覆盖五种范式：
 
-| 方法 | 模态 | RM 信号来源 | 核心结果 |
-|------|------|-----------|---------|
-| [[DDPO]] | Image | 在线 RL（CLIP/Aesthetic 等） | 首次将 RLHF 范式应用于 Diffusion 模型 |
-| [[Diffusion-DPO]] | Image | 离线偏好对（Pick-a-Pic） | 将 DPO 推广到扩散模型，无需在线 RM |
-| [[T2V-Turbo]] | Video | 奖励引导蒸馏 | 用 RM 引导 T2V 模型蒸馏加速 |
+| 方法 | 模态 | 范式 | RM 信号来源 | 核心结果 |
+|------|------|------|-----------|---------|
+| [[DDPO]] | Image | 在线 RL (PPO) | CLIP/Aesthetic 等 | 首次将 RLHF 应用于 Diffusion 模型 |
+| [[ReFL]] / [[AlignProp]] | Image | 奖励反向传播 | 可微 RM 梯度端到端反传 | 比 RL 快 25-200x，ICLR 2024 |
+| [[Diffusion-DPO]] | Image | 离线 DPO | 偏好对（Pick-a-Pic） | 将 DPO 推广到扩散模型 |
+| [[DanceGRPO]] | Image+Video | 在线 GRPO | 多奖励聚合 | 首个 GRPO for 视觉生成，+181% 运动质量 |
+| [[Flow-GRPO]] | Image | 在线 GRPO | RM + KL 约束 | ODE→SDE 使 Flow Matching 可 RL，GenEval 63%→95% |
+| [[T2I-R1]] | Image | GRPO + CoT | 集成 4 种 RM | 双层 CoT AR 图像生成，超越 FLUX.1 |
+| [[T2V-Turbo]] | Video | 奖励蒸馏 | RM 引导蒸馏 | RM 引导 T2V 模型加速 |
+| [[OnlineVPO]] | Video | 在线 DPO | VQA 模型（VideoScore） | VQA > 图像 RM 作视频反馈，720p/68帧 |
+| [[VideoDPO]] | Video | 离线 DPO | OmniScore 多维度 | 帧内/帧间/语义三维评分 + 分数重加权 |
 
-**RM 在后训练中的三种使用模式：**
-1. **在线 RL（DDPO）**：需要高效 scorer（~100 samples/s），精度可容忍中等
-2. **离线 DPO（Diffusion-DPO）**：需要高质量偏好数据，RM 用于数据筛选
-3. **奖励蒸馏（T2V-Turbo）**：RM 信号在蒸馏过程中引导学生模型
+**RM 在后训练中的五种使用模式：**
 
-这三种模式对 RM 的需求不同：在线 RL 需要速度，离线 DPO 需要精度，蒸馏需要稳定梯度。统一 RM 的双模式设计（Scorer + Judge）可以覆盖前两种场景。
+1. **在线 RL/PPO（DDPO）**：需要高效 scorer（~100 samples/s），精度可容忍中等。高方差是核心问题。
+2. **奖励反向传播（ReFL/AlignProp）**：要求 RM 可微，通过端到端梯度反传绕过 RL 高方差问题，比 RL 快 25-200x。DRaFT（ICLR 2024）证明 ReFL 是 DRaFT-1 的特殊情况，AlignProp 的 RTBP 通过随机截断兼顾效率与多样性。但仅适用于可微 RM（CLIP-based scorer），VLM-based RM 难以直接反传。
+3. **在线 GRPO（DanceGRPO/Flow-GRPO/T2I-R1）**：2025 年新兴范式，将 DeepSeek-R1 的 GRPO 算法迁移到视觉生成。核心优势是组内相对优势估计消除对 Critic 模型的依赖，天然适合视觉生成的高方差奖励环境。DanceGRPO 统一支持扩散和整流流，Flow-GRPO 通过 ODE→SDE 转换使 Flow Matching 可 RL 训练，T2I-R1 引入双层 CoT 增强 AR 图像生成。
+4. **离线/在线 DPO（Diffusion-DPO/VideoDPO/OnlineVPO）**：需要高质量偏好数据，RM 用于数据筛选和偏好对构建。OnlineVPO 发现视频偏好优化需要"视频原生"反馈（VQA > 图像 RM），VideoDPO 的 OmniScore 多维度评分覆盖帧内/帧间/语义三维。
+5. **奖励蒸馏（T2V-Turbo）**：RM 信号在蒸馏过程中引导学生模型。
+
+**GRPO 范式的关键设计经验：**
+
+| 设计选择 | DanceGRPO | Flow-GRPO | T2I-R1 |
+|---------|-----------|-----------|--------|
+| 基座范式 | Diffusion + 整流流 | Flow Matching | AR 图像生成 |
+| RM 类型 | 多 RM 聚合 | 单 RM + KL | 4 种 RM 集成 |
+| 关键技巧 | 共享噪声初始化 | Denoising Reduction (4x 加速) | 双层 CoT |
+| Reward hacking 防护 | 多奖励优势聚合 | KL 正则化 | 集成奖励 |
+| 最大提升 | +181% 运动质量 | GenEval 63%→95% | T2I-CompBench +13% |
+
+这五种模式对 RM 的需求不同：在线 RL/GRPO 需要速度，奖励反传需要可微性，离线 DPO 需要精度，蒸馏需要稳定梯度。统一 RM 的双模式设计（Scorer + Judge）可以覆盖 GRPO 和 DPO 两大核心场景。
 
 ### 5.8 公司实践：工业级 RM 设计与后训练
 
-> 来自 image-generation-posttrain 目录的三份工业技术报告，展示了主流公司如何在商用系统中使用 RM 驱动后训练。
+> 来自 image-generation-posttrain 目录的工业技术报告，展示了主流公司如何在商用系统中使用 RM 驱动后训练。
 
 #### 关键系统对比
 
@@ -709,13 +795,15 @@ Image/Video RM 的核心价值在于驱动生成模型的后训练对齐。知�
 | [[HunyuanVideo]] | Tencent | Video | VLM-based 4维 RM | 文本对齐/图像对齐/视觉质量/运动动态 | CT→SFT→RLHF (DPO+MixGRPO) | 开源 T2V/I2V SOTA |
 | [[Seedance]] | ByteDance | Video | 3个专用 RM（基础/运动/美学） | 基础能力/运动质量/美学 | CT→SFT→RLHF | Artificial Analysis 双赛道第一 |
 | [[Seedream]] | ByteDance | Image | VLM-based RM (1B→>20B) | 多维度生成式评估 | CT→SFT→RLHF→PE | ELO 1158，全指标第一 |
+| [[Kling-Omni]] | Kuaishou | Video | 人工标注偏好 | 运动动态/视觉完整性 | PT→SFT→多轮 DPO | 多维度超越 Veo 3.1 |
+| [[Step-Video]] | StepFun | Video | RM 解决 DPO 饱和 | 多维度 | PT→SFT→Flow-DPO + RM | 30B 参数，10x 蒸馏加速 |
 
 #### 共性模式
 
-1. **统一采用 CT→SFT→RLHF 三阶段流水线**：三家公司不约而同地采用了继续训练→监督微调→人类反馈对齐的渐进式后训练流程，这已成为生成模型后训练的事实标准
+1. **统一采用 CT→SFT→RLHF 三阶段流水线**：五家公司不约而同地采用了继续训练→监督微调→人类反馈对齐的渐进式后训练流程，这已成为生成模型后训练的事实标准
 2. **VLM-based RM 是核心共识**：HunyuanVideo 和 Seedream 均明确使用 VLM 作为 RM 基座，Seedance 的 Foundational RM 同样基于 VLM。CLIP-based RM 在工业实践中已被淘汰
-3. **多维度解耦评估**：三家公司均将评估拆分为多个独立维度（文本对齐、视觉质量、运动、美学等），而非使用单一综合分数
-4. **差异化 RLHF 策略**：HunyuanVideo 对 I2V 用在线 RL、T2V 用先 DPO 后在线 RL；Seedance 同时优化 base model 和 super-resolution model；Seedream 使用生成式 RM（P("Yes") 概率）
+3. **多维度解耦评估**：各公司均将评估拆分为多个独立维度（文本对齐、视觉质量、运动、美学等），而非使用单一综合分数
+4. **差异化 RLHF 策略**：HunyuanVideo 对 I2V 用在线 RL、T2V 用先 DPO 后在线 RL；Seedance 同时优化 base model 和 super-resolution model；Seedream 使用生成式 RM（P("Yes") 概率）；Kling-Omni 选择多轮 DPO（计算效率优于 GRPO）；Step-Video 引入 RM 解决 DPO 训练饱和问题
 
 #### 核心洞察
 
@@ -727,6 +815,10 @@ Image/Video RM 的核心价值在于驱动生成模型的后训练对齐。知�
 
 **跨模态 RM 复用：** [[Seedance]] 的 Aesthetic RM 受 [[Seedream]] 启发，基于图像空间设计，通过提取视频关键帧来评估视频美学质量——这是图像 RM 向视频迁移的实用范例。
 
+**DPO vs GRPO 的务实选择：** [[Kling-Omni]] 明确指出选择 DPO 而非 GRPO 的原因——GRPO 需要在训练中进行计算代价高昂的轨迹采样，而 DPO 仅需一步扩散前向过程，在视频生成这种计算密集场景下有显著效率优势。多轮迭代 DPO 配合人工评估驱动的偏好数据可实现持续改进。
+
+**RM 解决 DPO 饱和：** [[Step-Video]] 发现 DPO 训练中当模型能轻松区分正负样本时改进会饱和（训练数据来自早期迭代，与当前策略不再对齐）。解决方案是训练 reward model 动态评估新生成样本，对训练数据实时打分和排序，本质上将 DPO 从 off-policy 转向 on-policy。
+
 #### 对统一 RM 设计的启示
 
 | 工业经验 | 来源 | 统一 RM 迁移方向 |
@@ -737,276 +829,115 @@ Image/Video RM 的核心价值在于驱动生成模型的后训练对齐。知�
 | T2V RM 在运动评估上有瓶颈 | HunyuanVideo | 需要专项运动维度训练 |
 | DPO + 在线 RL 混合最佳 | HunyuanVideo | 双模式架构的必要性 |
 | 图像 RM 可迁移到视频 | Seedance (美学 RM) | 利用 Image RM 数据优势 |
+| DPO 在视频场景更实用 | Kling-Omni (效率考量) | 多轮 DPO 替代 GRPO |
+| RM 可解决 DPO 饱和 | Step-Video (on-policy 评分) | RM 动态评估 + 数据更新 |
 
 ---
 
-## 6. 三方向交汇：统一 RM 设计
+## 6. 三方向交汇与统一 RM 方向
 
-### 6.1 三方向的互补关系
+> 详细设计方案已拆分为独立文档：→ [[Unified-RM-Design]]
 
-```
-Text RM 经验 → 迁移到生成 RM
-  ├── CoT / Rubric → 生成 RM 的推理框架（UnifiedReward-Think 验证）
-  ├── RLAIF / Self-Rewarding → 合成数据策略（RLAIF-V 验证）
-  ├── GenRM → 生成式 RM 范式（RewardDance 验证）
-  ├── PRM 过程监督 → 视频帧级/阶段级评估（VisualPRM 验证）
-  └── ArmoRM MoE → 多维度门控聚合
+### 核心洞察
 
-多模态理解 RM 提供基座能力
-  ├── 幻觉消减（LLaVA-RLHF → RLAIF-V）→ 生成 RM 的事实性保证
-  ├── VLM 评估范式（LLaVA-Critic）→ 生成 RM 的 judge 能力
-  ├── RL 训练稳定化（R1-Reward）→ 生成 RM 的 RL 精调
-  ├── 自奖励范式（Vision-SR1）→ 无需外部 RM 的自训练
-  └── 过程奖励（VisualPRM, VL-PRM）→ 视频多步评估
+三个研究方向正在汇聚：
+- **Text RM** 提供方法论（CoT/Rubric/RLAIF/PRM）
+- **多模态理解 RM** 提供基座能力（VLM judge、幻觉消减、RL 稳定化）
+- **图像/视频生成 RM** 是最终应用目标
 
-图像/视频生成 RM 是最终目标
-  ├── 高精度 scoring（HPSv3 0.94, HP-Score 揭示 CLIP 偏差）
-  ├── 高效 MLLM RM（LLaVA-Reward 0.35s/eval）
-  ├── VLM-based 生成评估（UnifiedReward 系列、RewardDance、FIRM）
-  ├── 个性化评估（PIGReward 动态维度）
-  ├── 物理一致性（SoliReward）
-  ├── 潜空间建模（LatentRM）
-  └── 大规模偏好数据（HPDv3 1.5M）
-```
+UnifiedReward 系列已验证：联合训练理解+生成任务产生跨任务协同（GenAI Video +16.9），但 Flex 表明专注生成可能更优。工业实践（Seedream/Seedance/HunyuanVideo）进一步验证了 Qwen-VL 基座 + 多维度评估 + CT→SFT→RLHF 渐进训练的有效性。
 
-### 6.2 统一 RM 设计方案
+---
 
-> **以下是基于上述 100 篇论文调研的具体设计方案，不是文献综述而是可执行的工程计划。**
+## 6.5 前沿趋势：4 个新兴范式（2025Q4-2026）
 
-#### 设计目标
+基于 RM-R1、ARM-Thinker、LatentRM、Omni-Reward 等最新论文，识别出 4 个正在形成的新范式：
 
-一个支持 image + video 的统一 reward model，满足：
-1. **模态统一**：单一模型评估 T2I 和 T2V 生成质量
-2. **双模式推理**：高效 scorer（用于在线 RL）+ 可解释 judge（用于离线评估）
-3. **维度自适应**：根据输入内容动态选择评估标准
-4. **8x H100 可训练**：模型规模 <= 32B
+### 趋势 1：Agentic RM — 工具增强的奖励模型
 
-#### 基座模型选择
+**代表：** [[ARM-Thinker]]（2025-12，复旦/上海 AI Lab）
 
-| 候选 | 原生视频 | 已验证 RM 应用 | 参数规模 | 8x H100 | 推荐度 |
-|------|---------|--------------|---------|---------|--------|
-| **Qwen3-VL** | 是 | UnifiedReward-Flex | 2B/8B/32B | 7B 全参, 32B LoRA | 最高 |
-| Qwen2.5-VL | 是 | R1-Reward, HPSv3, VR-Thinker | 2B/7B/72B | 7B 全参 | 高 |
-| InternVL 2.5/3 | 是 | RewardDance | 1B-78B | 8B 全参, 26B LoRA | 高 |
-| LLaVA-OneVision | 弱 | UnifiedReward v1/Think | 0.5B/7B/72B | 7B 全参 | 中高 |
-
-**推荐：Qwen3-VL-7B。** UnifiedReward-Flex 已验证其作为统一 RM 基座的有效性，原生支持任意分辨率图像和任意长度视频，7B 在 8x H100 上可全参训练。
-
-#### 双模式架构
+**核心思路：** RM 不再仅靠内部推理评估，而是自主调用外部工具获取可验证证据。
 
 ```
-输入: (prompt, image/video, [reference])
-  │
-  ├── Scorer Mode (system prompt 切换)
-  │     └── 单次前向传播 -> 标量分数
-  │         a) RewardDance 式: P("yes") 作为分数
-  │         b) 回归头: 最后一层 linear head (ArmoRM 式)
-  │         用途: 在线 RL, Best-of-N 重排序
-  │
-  └── Judge Mode (system prompt 切换)
-        └── 自回归生成 -> CoT 推理链 + 多维度分数
-            Step 1: 动态生成评估维度 (Flex 式)
-            Step 2: 逐维度推理评估 (CoT)
-            Step 3: 汇总为结构化评分
-            用途: 离线评估, 数据筛选, 可解释反馈
+Input → Think (推理) → Act (调用工具) → Observe (获取证据) → 循环 → 最终判断
 ```
 
-**设计依据：**
-- 纯 scorer：HPSv3 精度高但不可解释，RM-Bench Hard ACC 46.6% 暴露风格偏差
-- 纯 judge：UnifiedReward-Flex 精度好但推理 ~10x 慢，不适合在线 RL
-- 双模式结合 ArmoRM 多目标分解 + Flex 动态维度 + RewardDance 生成式评分
-- VR-Thinker 的 thinking-with-image 可作为 Judge Mode 增强
-
-#### 评估维度设计
-
-```
-Level 0: overall_score（加权聚合）
-
-Level 1 (通用维度，image + video 共享):
-  ├── alignment:  prompt 与内容的语义一致性
-  ├── quality:    视觉质量（清晰度、噪点、伪影）
-  └── aesthetic:  美学质量（构图、色彩、风格）
-
-Level 2 (模态特化维度):
-  ├── [Image] composition, detail, text_rendering, style_fidelity
-  └── [Video] temporal_consistency, motion_quality, physics, dynamics
-
-Level 3 (任务特化，动态生成):
-  └── 由模型根据具体 prompt 自动生成 (Flex 方案)
-```
-
-#### 训练数据策略
-
-**已有数据源：**
-
-| 数据源 | 模态 | 规模 | 质量 | 可用性 |
-|--------|------|------|------|--------|
-| HPDv3 | Image | 1.5M pairwise | 高 | 待确认 |
-| Pick-a-Pic | Image | 583K pairwise | 中 | 开源 |
-| ImageReward 数据 | Image | 137K comparisons | 高 | 开源 |
-| VideoFeedback | Video | 37.6K × 5 dims | 中 | 开源 |
-| LiFT-HRA | Video | ~10K | 高 | 待确认 |
-| VideoAlign 数据 | Video | 182K triplets | 中高 | 待确认 |
-| UnifiedReward SFT-90K | Multi | 90K | 高 | 待确认 |
-| R1-Reward-200K | Multi | 200K | 中高 | 待确认 |
-
-**数据构建 Pipeline：**
-
-```
-Phase A: 种子数据 (~100K)
-  ├── Image 偏好: Pick-a-Pic + HPDv3 精选 ~50K
-  ├── Video 偏好: VideoFeedback + 多模型生成 ~30K
-  └── CoT 推理链: GPT-4o 生成 ~20K
-
-Phase B: SFT -> 初版 RM
-
-Phase C: 合成扩增 (~500K)
-  ├── 初版 RM 筛选大规模数据
-  ├── 拒绝采样保留高质量 CoT
-  └── 参考 Nemotron-4: 合成偏好对
-
-Phase D: RL 精调 (GRPO/StableReinforce) -> 最终 RM
-
-Phase E: 迭代（用最终 RM 重新标注 -> 重训）
-```
-
-**Video 数据不足的解决方案：**
-1. 多模型生成：同一 prompt 用 5-8 个 T2V 模型生成视频，构建偏好对
-2. 帧级到视频级：利用 image 偏好数据评估关键帧，聚合到视频级
-3. 物理场景专项：针对 VideoPhy 问题，专门收集物理相关评估数据
-4. GPT-4o 初标注：AI 标注 + 人类验证高分歧样本
-
-#### 训练方案
-
-```
-Stage 1: SFT 预热 (1-2 天, 8x H100)
-  ├── Qwen3-VL-7B 全参微调, lr=1e-5, 3 epochs
-  ├── 数据: ~80K (scorer mode + judge mode 统一格式)
-  └── 输出: 具备基础评估能力的 SFT 模型
-
-Stage 2: RL 精调 (2-3 天, 8x H100)
-  ├── GRPO / StableReinforce
-  ├── 奖励信号: Pref-GRPO + Consistency + CoT Gain
-  └── 输出: CoT 质量和维度自适应提升的 RL 模型
-
-Stage 3: 合成扩增 + 迭代 (3-5 天)
-  ├── Stage 2 模型生成大规模 CoT
-  ├── 拒绝采样 + 扩增到 ~500K
-  └── 重新 SFT + RL 迭代 1-2 轮
-```
-
-**资源分配：**
-
-| 阶段 | 方法 | GPU 天数 |
-|------|------|---------|
-| SFT | 全参 (ZeRO-3) | 1-2 |
-| RL (GRPO) | 全参 | 2-3 |
-| 合成数据生成 | vLLM 推理 | 1-2 |
-| 32B 验证 | LoRA | 2-3 |
-| **总计** | | **~10-15** |
-
-#### 评估方案
-
-| 基准 | 模态 | 目标 |
+**工具套件：**
+| 工具 | 功能 | 场景 |
 |------|------|------|
-| MMRB2 | Multi | 超越 UnifiedReward-Flex |
-| VL-RewardBench | Multimodal | 超越 R1-Reward (71.92%) |
-| VideoRewardBench | Video | 超越 63.6% top |
-| GenAI-Bench | Image+Video | 超越 VQAScore |
-| MJ-Bench | Image | 接近 GPT-4o |
-| VBench | Video | 作为 T2V RM 的后训练增益 |
-| VideoPhy | Video | 超越 39.6% baseline |
-| RewardBench2 | Text | 作为副产品评估 |
+| 图像裁剪 | 聚焦局部细节 | 细粒度视觉判断 |
+| 文档检索 | 查询外部知识 | 事实性验证 |
+| 指令验证 | 检查格式/约束 | IF (instruction following) |
+| OCR | 提取图中文字 | 文字渲染评估 |
 
-### 6.3 工业实践验证的设计决策
+**训练：** 两阶段 GRPO——Stage 1 优化工具调用策略，Stage 2 联合优化判断准确性。
 
-基于 HunyuanVideo、Seedance、Seedream 三份工业技术报告，以下设计决策已获得工业验证：
+**性能：** VL-RewardBench +16.2%，工具使用任务 +9.6%。
 
-| 设计决策 | 验证来源 | 置信度 |
-|---------|---------|--------|
-| Qwen-VL 系列作为 RM 基座 | Seedream (VLM-based), HPSv3 (Qwen2VL-7B) | 最高 |
-| 多维度解耦评估 | HunyuanVideo (4维), Seedance (3维) | 最高 |
-| CT→SFT→RLHF 渐进训练 | 三家共识 | 最高 |
-| DPO + 在线 RL 混合策略 | HunyuanVideo (T2V) | 高 |
-| RM scaling (7B→32B) | Seedream (1B→>20B 涌现) | 高 |
-| 图像 RM 迁移到视频 | Seedance (美学 RM 关键帧) | 中高 |
+**对统一 RM 的启示：** Agentic 范式与 Rubric 互补——Rubric 定义"评什么"，Agent 工具解决"怎么验证"。未来统一 RM 可在动态维度（Flex 风格）中自动选择是用内部推理还是外部工具验证每个维度。
 
-**PRM 思路的视频迁移可能性：** PRM800K 和 Math-Shepherd 证明步骤级过程监督显著优于结果监督。在视频 RM 中，"步骤"可类比为"帧/片段/阶段"——对视频的渐进性评估（如开头→中段→结尾的质量变化）可能比整体评分更有效。SoliReward 的 HPQA 多层渐进聚合和 VR-Thinker 的主动回溯已有初步探索，但尚未有工作系统地将 PRM 范式迁移到视频评估。
+### 趋势 2：Latent RM — 潜空间奖励建模
 
-### 6.4 开放问题
+**代表：** [[LatentRM]]（2025-11）
 
-**理解 vs 生成：是否需要理解任务？**
+**核心思路：** 直接用预训练视频生成模型（DiT）的潜空间特征作为奖励信号，无需 VAE 解码到像素空间。
 
-| 方案 | 支持证据 | 风险 |
-|------|---------|------|
-| 包含理解 | UnifiedReward v1: 正迁移 | 稀释生成评估性能 |
-| 仅生成 | Flex: 放弃理解后更高 | 可能丧失泛化 |
-| 分阶段 | 先含理解预训练，后专注生成 | 复杂度增加 |
+**架构：** PAVRM（Pre-trained as Video Reward Model）
+- 输入：噪声潜空间中的视频表示
+- 特征提取：DiT 中间层 attention features
+- 输出：偏好得分
 
-建议仅生成评估。Flex 实验表明专注生成评估更优，且理解任务已有大量开源 benchmark 覆盖。
+**训练框架：** PRFL（Process Reward Feedback Learning）
+- 在潜空间中完成全去噪链的偏好优化
+- 无需 VAE 解码，训练加速 1.42-1.49x
 
-**长视频评估：**
+**对统一 RM 的启示：** 对于生成模型后训练（DPO/GRPO），Latent RM 是**效率路线**的关键选择。Pixel-space VLM RM（UnifiedReward-Flex 等）更适合离线评估和 benchmark，Latent RM 更适合在线 RL 训练。两者可以互补。
 
-| 方案 | 思路 | 已有验证 |
-|------|------|---------|
-| VR-Thinker 式 | thinking-with-image，主动选帧 | 已验证有效 |
-| SoliReward 式 | HPQA 多层渐进聚合 | 已验证有效 |
-| 片段采样+聚合 | 均匀采样分别评估 | 可能遗漏关键帧 |
+### 趋势 3：Omni-Modal RM — 全模态奖励建模
 
-建议先用 Qwen3-VL 原生视频处理，不足时借鉴 VR-Thinker。
+**代表：** [[Omni-Reward]]（2025-10，中科院自动化所）
 
-**物理一致性：**
+**核心扩展：** 从 Image + Video 扩展到 **5 种模态 × 9 类任务**：
 
-| 方案 | 可行性 | 参考 |
-|------|--------|------|
-| VLM implicit 物理知识 | 中 | SoliReward OOD 80% |
-| 专用 physics 维度 | 高 | Level 2 加入 physics，针对性训练 |
-| 潜空间物理理解 | 中高 | LatentRM DiT 特征含运动信息 |
+| 模态 | 任务 |
+|------|------|
+| Text | 对话/指令跟随 |
+| Image | T2I 生成、理解、编辑 |
+| Video | T2V 生成、理解 |
+| Audio | TTS、ASR |
+| 3D | T2-3D 生成 |
 
-建议在 Level 2 加入 physics 维度，用 VideoPhy 标注 + SoliReward 策略增强。
+**数据：** Omni-RewardBench（4K 评估）+ Omni-RewardData（317K 偏好对）
 
-**推理效率：**
+**双架构：** 判别式 BT + 生成式 R1（支持自由格式偏好描述）
 
-| 方案 | 速度 (8x H100) | 精度 | 推荐场景 |
-|------|----------------|------|---------|
-| 7B Scorer mode | ~100 samples/s | 中高 | 在线 RL |
-| 7B Judge mode | ~10 samples/s | 高 | 离线评估 |
-| 2B 蒸馏 | ~300 samples/s | 中 | 速度优先 |
-| LatentRM | 极高 | 中高 | 生成模型后训练 |
+**对统一 RM 的启示：** 证明了全模态统一的可行性。但 audio/3D 模态的偏好数据极度稀缺。对于我们的 Image+Video 统一 RM，可以借鉴其数据构建方法论（multi-source aggregation + GPT-4o annotation），但暂不需要扩展到 audio/3D。
 
-**评估基准缺口：** 现有基准覆盖不完整——MMRB2 样本少（4K），VideoRewardBench 最优仅 63.6%，MJ-Bench 仅 image。可能需要构建 Image+Video 统一 RM Benchmark（1000 image + 1000 video，覆盖 alignment/quality/aesthetic/physics/composition，3+ 人类标注，easy/medium/hard 分层）。
+### 趋势 4：Rubric → Visual RM 的方法论迁移
+
+**路径：** Text RM 的 CoR/Rubric 方法论正在向 Visual RM 快速迁移。
+
+```
+RM-R1 (CoR for Text) → UnifiedReward-Think (CoT for Visual) → UnifiedReward-Flex (Dynamic Rubric)
+RaR (Rubric for Text) → VisionReward (Hierarchical Q for Image) → VideoScore2 (CoT + GRPO for Video)
+J1 (Emergent Rubric)  → ARM-Thinker (Agentic + Tool for Visual)
+```
+
+**尚未出现的组合（Gap）：**
+- Agentic + Rubric + CoT 三者结合的视觉 RM
+- Rubric-agnostic 视觉 RM（类似 R3 但支持视觉输入）
+- 视觉 PRM（process-level 视觉评估，逐步骤评估生成过程）
+
+**对统一 RM 的启示：** 我们的统一 RM 应该在这些 gap 上做文章，特别是：
+1. 将 R3 的 rubric-agnostic 思路迁移到视觉评估
+2. 结合 ARM-Thinker 的工具调用能力处理难以纯推理评估的维度（物理、OCR、空间关系）
 
 ---
 
-## 7. 推荐执行路线
+## 7. 执行路线
 
-```
-Week 1-2: 数据构建
-  ├── 收集/清洗 Image 偏好数据 (~50K from Pick-a-Pic + HPDv3)
-  ├── 构建 Video 偏好数据 (~30K, 多模型生成 + GPT-4o 初标注)
-  └── GPT-4o 生成 CoT 推理链 (~20K)
-
-Week 3: SFT 训练
-  ├── Qwen3-VL-7B 全参微调
-  ├── 统一格式: scorer mode + judge mode
-  └── 评估: MMRB2, VL-RewardBench, VideoRewardBench, GenAI-Bench, MJ-Bench
-
-Week 4-5: RL 精调
-  ├── GRPO/StableReinforce with Pref-GRPO + consistency + CoT gain
-  ├── 拒绝采样扩增数据
-  └── 评估: 各基准 + 人类偏好一致性测试
-
-Week 6: 合成扩增 + 迭代
-  ├── RL 模型生成大规模 CoT
-  ├── 拒绝采样筛选
-  └── 第二轮 SFT + RL
-
-Week 7-8: 验证与应用
-  ├── 32B LoRA 验证 scaling
-  ├── Reward hacking 测试（RM-Bench 风格变体 + DPO 后训练验证）
-  ├── 下游应用: T2I/T2V DPO 后训练
-  └── 与 UnifiedReward-Flex, HPSv3, R1-Reward, VR-Thinker 等对比
-```
+→ 详见 [[Unified-RM-Design]] §11
 
 ---
 
@@ -1026,7 +957,12 @@ Week 7-8: 验证与应用
 - [[ORPO]] -- 单阶段 SFT+偏好对齐，odds ratio 惩罚项，免参考模型
 - [[ConstitutionalAI]] -- RLAIF 范式奠基，宪法原则替代人类标注
 - [[RLAIF]] -- 系统验证 AI 反馈 ≈ 人类反馈，d-RLAIF
+- [[Safe-RLHF]] -- 解耦有用性/安全性 RM + 拉格朗日动态平衡，BeaverTails 数据集
 - [[Self-Rewarding]] -- 自奖励迭代 DPO，打破冻结 RM 瓶颈
+- [[Meta-Rewarding]] -- 元评判解决自奖励饱和，AE2 22.9%→39.4%
+- [[Self-Taught-Evaluators]] -- 无标注迭代自训练评估器，RB 88.3% 匹配最优有标注 RM
+- [[Prometheus-2]] -- 权重合并统一评分/排序格式，开源评估器最高人类一致性
+- [[Step-DPO]] -- 步骤级偏好优化，10K 数据 MATH 70.8% 超越 GPT-4-1106
 - [[ArmoRM]] -- 多目标回归 + MoE 门控
 - [[Nemotron-4]] -- 340B 多属性回归 RM + 合成数据 pipeline
 - [[Skywork-Reward]] -- 数据中心方法论，80K 数据 RB 第一
@@ -1077,13 +1013,18 @@ Week 7-8: 验证与应用
 - [[RLAIF-V]] -- 开源多模态 AI 反馈，幻觉 -82.9%
 - [[LLaVA-Critic]] -- 首个开源多模态 LMM-as-Judge
 - [[IXC-2.5-Reward]] -- ACL 2025，通用多模态 RM
+- [[MM-RLHF]] -- 最大规模多模态对齐数据集 (120K) + Critique-Based RM + MM-DPO
 - [[Skywork-VL Reward]] -- SOTA 开源多模态理解 RM (VLRBench 73.1%)
 - [[R1-Reward]] -- StableReinforce 多模态推理 RM
 - [[Vision-SR1]] -- 推理分解自奖励 VLM，无需外部 RM
 - [[VisualPRM]] -- 首个多模态过程奖励模型
 - [[VL-PRM]] -- 首个 VL-PRM 系统研究，MCTS+VLM 混合标注
+- [[MR. Judge]] -- 推理驱动多选评判 + 逆向负样本合成，VLRBench 75.5%（EMNLP 2025）
+- [[MT-RL-Judge]] -- 首个多任务 RL 统一 MLLM Judge，OOD 鲁棒泛化
+- [[ARM-Thinker]] -- 首个 Agentic 多模态 RM，Think-Act-Observe 工具调用循环 + 两阶段 GRPO
 
 **基准：**
+- [[MLLM-as-a-Judge]] -- 首个系统性 MLLM Judge 基准，Scoring/Pair/Ranking 三范式（ICML 2024 Oral）
 - [[VL-RewardBench]] -- 视觉语言奖励模型基准（理解为主）
 - [[VideoRewardBench]] -- 5 维度视频 RM 基准
 - [[MMRB2]] -- 全模态 RM 基准（跨类别，覆盖理解+生成）
@@ -1106,6 +1047,7 @@ Week 7-8: 验证与应用
 
 **Video 方法：**
 - [[VideoScore]] -- 首个多维度视频 RM
+- [[VideoScore2]] -- 多维度 + CoT 推理 + GRPO 强化学习
 - [[VideoAlign]] -- BTT 损失处理 tie
 - [[LiFT]] -- 评分 + 推理双反馈
 - [[SoliReward]] -- BT-WT 损失 + 渐进聚合
@@ -1118,6 +1060,8 @@ Week 7-8: 验证与应用
 - [[UnifiedReward-Flex]] -- 动态维度生成 RM
 - [[RewardDance]] -- 生成式 RM，抗 reward hacking
 - [[VR-Thinker]] -- thinking-with-image 视频生成评估
+- [[EditScore]] -- 图像编辑专用 RM，CoT 推理 + 推理时集成，解锁编辑在线 RL
+- [[Omni-Reward]] -- 首个全模态（5 模态）RM，判别式 + 生成式双架构
 - [[PIGReward]] -- 个性化 T2I RM，动态评估维度 + 自引导
 - [[FIRM]] -- 编辑/生成鲁棒 RM，Base-and-Bonus 防 reward hacking
 
@@ -1134,8 +1078,15 @@ Week 7-8: 验证与应用
 
 **下游应用（image-generation-posttrain）：**
 - [[DDPO]] -- 首次将 RLHF 应用于 Diffusion 模型
+- [[ReFL]] -- 可微奖励梯度直接反传（DRaFT-1 特殊情况），ICLR 2024
+- [[AlignProp]] -- 端到端奖励反传 + RTBP 随机截断，比 RL 快 25x
 - [[Diffusion-DPO]] -- 将 DPO 推广到扩散模型
+- [[DanceGRPO]] -- 首个 GRPO for 视觉生成，统一扩散/整流流，+181% 运动质量
+- [[Flow-GRPO]] -- Flow Matching GRPO，ODE→SDE 转换，GenEval 63%→95%
+- [[T2I-R1]] -- 双层 CoT + GRPO AR 图像生成，超越 FLUX.1
 - [[T2V-Turbo]] -- 奖励引导 T2V 蒸馏加速
+- [[OnlineVPO]] -- 视频在线 DPO，VQA > 图像 RM 作视频反馈
+- [[VideoDPO]] -- 视频离线 DPO，OmniScore 多维度评分
 
 ### 公司技术报告（image-generation-posttrain）
 
@@ -1144,3 +1095,5 @@ Week 7-8: 验证与应用
 - [[Seedream]] -- ByteDance T2I 系统，VLM-based RM (1B→>20B) + CT→SFT→RLHF→PE 四阶段后训练
 - [[Seedance]] -- ByteDance T2V/I2V 系统，3 维度专用 RM（基础/运动/美学）+ CT→SFT→RLHF
 - [[HunyuanVideo]] -- Tencent T2V/I2V 系统，VLM-based 4 维 RM + DPO + MixGRPO 在线 RL
+- [[Kling-Omni]] -- Kuaishou 统一视频生成，多轮 DPO 偏好对齐（效率优于 GRPO）
+- [[Step-Video]] -- StepFun 30B 视频模型，Flow-DPO + RM 解决 DPO 饱和

@@ -1,4 +1,5 @@
 ---
+title: "MANZANO: A Simple and Scalable Unified Multimodal Model with a Hybrid Vision Tokenizer"
 arxiv_id: "2509.16197"
 arxiv_url: "https://arxiv.org/abs/2509.16197"
 authors:

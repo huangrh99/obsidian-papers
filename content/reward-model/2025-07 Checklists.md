@@ -1,4 +1,5 @@
 ---
+title: "Checklists Are Better Than Reward Models For Aligning Language Models"
 arxiv_id: "2507.18624"
 arxiv_url: "https://arxiv.org/abs/2507.18624"
 authors:

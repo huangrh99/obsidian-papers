@@ -1,4 +1,5 @@
 ---
+title: "JudgeBench: A Benchmark for Evaluating LLM-based Judges"
 arxiv_id: "2410.12784"
 arxiv_url: "https://arxiv.org/abs/2410.12784"
 authors:

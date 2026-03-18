@@ -1,4 +1,5 @@
 ---
+title: "GRPO is Secretly a Process Reward Model"
 arxiv_id: "2509.21154"
 arxiv_url: "https://arxiv.org/abs/2509.21154"
 authors:

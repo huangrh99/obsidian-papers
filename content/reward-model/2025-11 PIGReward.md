@@ -1,4 +1,5 @@
 ---
+title: "Personalized Reward Modeling for Text-to-Image Generation"
 arxiv_id: "2511.19458"
 arxiv_url: "https://arxiv.org/abs/2511.19458"
 authors:

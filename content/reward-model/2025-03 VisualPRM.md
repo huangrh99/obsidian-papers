@@ -1,4 +1,5 @@
 ---
+title: "VisualPRM: An Effective Process Reward Model for Multimodal Reasoning"
 arxiv_id: "2503.10291"
 arxiv_url: "https://arxiv.org/abs/2503.10291"
 authors:

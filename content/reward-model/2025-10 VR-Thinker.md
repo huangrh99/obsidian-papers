@@ -1,4 +1,5 @@
 ---
+title: "VR-Thinker: Boosting Video Reward Models through Thinking-with-Image Reasoning"
 arxiv_id: "2510.10518"
 arxiv_url: "https://arxiv.org/abs/2510.10518"
 authors:

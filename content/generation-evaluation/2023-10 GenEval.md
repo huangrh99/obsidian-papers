@@ -1,4 +1,5 @@
 ---
+title: "GenEval: An Object-Focused Framework for Evaluating Text-to-Image Alignment"
 arxiv_id: "2310.11513"
 arxiv_url: "https://arxiv.org/abs/2310.11513"
 authors:

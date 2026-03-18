@@ -1,4 +1,5 @@
 ---
+title: "Improve Mathematical Reasoning in Language Models by Automated Process Supervision"
 arxiv_id: "2406.06592"
 arxiv_url: "https://arxiv.org/abs/2406.06592"
 authors:

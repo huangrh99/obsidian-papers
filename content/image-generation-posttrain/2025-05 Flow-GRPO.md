@@ -1,4 +1,5 @@
 ---
+title: "Flow-GRPO: Training Flow Matching Models via Online RL"
 arxiv_id: "2505.05470"
 arxiv_url: "https://arxiv.org/abs/2505.05470"
 authors:
@@ -20,10 +21,12 @@ tags:
   - image-generation-posttrain
   - kuaishou
   - cuhk
+  - shanghai-ai-lab
   - modality/image
-institution: "CUHK / Kuaishou / Shanghai AI Lab"
-notion_topic: "图像生成后训练"
-added: "2026-03-13"
+  - modality/text
+institution: "CUHK MMLab / Kuaishou Technology / Shanghai AI Laboratory"
+notion_topic: "流匹配GRPO"
+added: "2026-03-15"
 rating: ""
 aliases:
   - "Flow-GRPO"
@@ -33,8 +36,7 @@ baseline:
   - "[[DDPO]]"
   - "[[ReFL]]"
 related_topic:
-  - "[[DRaFT]]"
-  - "[[BranchGRPO]]"
+  - "[[Diffusion-DPO]]"
 ---
 
 # Flow-GRPO
@@ -51,7 +53,7 @@ We propose Flow-GRPO, the first method to integrate online policy gradient reinf
 
 | 字段 | 内容 |
 |------|------|
-| 机构 | CUHK / Kuaishou / Shanghai AI Lab |
+| 机构 | CUHK MMLab / Kuaishou Technology / Shanghai AI Lab |
 | 发表 | 2025-05-08 |
 | 分类 | cs.CV, cs.AI |
 | 链接 | [arXiv](https://arxiv.org/abs/2505.05470) |
@@ -74,13 +76,17 @@ Flow Matching 模型（如 SD3, FLUX）使用确定性 ODE 采样，无法直接
 
 $$dx_t = \left[v_t(x_t) + \frac{\sigma_t^2}{2t}\left(x_t + (1-t)v_t(x_t)\right)\right]dt + \sigma_t dw$$
 
-其中 $\sigma_t = a\sqrt{t/(1-t)}$，参数 $a$ 控制噪声强度。该转换使 Flow Matching 可以被建模为 MDP，每个去噪步对应一个 action。
+其中 $\sigma_t = a\sqrt{t/(1-t)}$，参数 $a$ 控制噪声强度（最优设置 $a=0.7$）。该转换使 Flow Matching 可以被建模为 MDP，每个去噪步对应一个 action。
 
 **2. GRPO 目标函数**
 
 $$J_{\text{Flow-GRPO}} = \mathbb{E}\left[\frac{1}{G}\sum_{i}\frac{1}{T}\sum_{t}\left(\min\left(r_t^i(\theta)\hat{A}^i, \text{clip}(r_t^i(\theta), 1-\varepsilon, 1+\varepsilon)\hat{A}^i\right) - \beta D_{KL}(\pi_\theta \| \pi_{ref})\right)\right]$$
 
 优势估计通过组内归一化：$\hat{A}^i = (R^i - \text{mean}(R)) / \text{std}(R)$
+
+KL 散度有闭式解：
+
+$$D_{KL}(\pi_\theta \| \pi_{ref}) = \frac{\Delta t}{2}\left(\frac{\sigma_t(1-t)}{2t} + \frac{1}{\sigma_t}\right)^2 \|v_\theta - v_{ref}\|^2$$
 
 **3. Denoising Reduction**
 
@@ -125,4 +131,4 @@ Flow-GRPO 的核心贡献在于解决了 Flow Matching 模型无法直接进行 
 
 **基于/改进自：** [[DanceGRPO]]
 
-**同方向：** [[DDPO]], [[ReFL]], [[DRaFT]], [[BranchGRPO]]
+**同方向：** [[DDPO]], [[ReFL]], [[Diffusion-DPO]]

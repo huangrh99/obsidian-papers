@@ -1,4 +1,5 @@
 ---
+title: "Nemotron-4 340B Technical Report"
 arxiv_id: "2406.11704"
 arxiv_url: "https://arxiv.org/abs/2406.11704"
 authors:

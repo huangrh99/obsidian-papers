@@ -1,4 +1,5 @@
 ---
+title: "HunyuanVideo 1.5 Technical Report"
 arxiv_id: "2511.18870"
 arxiv_url: "https://arxiv.org/abs/2511.18870"
 authors:

@@ -1,4 +1,5 @@
 ---
+title: "Self-Rewarding Vision-Language Model via Reasoning Decomposition"
 arxiv_id: "2508.19652"
 arxiv_url: "https://arxiv.org/abs/2508.19652"
 authors:

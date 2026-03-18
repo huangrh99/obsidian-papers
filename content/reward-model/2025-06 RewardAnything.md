@@ -1,4 +1,5 @@
 ---
+title: "RewardAnything: Generalizable Principle-Following Reward Models"
 arxiv_id: "2506.03637"
 arxiv_url: "https://arxiv.org/abs/2506.03637"
 authors:

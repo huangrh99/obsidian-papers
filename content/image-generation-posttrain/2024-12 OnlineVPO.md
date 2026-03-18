@@ -1,4 +1,5 @@
 ---
+title: "OnlineVPO: Align Video Diffusion Model with Online Video-Centric Preference Optimization"
 arxiv_id: "2412.15159"
 arxiv_url: "https://arxiv.org/abs/2412.15159"
 authors:
@@ -18,19 +19,19 @@ tags:
   - bytedance
   - hku
   - modality/video
-institution: "HKU / ByteDance"
-notion_topic: "图像生成后训练"
-added: "2026-03-13"
+  - modality/text
+institution: "The University of Hong Kong / ByteDance"
+notion_topic: "在线视频偏好优化"
+added: "2026-03-15"
 rating: ""
 aliases:
   - "OnlineVPO"
 extends:
-  - "[[DPO-Diffusion]]"
+  - "[[Diffusion-DPO]]"
 baseline:
   - "[[ReFL]]"
 related_topic:
-  - "[[DanceGRPO]]"
-  - "[[BranchGRPO]]"
+  - "[[T2V-Turbo]]"
 ---
 
 # OnlineVPO
@@ -47,7 +48,7 @@ Video diffusion models (VDMs) have demonstrated remarkable capabilities in text-
 
 | 字段 | 内容 |
 |------|------|
-| 机构 | HKU / ByteDance |
+| 机构 | The University of Hong Kong / ByteDance |
 | 发表 | 2024-12-19 |
 | 分类 | cs.CV |
 | 链接 | [arXiv](https://arxiv.org/abs/2412.15159) |
@@ -96,12 +97,12 @@ $$\mathcal{L}_{\text{DPO}}(\theta) = \mathbb{E}_{(y_w, y_l) \sim \mathcal{D}}\le
 
 **VBench 基准：**
 
-| 模型 | Quality Score |
-|------|--------------|
-| VideoCrafter2 baseline | 80.78 |
-| VideoCrafter2 + OnlineVPO | **82.91** |
-| OpenSora baseline | 79.43 |
-| OpenSora + OnlineVPO | **81.98** |
+| 模型 | Quality Score | Subject Consistency | Temporal Flicker | Image Quality |
+|------|--------------|-------------------|-----------------|---------------|
+| OpenSora baseline | 79.43 | 95.35 | 98.34 | 62.41 |
+| OpenSora + OnlineVPO | **81.98** | **97.58** | **98.73** | **67.36** |
+| VideoCrafter2 baseline | 80.78 | 96.65 | 95.75 | 66.85 |
+| VideoCrafter2 + OnlineVPO | **82.91** | **97.98** | **97.53** | **68.92** |
 
 **扩展性优势：**
 
@@ -118,6 +119,6 @@ OnlineVPO 的核心发现是视频偏好优化需要"视频原生"的反馈信�
 
 ## 🔗 相关论文
 
-**基于/改进自：** [[DPO-Diffusion]]
+**基于/改进自：** [[Diffusion-DPO]]
 
-**同方向：** [[DanceGRPO]], [[ReFL]], [[BranchGRPO]]
+**同方向：** [[T2V-Turbo]], [[ReFL]]

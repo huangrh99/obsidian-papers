@@ -1,4 +1,5 @@
 ---
+title: "Unified Reward Model for Multimodal Understanding and Generation"
 arxiv_id: "2503.05236"
 arxiv_url: "https://arxiv.org/abs/2503.05236"
 authors:

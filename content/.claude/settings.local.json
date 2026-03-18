@@ -10,7 +10,8 @@
       "Read(//Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets/**)",
       "Bash(done)",
       "Bash(for dir:*)",
-      "Bash(BASE=/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets for dir in RewardBench2 MMRB2 LLM-as-Judge-Survey RM-Survey-2025 DiffusionAlignment-Survey)"
+      "Bash(BASE=/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets for dir in RewardBench2 MMRB2 LLM-as-Judge-Survey RM-Survey-2025 DiffusionAlignment-Survey)",
+      "Bash(for f:*)"
     ]
   }
 }

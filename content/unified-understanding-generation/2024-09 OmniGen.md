@@ -1,4 +1,5 @@
 ---
+title: "OmniGen: Unified Image Generation"
 arxiv_id: "2409.11340"
 arxiv_url: "https://arxiv.org/abs/2409.11340"
 authors:

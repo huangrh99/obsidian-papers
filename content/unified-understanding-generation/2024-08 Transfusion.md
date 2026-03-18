@@ -1,4 +1,5 @@
 ---
+title: "TRANSFUSION: PREDICT THE NEXT TOKEN AND DIFFUSE IMAGES WITH ONE MULTI-MODAL MODEL"
 arxiv_id: "2408.11039"
 arxiv_url: "https://arxiv.org/abs/2408.11039"
 authors:

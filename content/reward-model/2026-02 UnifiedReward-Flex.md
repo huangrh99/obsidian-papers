@@ -1,4 +1,5 @@
 ---
+title: "Unified Personalized Reward Model for Vision Generation"
 arxiv_id: "2602.02380"
 arxiv_url: "https://arxiv.org/abs/2602.02380"
 authors:

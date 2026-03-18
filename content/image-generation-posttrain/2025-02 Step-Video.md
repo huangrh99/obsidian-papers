@@ -1,4 +1,5 @@
 ---
+title: "Step-Video-T2V Technical Report: The Practice, Challenges, and Future of Video Foundation Model"
 arxiv_id: "2502.10248"
 arxiv_url: "https://arxiv.org/abs/2502.10248"
 authors:

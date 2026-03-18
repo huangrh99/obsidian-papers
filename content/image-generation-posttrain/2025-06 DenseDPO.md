@@ -1,4 +1,5 @@
 ---
+title: "DenseDPO: Fine-Grained Temporal Preference Optimization for Video Diffusion Models"
 arxiv_id: "2506.03517"
 arxiv_url: "https://arxiv.org/abs/2506.03517"
 authors:

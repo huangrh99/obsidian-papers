@@ -1,4 +1,5 @@
 ---
+title: "VideoRewardBench: Comprehensive Evaluation of Multimodal Reward Models for Video Understanding"
 arxiv_id: "2509.00484"
 arxiv_url: "https://arxiv.org/abs/2509.00484"
 authors:
