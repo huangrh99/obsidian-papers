@@ -522,25 +522,46 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 ### 5.1 Image RM 演进
 
 ```
-CLIPScore (2021, 零样本 CLIP 余弦相似度)
+Phase 1: 零样本/Metric 时代 (2021-2023)
+  CLIPScore (2021, 零样本 CLIP 余弦相似度 — 所有后续方法的起点)
+  TIFA (2023-03, 开创 QG+VQA 评估范式 → VQAScore 前身)
+
+Phase 2: CLIP 微调时代 (2023) — 三条并行路线
+  ├── HPS 路线（偏好数据收集 + CLIP 微调）
+  │     HPS (2023-03, 首个人类偏好 CLIP，98K Discord 数据)
+  │       └── HPSv2 (2023-06, 偏差纠正 + 798K 多源数据)
+  │             └── HP-Score (2025-07, image-only 偏好 + 揭示 CLIP 偏差)
   │
-  ├── HPS (2023-03, 首个人类偏好微调 CLIP)
-  │     └── HPSv2 (2023-06, 偏差纠正 + 大规模数据)
-  │           ├── HPSv3 (2025-08, VLM 全参微调 — 范式升级)
-  │           └── HP-Score (2025-07, image-only HP 分数，揭示 CLIP 偏差)
+  ├── ImageReward 路线（专家标注 + reward head）
+  │     ImageReward (2023-04, BLIP ViT-L + reward head, 137K 专家标注)
+  │       └── ReFL (→ image-generation-posttrain, 可微奖励反传)
   │
-  ├── ImageReward (2023-04, CLIP + reward head)
-  │
-  ├── PickScore (2023-05, 真实用户偏好, 超人类)
-  │
-  ├── LLaVA-Reward (2025-07, MLLM 隐状态 RM, ICCV 2025)
-  │
-  ├── Q-Align (2023-12, 离散等级 VLM scorer)
-  │
-  └── RichHF (2023-12, 多维度富反馈)
+  └── PickScore 路线（大规模真实用户偏好）
+        Pick-a-Pic (2023-05, 583K 真实用户偏好数据集)
+          └── PickScore (2023-05, CLIP-H 微调, 70.5% 超人类 68%)
+
+Phase 3: 多维度评估过渡 (2023-2024)
+  Q-Align (2023-12, 离散等级 VLM，OneAlign 统一 IQA/IAA/VQA)
+  RichHF (2023-12, 多维度富反馈：区域热力图 + 文本错位 + 多维评分)
+  VisionReward (2024-12, 层次化二值问题分解: 5维→18子维→61问题)
+
+Phase 4: VLM 全参微调时代 (2025-2026) — 范式升级
+  HPSv3 (2025-08, Qwen2VL-7B, 1.5M HPDv3, Spearman 0.94 — CLIP→VLM 的标志性转折)
+  LLaVA-Reward (2025-07, MLLM 隐状态 + SkipCA, 0.35s/eval, ICCV 2025)
+  PIGReward (2025-11, 个性化动态维度 + CoT 自引导, 84.91% 超 GPT-4o 68.29%)
+  EditScore (2025-09, 图像编辑专用 RM, CoT + 推理时集成, 72B ≈ GPT-5)
+  FIRM (2026-03, 编辑/生成鲁棒 RM, Base-and-Bonus 防 reward hacking)
 ```
 
-**关键转折：CLIP → VLM。** 2021-2023 年的图像 RM 基本都基于 CLIP 架构微调。[[HPSv3]]（2025）用 Qwen2VL-7B 全参微调在 1.5M 数据上训练，Spearman 相关达 0.94、CoHP win rate 87%，全面碾压所有 CLIP-based 方法。这证实 VLM 的语义理解、组合性推理和指令跟随能力远超 CLIP embedding 空间所能提供的。
+**三次范式转折：**
+
+| 阶段 | 时间 | 代表 | Spearman | 关键突破 |
+|------|------|------|----------|---------|
+| 零样本 | 2021 | CLIPScore | ~0.4 | 无需训练 |
+| CLIP 微调 | 2023 | PickScore/HPSv2 | ~0.7-0.8 | 人类偏好数据 |
+| **VLM 全参** | **2025** | **HPSv3** | **0.94** | **语义理解 + 组合推理** |
+
+**CLIP → VLM 的根本原因：** CLIP 将图像压缩到固定维度 embedding，丢失了组合性信息（"红色方块在蓝色圆形左边"在 CLIP 空间中难以区分语序）。VLM 的自回归生成能力天然支持逐维度推理。[[HP-Score]] 进一步揭示 CLIP 的系统性偏差：细节丰富的高质量图像反而被 CLIP 惩罚（超出 prompt 描述的内容被视为不对齐）。
 
 **偏好预测准确率对比：**
 
@@ -548,50 +569,73 @@ CLIPScore (2021, 零样本 CLIP 余弦相似度)
 |------|---------------|------|------|
 | **PickScore** | **70.5%** | CLIP-H | 真实用户偏好微调 |
 | HPS | 66.7% | CLIP ViT-L | Discord 社区偏好 |
-| ImageReward | 61.1% | CLIP + head | 专家标注 |
+| ImageReward | 61.1% | BLIP + head | 专家标注 |
 | CLIP-H | 60.8% | CLIP-H | 零样本 |
 | Human Expert | 68.0% | -- | 人类标注者 |
 
-**评估方法创新：**
+**评估方法创新（不直接做偏好打分，而是评估忠实度/质量）：**
 - [[TIFA]]：开创 QG+VQA 评估范式，将忠实度分解为逐元素可验证问题，是 VQAScore 的前身
 - [[GenEval]]：基于目标检测的组合性评估，与人类一致 83%，揭示位置（15%）和属性绑定（35%）是最难任务
 - [[Q-Align]]：用离散文本等级训练 VLM 做视觉评分，OneAlign 统一 IQA/IAA/VQA 三任务均达 SOTA（KonIQ SRCC 0.941）
 - [[RichHF]]：多维度富反馈（区域热力图 + 文本错位 + 多维评分），提供超越标量分数的丰富信号
+- [[VisionReward]]：层次化分解为 61 个二值问题，用线性权重学习聚合，可同时评估图像和视频
 
 ### 5.2 Video RM 演进
 
 ```
-VideoScore (2024-06, 首个多维视频 RM)
-  │
-  ├── VideoAlign (2025-01, BTT 损失处理 tie)
-  │
-  ├── LiFT (2024-12, 评分 + 推理双反馈)
-  │
-  ├── VideoScore2 (2025-09, +CoT 推理 + GRPO 强化学习)
-  │
-  ├── SoliReward (2025-12, 物理评估 + BT-WT 损失)
-  │
-  └── LatentRM (2025-11, 潜空间 RM — 新范式)
+Phase 1: 首代视频 RM (2024)
+  VideoScore (2024-06, 首个多维视频 RM, Mantis-8B, 5 维度, VideoFeedback 37.6K)
+  LiFT (2024-12, 评分 + 推理双反馈, VILA 13/40B)
+  VisionReward (2024-12, CogVLM2, 层次化二值问题, 同时覆盖 image+video)
+
+Phase 2: 偏好学习 + 损失函数创新 (2025)
+  VideoAlign (2025-01, Qwen2-VL-2B, 182K 三元组, Bradley-Terry-with-Ties 处理 tie)
+    └── 三种下游用法验证: Flow-DPO / RWR / NRG
+  VideoScore2 (2025-09, VideoScore 升级, +CoT 推理 + GRPO 强化学习)
+    └── 证明 SFT cold-start 对 RL 的必要性 (44.53% vs 36.70%)
+  SoliReward (2025-12, BT-WT 损失 + HPQA 渐进聚合)
+    ├── 唯一显式评估物理一致性的 RM (OOD 80.08%)
+    └── 揭示 RM 准确率 ≠ reward margin，准确率高不代表下游好
+
+Phase 3: 新范式涌现 (2025-2026)
+  LatentRM (2025-11, DiT 潜空间做 RM — 绕过 VLM)
+    └── PRFL: 潜空间全链偏好优化, 1.42x 加速, Dynamic Degree +46
+  VR-Thinker (2025-10, thinking-with-image 推理框架)
+    └── 主动回溯获取视觉证据, 7B 全面超越 13B, GenAI-Bench τ=68.7
+  UnifiedReward 系列 (→ §5.3, 统一 T2I/T2V 评估)
+  Omni-Reward (2025-10, → §5.3, 扩展到 5 模态)
 ```
 
 **Video RM 面临的独特挑战：**
-1. 时序建模需求（CLIP 无法处理）
-2. 偏好数据严重不足（最大的 VideoFeedback 仅 37.6K）
-3. 人类标注噪声大（标注者间一致率通常仅 60-75%）
-4. 物理一致性评估极难（VideoPhy 最优 39.6%）
+1. **时序建模需求**：CLIP 无法处理视频，需要 VLM 或专用时序编码器
+2. **偏好数据严重不足**：最大的 VideoFeedback 仅 37.6K，vs 图像 Pick-a-Pic 583K / HPDv3 1.5M
+3. **人类标注噪声大**：SoliReward 标注者间一致率 α=0.4939；pairwise 仅 0.3516
+4. **物理一致性评估极难**：VideoPhy 最优 39.6%，SoliReward OOD 也仅 80%
+5. **运动质量难以量化**：HunyuanVideo 明确指出"现有 RM 难以区分细粒度运动质量"
+
+**三条技术路线对比：**
+
+| 路线 | 代表 | 优势 | 劣势 | 适用场景 |
+|------|------|------|------|---------|
+| **VLM-based Scorer** | VideoScore, VideoAlign, SoliReward | 精度高，可多维度 | 慢，需强 VLM | 离线评估 |
+| **VLM-based CoT Judge** | VideoScore2, VR-Thinker | 可解释，推理深 | 更慢（~10x） | 数据筛选 |
+| **潜空间 RM** | LatentRM | 极快，复用 VGM | 不可解释，仅限后训练 | 在线 RL |
 
 **关键方法进展：**
 
-| 方法 | 核心创新 | 关键指标 |
-|------|---------|---------|
-| [[VideoScore]] | 首个多维视频 RM + VideoFeedback 数据集 | Spearman 77.1 |
-| [[VideoAlign]] | BTT 损失处理 tie 样本（大部分工作直接丢弃 tie） | VideoGen-RB 61.26% |
-| [[LiFT]] | 评分 + 推理双反馈，VILA 40B 基座 | CogVideoX-2B > 5B on VBench |
-| [[VideoScore2]] | +CoT 推理 + SFT→GRPO 两阶段训练 | 域内 44.35%, 域外 50.37% |
-| [[SoliReward]] | BT-WT 损失 + HPQA 多层渐进聚合 | OOD ACC 80.08% |
-| [[LatentRM]] | 复用 VGM 前 8 层做潜空间 RM，无需 VAE 解码 | Dynamic Degree +46 |
+| 方法 | 核心创新 | 关键指标 | 独特价值 |
+|------|---------|---------|---------|
+| [[VideoScore]] | 首个多维视频 RM + VideoFeedback 数据集 | Spearman 77.1 | 奠基性工作 |
+| [[VideoAlign]] | BTT 损失处理 tie（大部分工作直接丢弃 tie） | VideoGen-RB 61.26% | tie 处理范式 |
+| [[LiFT]] | 评分 + 推理双反馈，VILA 40B 基座 | CogVideoX-2B > 5B (VBench) | 推理反馈引导蒸馏 |
+| [[VideoScore2]] | +CoT 推理 + SFT→GRPO 两阶段 | 域内 44.35%, 域外 50.37% | 证明 RL 对视频 RM 有效 |
+| [[SoliReward]] | BT-WT 损失 + HPQA 渐进聚合 + 物理维度 | OOD ACC 80.08% | 唯一物理评估 + 抗 reward hacking |
+| [[LatentRM]] | 复用 VGM 前 8 层做潜空间 RM | Dynamic Degree +46, 1.42x 加速 | 全新范式：绕过 VLM |
+| [[VR-Thinker]] | thinking-with-image 主动回溯 | GenAI-Bench τ=68.7, VG-RB τ=71.8 | 视频评估 SOTA |
 
-**LatentRM 的潜空间新范式：** 核心洞察是预训练视频生成模型天然适合在噪声潜空间中做 RM，因为它被训练来处理任意时间步的噪声潜变量。对比 RGB ReFL：全帧处理不 OOM（66.81 GB vs OOM），1.42x 加速，运动质量 Dynamic Degree +46 vs +16。这为视频生成后训练提供了高效新路径。
+**LatentRM 的潜空间新范式：** 核心洞察是预训练视频生成模型（DiT）天然适合在噪声潜空间中做 RM，因为它被训练来处理任意时间步的噪声潜变量。PAVRM 提取 DiT 前 8 层 attention features 作为奖励信号，PRFL 在潜空间中完成全去噪链的偏好优化。对比 RGB ReFL：全帧处理不 OOM（66.81 GB vs OOM），1.42x 加速，运动质量 Dynamic Degree +46 vs +16。
+
+**SoliReward 的 Reward Hacking 洞察：** RM 准确率高不代表下游好。SoliReward 发现传统 BT 损失训练的 RM 虽然准确率高，但 reward margin 分布过于集中（score clustering），导致生成模型轻松 hack。BT-WT 损失通过引入 tie 样本拉开 margin 分布，有效缓解 reward hacking。
 
 ### 5.3 VLM-based 生成评估
 

@@ -87,7 +87,7 @@ UnifiedReward-Think 虽然引入了 CoT 推理，但评估维度仍然**固定**
 1. **语义意图解析**：解读 prompt 语义，定位视觉证据
 2. **层级评估计划**：在预定义锚点维度（semantic alignment, visual quality, aesthetics）下实例化细粒度子标准
 3. **上下文维度增补**：根据内容自动生成额外维度（如叙事性、动作动态、物理合理性）
-
+![[Pasted image 20260319153327.png]]
 输出结构化评估轨迹 $y^T = \langle H, R, W \rangle$：
 - $H = \{(d_k, S_{i,k})\}_{k=1}^{K}$（实例化维度及子维度）
 - $R$ = 基于证据的推理轨迹
