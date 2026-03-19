@@ -11,7 +11,11 @@
       "Bash(done)",
       "Bash(for dir:*)",
       "Bash(BASE=/Volumes/huangrunhui/Documents/openclaw/knowledge_database/03-Resources/papers/assets for dir in RewardBench2 MMRB2 LLM-as-Judge-Survey RM-Survey-2025 DiffusionAlignment-Survey)",
-      "Bash(for f:*)"
+      "Bash(for f:*)",
+      "Bash(sed -i '' 's/^### 7\\\\. 1/### 7.1/' RM-Survey.md)",
+      "Bash(sed -i '' 's/^### 7\\\\. 2/### 7.2/' RM-Survey.md)",
+      "Bash(sed -i '' 's/^### 7\\\\. 3/### 7.3/' RM-Survey.md)",
+      "Bash(sed -i '' 's/^### 7\\\\. 4/### 7.4/' RM-Survey.md)"
     ]
   }
 }

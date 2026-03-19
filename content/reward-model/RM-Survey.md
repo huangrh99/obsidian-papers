@@ -1,7 +1,7 @@
 # Reward Model 全景调研
 
-> 基于知识库中 100 篇论文笔记（reward-model/）+ 6 篇生成评估基准（generation-evaluation/，交叉引用）+ 12 篇下游应用/公司技术报告（image-generation-posttrain/）的系统性调研，按三大研究方向梳理。
-> 最后更新：2026-03-16 
+> 基于知识库中 102 篇论文笔记（reward-model/）+ 6 篇生成评估基准（generation-evaluation/，交叉引用）+ 12 篇下游应用/公司技术报告（image-generation-posttrain/）的系统性调研，按三大研究方向梳理。
+> 最后更新：2026-03-18
 
 ## 目录
 
@@ -11,9 +11,11 @@
 - [4. 多模态理解 RM 方向](#4-多模态理解-rm-方向)
 - [5. 图像/视频生成 RM 方向](#5-图像视频生成-rm-方向)
 - [6. 三方向交汇与统一 RM 方向](#6-三方向交汇与统一-rm-方向)
-- [6.5 前沿趋势：4 个新兴范式](#65-前沿趋势4-个新兴范式2025q4-2026)
-- [7. 执行路线](#7-执行路线)
-- [8. 参考文献索引](#8-参考文献索引)
+- [7. 前沿趋势：4 个新兴范式](#7-前沿趋势4-个新兴范式2025q4-2026)
+- [8. 评估基准全景](#8-评估基准全景)
+- [9. 性能横评](#9-性能横评跨方向速览)
+- [10. 执行路线](#10-执行路线)
+- [11. 参考文献索引](#11-参考文献索引)
 
 ---
 
@@ -25,9 +27,9 @@
 
 | 方向 | 定义 | 论文数 | 成熟度 |
 |------|------|--------|--------|
-| **Text RM** | 纯文本奖励模型，服务于 LLM 对齐 | 48 方法 + 5 基准 + 3 综述 | 最高——范式多样，基准完善 |
-| **多模态理解 RM** | 评估 VLM 在理解任务上的输出质量（幻觉、推理、偏好） | 13 方法 + 4 基准 | 中——幻觉消减与推理增强，快速演进 |
-| **图像/视频生成 RM** | 评估生成模型产出的图像/视频质量（对齐度、美学、物理一致性） | 28 方法 + 1 RM 基准 + 6 生成基准（→generation-evaluation/） | 中高——Image 成熟，VLM-based 生成评估兴起 |
+| **Text RM** | 纯文本奖励模型，服务于 LLM 对齐 | 49 方法/分析 + 5 基准 + 3 综述 | 最高——范式多样，基准完善 |
+| **多模态理解 RM** | 评估 VLM 在理解任务上的输出质量（幻觉、推理、偏好） | 15 方法 + 4 基准 | 中——幻觉消减与推理增强，快速演进 |
+| **图像/视频生成 RM** | 评估生成模型产出的图像/视频质量（对齐度、美学、物理一致性） | 29 方法 + 1 RM 基准 + 6 生成基准（→generation-evaluation/） | 中高——Image 成熟，VLM-based 生成评估兴起 |
 | **公司实践/下游应用** | 工业级技术报告 + RM 驱动的生成模型后训练（跨目录引用） | 5 技术报告 + 7 下游应用 | 高——完整 CT→SFT→RLHF 流程验证 |
 
 ### 方向间的关系
@@ -73,7 +75,7 @@ Text RM（方法论源头）
 
 ## 2. 方法分类总表
 
-涵盖全部 100 篇论文笔记 + 6 篇生成评估基准（generation-evaluation/ 交叉引用），按研究方向分表展示。
+涵盖全部 103 篇论文笔记 + 6 篇生成评估基准（generation-evaluation/ 交叉引用），按研究方向分表展示。
 
 ### 2.1 Text RM
 
@@ -131,22 +133,23 @@ Text RM（方法论源头）
 
 ### 2.2 多模态理解 RM
 
-| 模型 | 日期 | 基座模型 | 方法范式 | 训练数据规模 | 核心指标 | 核心创新 |
-|------|------|----------|----------|-------------|---------|---------|
-| LLaVA-RLHF | 2023-09 | LLaVA-1.5 13B | RLHF | 10K Fact-RLHF 数据 | MMHal-Bench 2.05 | 首个多模态 RLHF |
-| RLHF-V | 2023-12 | Muffin 13B | Dense DPO | 1.4K 段级纠错 | 幻觉 -34.8% | 段级纠错反馈 |
-| RLAIF-V | 2024-05 | LLaVA-1.5/OV | RLAIF | 开源 AI 反馈 | 幻觉 -82.9% | 开源多模态 AI 反馈 |
-| LLaVA-Critic | 2024-10 | LLaVA-OneVision 7/72B | Judge | 113K critic 数据 | Pairwise ACC 0.736 (>GPT-4V) | 首个开源多模态 LMM-as-Judge |
-| IXC-2.5-Reward | 2025-01 | IXC-2.5 7B | Scorer | 多模态偏好语料 | VLRBench 70.0% | ACL 2025，通用多模态 RM |
-| MM-RLHF | 2025-02 | Qwen2-VL-7B | RLHF/Critique | 120K 人类标注偏好对 | 对话 +19.5%, 安全 +60% | Critique-Based RM + MM-DPO 动态奖励缩放，最大规模多模态对齐数据集 |
-| VisualPRM | 2025-03 | LLaVA-OneVision 7B | PRM | 400K 步骤级 | F1 ≈ GPT-4o | 首个多模态 PRM |
-| R1-Reward | 2025-05 | Qwen2.5-VL-7B | CoT-Reasoning | 200K 偏好数据 | VLRBench 71.92%, MMRB 82.2% | StableReinforce 解决 RL 训练不稳定 |
-| Skywork-VL Reward | 2025-05 | Qwen2.5-VL-7B | Scorer | ~190K 偏好对 | VLRBench 73.1% | SOTA 开源多模态 RM |
-| Vision-SR1 | 2025-08 | Qwen2.5-VL-7B | Self-Reward | 9K SFT + 47K RL | MMMU 49.1, 平均 58.8 | 推理分解自奖励：视觉感知自包含性作为奖励信号，无需外部 RM |
-| VL-PRM | 2025-09 | Qwen-2.5-VL 3/7B | PRM | VL-PRM300K (290K, 1.32M 步骤) | F1 61.9 (3B ≈ GPT-4o) | 首个 VL-PRM，混合 MCTS+VLM 判断标注，感知级监督显著提升 |
-| MLLM-as-a-Judge | 2024-02 | GPT-4V / Gemini / LLaVA | Benchmark | 6189 评分 + 8203 成对 + 4635 排序 | Pair ACC 0.804 (GPT-4V) | 首个系统性 MLLM-as-Judge 基准，Scoring/Pair/Ranking 三范式 + 偏差分析（ICML 2024 Oral） |
-| MR. Judge | 2025-05 | Qwen2.5VL 3/7B | CoT-Reasoning | 31.7K SFT + 52K RL | VLRBench 75.5% (超 GPT-4o 9.9%) | 推理驱动多选评判 + 逆向负样本合成 + 文本推理蒸馏（EMNLP 2025） |
-| MT-RL-Judge | 2026-03 | MLLM (未指定) | Judge | 6 任务统一 RL | Macro-F1 83.67 (SeeTrue), OOD Safety 82.23% | 首个多任务 RL 统一 MLLM Judge，SFT OOD 灾难退化而 RL 保持鲁棒 |
+| 模型                | 日期      | 基座模型                    | 方法范式          | 训练数据规模                      | 核心指标                                        | 核心创新                                                                   |
+| ----------------- | ------- | ----------------------- | ------------- | --------------------------- | ------------------------------------------- | ---------------------------------------------------------------------- |
+| LLaVA-RLHF        | 2023-09 | LLaVA-1.5 13B           | RLHF          | 10K Fact-RLHF 数据            | MMHal-Bench 2.05                            | 首个多模态 RLHF                                                             |
+| RLHF-V            | 2023-12 | Muffin 13B              | Dense DPO     | 1.4K 段级纠错                   | 幻觉 -34.8%                                   | 段级纠错反馈                                                                 |
+| RLAIF-V           | 2024-05 | LLaVA-1.5/OV            | RLAIF         | 开源 AI 反馈                    | 幻觉 -82.9%                                   | 开源多模态 AI 反馈                                                            |
+| LLaVA-Critic      | 2024-10 | LLaVA-OneVision 7/72B   | Judge         | 113K critic 数据              | Pairwise ACC 0.736 (>GPT-4V)                | 首个开源多模态 LMM-as-Judge                                                   |
+| IXC-2.5-Reward    | 2025-01 | IXC-2.5 7B              | Scorer        | 多模态偏好语料                     | VLRBench 70.0%                              | ACL 2025，通用多模态 RM                                                      |
+| MM-RLHF           | 2025-02 | Qwen2-VL-7B             | RLHF/Critique | 120K 人类标注偏好对                | 对话 +19.5%, 安全 +60%                          | Critique-Based RM + MM-DPO 动态奖励缩放，最大规模多模态对齐数据集                         |
+| VisualPRM         | 2025-03 | LLaVA-OneVision 7B      | PRM           | 400K 步骤级                    | F1 ≈ GPT-4o                                 | 首个多模态 PRM                                                              |
+| R1-Reward         | 2025-05 | Qwen2.5-VL-7B           | CoT-Reasoning | 200K 偏好数据                   | VLRBench 71.92%, MMRB 82.2%                 | StableReinforce 解决 RL 训练不稳定                                            |
+| Skywork-VL Reward | 2025-05 | Qwen2.5-VL-7B           | Scorer        | ~190K 偏好对                   | VLRBench 73.1%                              | SOTA 开源多模态 RM                                                          |
+| Vision-SR1        | 2025-08 | Qwen2.5-VL-7B           | Self-Reward   | 9K SFT + 47K RL             | MMMU 49.1, 平均 58.8                          | 推理分解自奖励：视觉感知自包含性作为奖励信号，无需外部 RM                                         |
+| VL-PRM            | 2025-09 | Qwen-2.5-VL 3/7B        | PRM           | VL-PRM300K (290K, 1.32M 步骤) | F1 61.9 (3B ≈ GPT-4o)                       | 首个 VL-PRM，混合 MCTS+VLM 判断标注，感知级监督显著提升                                   |
+| MLLM-as-a-Judge   | 2024-02 | GPT-4V / Gemini / LLaVA | Benchmark     | 6189 评分 + 8203 成对 + 4635 排序 | Pair ACC 0.804 (GPT-4V)                     | 首个系统性 MLLM-as-Judge 基准，Scoring/Pair/Ranking 三范式 + 偏差分析（ICML 2024 Oral） |
+| MR. Judge         | 2025-05 | Qwen2.5VL 3/7B          | CoT-Reasoning | 31.7K SFT + 52K RL          | VLRBench 75.5% (超 GPT-4o 9.9%)              | 推理驱动多选评判 + 逆向负样本合成 + 文本推理蒸馏（EMNLP 2025）                                |
+| ARM-Thinker       | 2025-12 | Qwen2.5-VL-7B             | Agentic RM    | 13K 工具调用 + GRPO             | VLRBench 67.8%, RM 基准均值 +16.2%            | 首个 Agentic 多模态 RM，Think-Act-Observe 工具调用循环 + 两阶段 GRPO               |
+| MT-RL-Judge       | 2026-03 | MLLM (未指定)              | Judge         | 6 任务统一 RL                   | Macro-F1 83.67 (SeeTrue), OOD Safety 82.23% | 首个多任务 RL 统一 MLLM Judge，SFT OOD 灾难退化而 RL 保持鲁棒                           |
 
 ### 2.3 图像/视频生成 RM
 
@@ -476,12 +479,12 @@ LLaVA-RLHF (2023, 首个多模态 RLHF)
 
 ### 4.4 评估基准
 
-| 基准 | 日期 | 覆盖范围 | 最优性能 | 关键发现 |
-|------|------|---------|---------|---------|
-| [[MLLM-as-a-Judge]] | 2024-02 | Scoring/Pair/Ranking 三范式 | Pair ACC 0.804 (GPT-4V) | MLLM 在成对比较上接近人类，评分和排序差距大；4 类偏差 |
-| [[VL-RewardBench]] | 2024-11 | 3 领域 VL 偏好（理解为主） | 79.5% (MR. Judge voting) | 感知而非推理是核心瓶颈 |
-| [[VideoRewardBench]] | 2025-08 | 5 维度视频评估 | 63.6% (Gemini 2.5 Pro) | RL 训练不一定跨模态泛化 |
-| [[MMRB2]] | 2025-12 | 全模态 4 任务类型（跨类别） | 76.3% (Gemini) | 首个全模态 RM 基准，覆盖理解+生成 |
+| 基准                   | 日期      | 覆盖范围                     | 最优性能                     | 关键发现                           |
+| -------------------- | ------- | ------------------------ | ------------------------ | ------------------------------ |
+| [[MLLM-as-a-Judge]]  | 2024-02 | Scoring/Pair/Ranking 三范式 | Pair ACC 0.804 (GPT-4V)  | MLLM 在成对比较上接近人类，评分和排序差距大；4 类偏差 |
+| [[VL-RewardBench]]   | 2024-11 | 3 领域 VL 偏好（理解为主）         | 79.5% (MR. Judge voting) | 感知而非推理是核心瓶颈                    |
+| [[VideoRewardBench]] | 2025-08 | 5 维度视频评估                 | 63.6% (Gemini 2.5 Pro)   | RL 训练不一定跨模态泛化                  |
+| [[MMRB2]]            | 2025-12 | 全模态 4 任务类型（跨类别）          | 76.3% (Gemini)           | 首个全模态 RM 基准，覆盖理解+生成            |
 
 **当前状态：** 多模态理解 RM 基准仍较少且样本量有限（VL-RewardBench 1250 对，MMRB2 4K 对），最优开源模型已接近但未超越闭源水平。MMRB2 是跨类别基准，同时覆盖理解和生成评估。
 
@@ -849,11 +852,11 @@ UnifiedReward 系列已验证：联合训练理解+生成任务产生跨任务�
 
 ---
 
-## 6.5 前沿趋势：4 个新兴范式（2025Q4-2026）
+## 7. 前沿趋势：4 个新兴范式（2025Q4-2026）
 
 基于 RM-R1、ARM-Thinker、LatentRM、Omni-Reward 等最新论文，识别出 4 个正在形成的新范式：
 
-### 趋势 1：Agentic RM — 工具增强的奖励模型
+### 7.1：Agentic RM — 工具增强的奖励模型
 
 **代表：** [[ARM-Thinker]]（2025-12，复旦/上海 AI Lab）
 
@@ -877,7 +880,7 @@ Input → Think (推理) → Act (调用工具) → Observe (获取证据) → �
 
 **对统一 RM 的启示：** Agentic 范式与 Rubric 互补——Rubric 定义"评什么"，Agent 工具解决"怎么验证"。未来统一 RM 可在动态维度（Flex 风格）中自动选择是用内部推理还是外部工具验证每个维度。
 
-### 趋势 2：Latent RM — 潜空间奖励建模
+### 7.2：Latent RM — 潜空间奖励建模
 
 **代表：** [[LatentRM]]（2025-11）
 
@@ -894,7 +897,7 @@ Input → Think (推理) → Act (调用工具) → Observe (获取证据) → �
 
 **对统一 RM 的启示：** 对于生成模型后训练（DPO/GRPO），Latent RM 是**效率路线**的关键选择。Pixel-space VLM RM（UnifiedReward-Flex 等）更适合离线评估和 benchmark，Latent RM 更适合在线 RL 训练。两者可以互补。
 
-### 趋势 3：Omni-Modal RM — 全模态奖励建模
+### 7.3：Omni-Modal RM — 全模态奖励建模
 
 **代表：** [[Omni-Reward]]（2025-10，中科院自动化所）
 
@@ -914,7 +917,7 @@ Input → Think (推理) → Act (调用工具) → Observe (获取证据) → �
 
 **对统一 RM 的启示：** 证明了全模态统一的可行性。但 audio/3D 模态的偏好数据极度稀缺。对于我们的 Image+Video 统一 RM，可以借鉴其数据构建方法论（multi-source aggregation + GPT-4o annotation），但暂不需要扩展到 audio/3D。
 
-### 趋势 4：Rubric → Visual RM 的方法论迁移
+### 7.4：Rubric → Visual RM 的方法论迁移
 
 **路径：** Text RM 的 CoR/Rubric 方法论正在向 Visual RM 快速迁移。
 
@@ -935,13 +938,98 @@ J1 (Emergent Rubric)  → ARM-Thinker (Agentic + Tool for Visual)
 
 ---
 
-## 7. 执行路线
+## 8. 评估基准全景
+
+### 8.1 RM 评估 Benchmark
+
+| Benchmark | 模态 | 规模 | 评估内容 | 难度天花板 |
+|-----------|------|------|---------|-----------|
+| [[RewardBench]] | Text | 2,985 | Chat/Safety/Reasoning | ~94%（已饱和） |
+| [[RewardBench2]] | Text | 1,876 (best-of-4) | +Factuality/IF/Ties | ~77% |
+| [[RM-Bench]] | Text | 多域+风格变体 | 风格鲁棒性 | Hard 46.6% |
+| [[JudgeBench]] | Text | 350 | 事实/逻辑正确性 | — |
+| [[RMB]] | Text | 49 场景 18K 对 | Pairwise + BoN | — |
+| [[VL-RewardBench]] | Image+Text | 1,250 (3 域) | VLM Judge 准确性 | 75.5% (MR.Judge) |
+| [[MLLM-as-a-Judge]] | Image+Text | 19K+ | Scoring/Pair/Ranking | — |
+| [[MJ-Bench]] | Image | 4 维偏好 | T2I 多维 Judge | — |
+| [[VideoRewardBench]] | Video | 1,563 (5 维) | 视频 RM 5 维评估 | 63.6% |
+| [[MMRB2]] | Multi | 4,000 (4 任务) | 全模态 RM | 76.3% (Gemini 3) |
+
+### 8.2 生成评估 Benchmark
+
+| Benchmark | 模态 | 评估内容 | 核心指标 |
+|-----------|------|---------|---------|
+| [[T2I-CompBench]] | Image | 组合性（属性/空间/数量） | Kendall τ |
+| [[GenEval]] | Image | 目标检测 based 组合性 | Accuracy |
+| [[GenAI-Bench]] | Image+Video | VQAScore 组合性 | 人类相关性 |
+| [[VBench]] | Video | 16 维度分层评估 | Spearman ρ |
+| [[EvalCrafter]] | Video | 17 指标系统评估 | 人类相关性 |
+| [[VideoPhy]] | Video | 物理常识 | Accuracy |
+
+### 8.3 对齐度 & IQA Metric
+
+| Metric | 类型 | 方法 | 人类相关性 |
+|--------|------|------|-----------|
+| CLIPScore | 对齐度 | CLIP cosine | τ ~ 0.4-0.6 |
+| TIFA | 对齐度 | VQA-based | τ ~ 0.6-0.7 |
+| VQAScore | 对齐度 | VQA P("Yes") | 最高 |
+| MUSIQ / LIQE | IQA | CNN-based | 0-100 |
+| BRISQUE / NIQE | IQA | No-reference | 0-100 |
+
+---
+
+## 9. 性能横评（跨方向速览）
+
+> 各方向的详细性能对比见 §3.5（Text RM）、§4.4（多模态理解 RM）、§5.4-5.6（生成 RM）。本节仅汇总**每方向 Top 模型 + 跨方向关键 Insight**。
+
+### 9.1 各 Benchmark Top-3 速览
+
+| Benchmark | 模态 | #1 | #2 | #3 | 天花板 |
+|-----------|------|-----|-----|-----|--------|
+| **RewardBench** | Text | INF-ORM 70B (95.1) | Skywork 27B (93.8) | J1 32B (93.6) | ~95%（饱和） |
+| **RM-Bench** | Text | J1 32B (90.3) | R3 14B (84.0) | RM-R1 32B (83.9) | Hard 46.6% |
+| **RewardBench 2** | Text | Gemini 2.5 Flash (77.2) | Claude Opus 4 (76.5) | Skywork 27B (75.8) | ~77% |
+| **VL-RewardBench** | Image+Text | MR.Judge @10 (79.5) | Omni-BT 8B (76.3) | R1-Reward @15 (76.5) | ~80% |
+| **MMRB2** | Multi | R1-Reward @15 (83.3) | Gemini 3 Pro (76.3) | GPT-4o (71.5) | Human >90% |
+| **GenAI-Bench Video** | Video | VR-Thinker 7B (τ=68.7) | UR-Think 7B (64.7) | UR v1 7B (61.2) | — |
+| **VideoGen-RB** | Video | VR-Thinker 7B (τ=71.8) | UR-Think 7B (69.7) | UR v1 7B (67.1) | — |
+| **HPDv2** | Image | HPSv3 (85.4) | HPSv2 (83.3) | VisionReward (81.7) | — |
+
+### 9.2 关键 Insight
+
+**跨方向通用规律：**
+
+1. **推理型小模型 > 标量大模型**
+   - Text: RM-R1-14B（综合 79.6）> Nemotron-340B（77.1）
+   - Visual: MR.Judge-7B（75.5）> GPT-4o（65.8）
+   - 原因：CoT/Rubric 推理补偿了参数量劣势
+
+2. **推理时 scaling 跨模态有效**
+   - Text: DeepSeek-GRM greedy 69.9 → MetaRM@32 72.8（+2.9）
+   - Visual: R1-Reward 71.9 → Vote@15 76.5（+4.6）
+   - Visual: MR.Judge 75.5 → Vote@10 79.5（+4.0）
+
+3. **VLM-based 全面超越 CLIP-based**
+   - Image: HPSv3 Spearman 0.94 vs CLIP-based ~0.7
+   - 工业共识：Seedream/Seedance/HunyuanVideo 均采用 VLM-based RM
+
+**方向特定发现：**
+
+4. **Text RM 已饱和**：RewardBench top ~95%，需要 RM-Bench（Hard 46.6%）和 RewardBench2（top 77%）来区分
+5. **Video RM 最难**：VideoRewardBench 最优仅 63.6%（Gemini 2.5 Pro），远落后于 Text 和 Image RM
+6. **多模态统一 RM 远未成熟**：MMRB2 最优 83.3% vs Human >90%，gap 仍有 7+%
+7. **物理评估几乎空白**：SoliReward 是唯一有物理维度的 RM，OOD 准确率仅 80.1%
+8. **跨模态联合训练有增益**：UnifiedReward 联合训练 vs 单任务 +5.9~16.9（GenAI Video +16.9 最显著）
+
+---
+
+## 10. 执行路线
 
 → 详见 [[Unified-RM-Design]] §11
 
 ---
 
-## 8. 参考文献索引
+## 11. 参考文献索引
 
 ### Text RM 方向
 

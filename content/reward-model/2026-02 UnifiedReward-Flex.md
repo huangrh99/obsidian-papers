@@ -60,8 +60,6 @@ The paper introduces UnifiedReward-Flex, a novel approach to evaluating generate
 
 ## 📝 我的笔记
 
-> 注：arxiv HTML 尚不可用（2026-02 新论文），部分细节来自 abs + 对比报告。
-
 ### 核心问题/动机
 
 UnifiedReward-Think 虽然引入了 CoT 推理，但评估维度仍然**固定**（语义一致性、美学、真实性）。现实中不同 prompt 和内容需要**不同的评估标准**：
@@ -102,16 +100,39 @@ UnifiedReward-Think 虽然引入了 CoT 推理，但评估维度仍然**固定**
 $$\mathcal{L}_{\text{SFT}}(\theta) = -\sum_{i=1}^{N} \sum_{t=1}^{|y_i^T|} \log p_\theta(y_{i,t}^T | x_i, y_{i,<t}^T)$$
 
 训练数据：**UnifiedReward-Flex-SFT-90K**（90K 样本，1.39M tokens）
+- Image：从 HPDv3 采样 50K 图像偏好对
+- Video：Text2Video-Human Preferences (15K) + VideoFeedback2 预处理构建 35K 视频偏好对
+- 蒸馏源：GPT-5.2，为 45K 图像对 + 45K 视频对生成结构化推理轨迹
 
-#### 3. Stage 2: DPO 对齐
+#### 3. Stage 2: Reasoning-Aware DPO 对齐
 
-对每个输入采样两个评估轨迹，构建偏好对：
+对每个输入 $x_i = (p_i, v_i^{(0)}, v_i^{(1)})$，从 SFT 模型采样两个评估轨迹：
+
+$$y_i^{(a)}, y_i^{(b)} \sim \pi_\theta(\cdot | x_i)$$
+
+正确性判定：$c(y_i^{(j)}) = \mathbb{1}[\hat{w}(y_i^{(j)}) = w_i^*]$
+
+偏好对构建规则（Eq. 7）：
+
+$$
+(y_i^+, y_i^-) = \begin{cases}
+(y_i^{(a)}, y_i^{(b)}), & c(y_i^{(a)}) > c(y_i^{(b)}) \\
+(y_i^{(b)}, y_i^{(a)}), & c(y_i^{(b)}) > c(y_i^{(a)}) \\
+(y_i^{(\ell_i^{\text{traj}})}, y_i^{(\bar{\ell}_i^{\text{traj}})}), & c(y_i^{(a)}) = c(y_i^{(b)}) = 1
+\end{cases}
+$$
+
 - 一个正确一个错误 → 偏好正确的
-- 两个都正确 → 用闭源 judge 基于**轨迹级偏好**排序（优先选择更灵活的层级结构）
+- **两个都正确** → 用闭源 judge $\mathcal{T}_{\text{judge}}$ 基于**轨迹级偏好**排序，优先选择更灵活、更上下文化的层级结构
+- 两个都错误 → 丢弃
 
-$$\mathcal{L}_{\text{DPO}}(\theta) = -\mathbb{E}\left[\log \sigma\left(\beta_{\text{dpo}} \left(\log \frac{\pi_\theta(y^+|x)}{\pi_{\text{ref}}(y^+|x)} - \log \frac{\pi_\theta(y^-|x)}{\pi_{\text{ref}}(y^-|x)}\right)\right)\right]$$
+DPO 损失：
 
-关键创新：即使两个轨迹都"正确"（最终判断一致），仍可通过轨迹质量偏好进一步提升评估能力。
+$$\mathcal{L}_{\text{DPO}}(\theta) = -\mathbb{E}_{(x, y^+, y^-) \sim \mathcal{P}}\left[\log \sigma\left(\beta_{\text{dpo}} \left(\log \frac{\pi_\theta(y^+|x)}{\pi_{\text{ref}}(y^+|x)} - \log \frac{\pi_\theta(y^-|x)}{\pi_{\text{ref}}(y^-|x)}\right)\right)\right]$$
+
+$\beta_{\text{dpo}} = 0.1$，$\pi_{\text{ref}}$ 为冻结的 SFT 模型。DPO 阶段使用 temperature 0.7 非贪心解码采样推理轨迹。
+
+**关键创新：** 即使两个轨迹都"正确"（最终判断一致），仍可通过轨迹质量偏好进一步提升评估能力——这对推理过程的质量施加了监督，而非仅看最终结论。
 
 #### 4. Pref-GRPO（下游生成模型优化）
 
@@ -127,33 +148,158 @@ $$\hat{A}_i = \alpha \hat{A}_i^{\text{dim}} + (1 - \alpha) \hat{A}_i^{\text{over
 
 $\alpha = 0.7$ 表示维度级信号权重更大，鼓励多维度均衡提升而非只优化总体分数。
 
+#### 训练超参数
+
+| 参数 | 值 |
+|------|-----|
+| 基座模型 | UnifiedReward-Think-qwen3vl（2B/4B/8B/32B） |
+| Batch size | 2, gradient accumulation 2 |
+| 学习率 | $2.5 \times 10^{-6}$ |
+| Warm-up ratio | 0.1 |
+| $\beta_{\text{dpo}}$ | 0.1 |
+| 硬件 | 32× NVIDIA H200 GPUs |
+| 默认 GRPO 规模 | 8B（所有下游实验） |
+
 ### 关键结果
 
-#### RM 评估
+#### Table 1: RM 评估（Image + Video Generation Assessment）
 
-| 基准 | vs UnifiedReward-Think |
-|------|----------------------|
-| MMRB2 | **+3.2** |
-| GenAI-Bench Video | **+2.2** |
+**Image Generation：**
 
-#### T2I GRPO 优化（FLUX.1-dev）
+| 方法 | GenAI-Bench | MMRB2 |
+|------|------------|-------|
+| HPSv2 | 68.8 | 55.0 |
+| PickScore | 70.0 | 57.6 |
+| HPSv3 | 70.9 | 58.5 |
+| UnifiedReward | 71.5 | 60.0 |
+| UnifiedReward-Think | 72.3 | 66.0 |
+| Ours w/o DPO | 71.5 | 67.5 |
+| Ours w/o DPO (Both correct) | 72.0 | 68.4 |
+| **Ours (Flex)** | **73.4** | **69.2** |
 
-| 基准 | vs Baseline | vs Think |
-|------|-----------|----------|
-| UniGenBench | **+14.56** | **+5.06** |
+**Video Generation：**
 
-#### T2V GRPO 优化（Wan2.1-T2V-14B, VBench）
+| 方法 | GenAI-Bench | MJBench |
+|------|------------|---------|
+| LiFT | 60.1 | 51.0 |
+| VideoScore | 70.6 | 62.8 |
+| VideoReward | 73.1 | 63.4 |
+| UnifiedReward | 76.8 | 68.8 |
+| UnifiedReward-Think | 80.3 | 70.9 |
+| Ours w/o DPO | 79.4 | 69.1 |
+| Ours w/o DPO (Both correct) | 80.6 | 70.3 |
+| **Ours (Flex)** | **82.5** | **72.0** |
 
-| 指标 | Baseline | + Flex |
-|------|----------|--------|
-| Dynamic Degree | 58.6 | **70.8** (+12.2) |
-| Spatial Relationship | 72.6 | **80.8** (+8.2) |
-| Color | 87.7 | **89.6** (+1.9) |
+#### Table 2: T2I GRPO — UniGenBench 域内（FLUX.1-dev）
 
-### Ablation
+| 模型 | Overall | Style | World Know. | Attribute | Action | Relation. | Compound | Grammar | Logic.Reason. | Layout | Text |
+|------|---------|-------|------------|-----------|--------|-----------|----------|---------|--------------|--------|------|
+| FLUX.1-dev | 59.39 | 85.10 | 85.92 | 65.28 | 61.41 | 64.97 | 43.56 | 60.16 | 24.77 | 70.52 | 32.18 |
+| w/ HPSv2 | 57.77 | 77.90 | 87.03 | 65.92 | 57.41 | 65.86 | 44.46 | 55.75 | 29.09 | 64.93 | 29.31 |
+| w/ HPSv3 | 57.98 | 79.40 | 90.03 | 66.24 | 57.89 | 63.58 | 39.82 | 58.82 | 24.09 | 67.16 | 32.76 |
+| w/ PickScore | 58.63 | 79.70 | 87.03 | 64.42 | 61.12 | 67.64 | 47.42 | 58.02 | 27.50 | 67.54 | 25.86 |
+| w/ UnifiedReward | 60.87 | 83.50 | 87.97 | 66.13 | 63.88 | 68.65 | 46.52 | 58.69 | 24.32 | 71.08 | 37.93 |
+| w/ UnifiedReward-Think | 68.89 | **88.00** | 91.77 | 77.99 | 69.20 | 75.13 | 61.47 | 61.63 | 41.36 | 77.24 | 45.11 |
+| **w/ UnifiedReward-Flex** | **73.95** | 90.30 | **89.87** | **79.38** | **73.38** | **78.55** | **69.46** | **63.10** | **46.59** | **79.66** | **59.20** |
 
-- DPO 对齐即使在两个轨迹都正确时也有收益（轨迹质量偏好）
-- $\alpha = 0.7$ 为最优平衡点
+Flex vs FLUX.1-dev baseline: **+14.56 Overall**；vs Think: **+5.06**。Compound (+25.9) 和 Text (+27.0) 维度改善最显著。
+
+#### Table 3: T2I GRPO — 域外泛化（GenEval, T2I-CompBench, CLIP, 图像质量）
+
+| 模型 | UniGenBench | T2I-CompBench | GenEval | CLIP | PickScore | UnifiedReward | Aesthetic |
+|------|------------|--------------|---------|------|-----------|--------------|-----------|
+| FLUX.1-dev | 59.39 | 48.57 | 62.18 | 34.40 | 22.70 | 3.07 | 6.13 |
+| w/ UnifiedReward-Think | 68.89 | 50.10 | 68.20 | 35.85 | 23.38 | 3.27 | 6.53 |
+| **w/ UnifiedReward-Flex** | **73.95** | **51.37** | **69.62** | **36.25** | **23.42** | **3.31** | **6.56** |
+
+#### Table 4: T2V GRPO — VBench 全维度（Wan2.1-T2V-14B）
+
+**Quality 维度（7个）：**
+
+| 模型 | Subject Consist. | BG Consist. | Aesthetic | Imaging Q | Temporal Flicker | Motion Smooth | Dynamic Degree | Human Action |
+|------|-----------------|-------------|-----------|-----------|-----------------|--------------|----------------|-------------|
+| Wan2.1-T2V-14B | 96.6 | 97.6 | 62.4 | 64.9 | 99.2 | 98.5 | 58.6 | 79.4 |
+| w/ VideoReward | 96.7 | 97.9 | 62.9 | 66.5 | 99.3 | 98.5 | 41.6 | 78.2 |
+| w/ UR-Think | 96.4 | 97.7 | 63.9 | 65.2 | **99.4** | 98.4 | 58.3 | 78.4 |
+| **w/ Flex** | **96.9** | **97.8** | **65.1** | **66.9** | 99.3 | **99.0** | **70.8** | **79.9** |
+
+**Semantic 维度（7个）：**
+
+| 模型 | Color | Spatial Rel. | Scene | Temporal Style | Overall Consist. | Object Class | Multiple Obj. | Appearance Style |
+|------|-------|-------------|-------|---------------|-----------------|-------------|--------------|-----------------|
+| Wan2.1-T2V-14B | 87.7 | 72.6 | 28.8 | 23.6 | 25.1 | 79.1 | 61.8 | 22.2 |
+| w/ VideoReward | 87.8 | 77.0 | 28.2 | 23.7 | 25.3 | 82.1 | 70.2 | 21.0 |
+| w/ UR-Think | 86.1 | 77.3 | 27.2 | 23.8 | 25.4 | 78.4 | 63.0 | 22.3 |
+| **w/ Flex** | **89.6** | **80.8** | **30.5** | **24.2** | **25.6** | **83.2** | **70.6** | **22.4** |
+
+**关键发现：** Dynamic Degree 从 58.6 → 70.8（+12.2）提升最大；VideoReward 反而导致 Dynamic Degree 下降到 41.6。Spatial Relationship 从 72.6 → 80.8（+8.2）。
+
+#### Table 6: 模型规模 Scaling
+
+| 模型 | GenAI-Bench (Image) | MMRB2 | GenAI-Bench (Video) | MJBench (Video) |
+|------|-------------------|-------|-------------------|----------------|
+| Flex-2B | 70.3 | 64.6 | 77.5 | 65.2 |
+| Flex-4B | 72.1 | 68.5 | 80.2 | 67.8 |
+| Flex-8B | 73.4 | 69.2 | 82.5 | 72.0 |
+| Flex-32B | **74.8** | **69.9** | **82.8** | 71.3 |
+
+2B 已有竞争力，scaling 增益平滑而非突变，说明核心优势来自动态评估机制而非模型规模。
+
+#### Table 7: 跨生成器泛化（UniGenBench）
+
+| 模型 | Overall | Style | World Know. | ... | Logic.Reason. | Layout | Text |
+|------|---------|-------|------------|-----|--------------|--------|------|
+| FLUX.1-dev | 59.39 | 85.10 | 85.92 | ... | 24.77 | 70.52 | 32.18 |
+| w/ Flex | **73.95** | **90.30** | 89.87 | ... | **46.59** | **79.66** | **59.20** |
+| FLUX.2-klein-9B | 78.93 | 97.50 | 91.61 | ... | 53.41 | 88.43 | 55.75 |
+| w/ Flex | **81.54** | **97.60** | **91.93** | ... | **58.64** | **88.43** | **69.54** |
+
+Flex 在 FLUX.2-klein-9B 上也有效：+2.61 overall，Text +13.79 最显著。
+
+#### Table 10: 训练效率对比（秒/步）
+
+| 模型 | PickScore | HPSv3 | UnifiedReward | VideoReward | UR-Think | **UR-Flex** |
+|------|-----------|-------|--------------|-------------|----------|------------|
+| FLUX.1-dev | 102s | 103s | 109s | — | 124s | **143s** |
+| Wan2.1-T2V-14B | — | — | — | 285s | 328s | **336s** |
+
+Flex 比 Think 慢 ~15%（143s vs 124s），因为动态维度比固定维度需要更多推理 token。
+
+### Ablation 详解
+
+#### DPO 对齐效果（Table 1 中的消融行）
+
+| 配置 | Image GenAI | Image MMRB2 | Video GenAI | Video MJBench |
+|------|------------|------------|------------|--------------|
+| SFT only (w/o DPO) | 71.5 | 67.5 | 79.4 | 69.1 |
+| + DPO (correctness only) | 72.0 | 68.4 | 80.6 | 70.3 |
+| **+ DPO (full, w/ trajectory pref)** | **73.4** | **69.2** | **82.5** | **72.0** |
+
+轨迹质量偏好（Both correct 情况下的 DPO）贡献：Image MMRB2 +0.8，Video MJBench +1.7。证明仅靠正确性不够，推理过程质量同样重要。
+
+#### $\alpha$ 超参数分析（Table 5）
+
+**T2I（FLUX.1-dev）：**
+
+| $\alpha$ | UniGenBench | T2I-CompBench | UnifiedReward |
+|----------|------------|--------------|--------------|
+| 0 (仅 $R_{\text{overall}}$) | 71.13 | 50.32 | 3.25 |
+| 0.3 | 72.50 | 50.42 | 3.23 |
+| 0.5 | 73.10 | 50.90 | 3.29 |
+| 1.0 (仅 $\bar{R}_{\text{dim}}$) | 73.44 | **51.59** | 3.26 |
+| **0.7 (Ours)** | **73.95** | 51.37 | **3.31** |
+
+**T2V（Wan2.1-T2V-14B）：**
+
+| $\alpha$ | Total | Semantic | Quality |
+|----------|-------|----------|---------|
+| 0 (仅 $R_{\text{overall}}$) | 82.46 | 71.79 | 85.13 |
+| 0.3 | 82.56 | 72.11 | 85.17 |
+| 0.5 | 82.82 | 72.34 | 85.44 |
+| 1.0 (仅 $\bar{R}_{\text{dim}}$) | 82.89 | **72.42** | 85.51 |
+| **0.7 (Ours)** | **83.08** | 72.94 | **85.62** |
+
+$\alpha = 0$ 最差（忽略维度细节），$\alpha = 1$ 次优（忽略全局偏好），$\alpha = 0.7$ 最优——维度级和全局信号互补。
 
 ### 系列演进定位
 
