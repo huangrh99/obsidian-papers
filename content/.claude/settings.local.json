@@ -15,7 +15,15 @@
       "Bash(sed -i '' 's/^### 7\\\\. 1/### 7.1/' RM-Survey.md)",
       "Bash(sed -i '' 's/^### 7\\\\. 2/### 7.2/' RM-Survey.md)",
       "Bash(sed -i '' 's/^### 7\\\\. 3/### 7.3/' RM-Survey.md)",
-      "Bash(sed -i '' 's/^### 7\\\\. 4/### 7.4/' RM-Survey.md)"
+      "Bash(sed -i '' 's/^### 7\\\\. 4/### 7.4/' RM-Survey.md)",
+      "Bash(xxd)",
+      "Read(//tmp/**)",
+      "Bash(file /Users/huangrunhui/Documents/papers-sync/assets/RAFT/*.png)",
+      "Bash(PDF=\"/Users/huangrunhui/.claude/projects/-Users-huangrunhui-Documents-papers-sync/79f791eb-aa55-4fb7-ba30-e4032e789b77/tool-results/webfetch-1774255310534-jiyr9z.pdf\")",
+      "Bash(OUTDIR=\"/Users/huangrunhui/Documents/papers-sync/assets/UL\")",
+      "Bash(pdftoppm -png -r 300 -f 3 -l 3 \"$PDF\" \"$OUTDIR/page3\")",
+      "Bash(pdftoppm -png -r 300 -f 4 -l 4 \"$PDF\" \"$OUTDIR/page4\")",
+      "Bash(pdftoppm -png -r 300 -f 8 -l 8 \"$PDF\" \"$OUTDIR/page8\")"
     ]
   }
 }
